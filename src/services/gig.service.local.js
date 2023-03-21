@@ -75,13 +75,13 @@ function getEmptyGig() {
 }
 
 // TEST DATA
-// ;(async () => {
-//   await storageService.post(STORAGE_KEY, {
-//     title: 'Subali Karov 1',
-//     price: 180,
-//   })
-//   await storageService.post(STORAGE_KEY, {
-//     title: 'Subali Rahok 2',
-//     price: 240,
-//   })
-// })()
+//   ; (async () => {
+//     await storageService.post(STORAGE_KEY, {
+//       title: 'Subali Karov 1',
+//       price: 180,
+//     })
+//     await storageService.post(STORAGE_KEY, {
+//       title: 'Subali Rahok 2',
+//       price: 240,
+//     })
+//   })()
