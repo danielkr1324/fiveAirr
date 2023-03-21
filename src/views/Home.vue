@@ -2,7 +2,7 @@
   <section class="container home text-center">
     <h1>Homepage</h1>
     <section>
-      <!-- <AppHero /> -->
+      <AppHero />
     </section>
   </section>
 </template>
