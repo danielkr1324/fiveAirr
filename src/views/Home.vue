@@ -1,28 +1,25 @@
 <template>
   <section class="container home text-center">
-    <h1>Home Page</h1>
-    <h5 class="text-center">
-      Powered up Frontend 
-    </h5>
-    <img alt="Vue logo" src="../assets/logo.png">
+    <h1>Homepage</h1>
+    <section>
+      <!-- <AppHero /> -->
+    </section>
   </section>
-
-  
 </template>
 
+
 <script>
+import AppHero from "../cmps/AppHero.vue";
+
 export default {
-  name: 'home',
+  name: "home",
   data() {
-    return {
-    }
+    return {};
   },
-  computed: {
-  },
-  created() {
-  },
-  methods: {
+  computed: {},
+  created() {},
+  components: {
+    AppHero
   }
-  
-}
+};
 </script>

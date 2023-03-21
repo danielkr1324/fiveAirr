@@ -1,4 +1,26 @@
 footer {
-    display: flex;
     height: 80px;
+
+    .left span {
+        display: inline;
+        padding: none;
+        text-decoration: none;
+        font-stretch: 50%;
+
+        font-weight: 600;
+
+        &::after {
+            content: '.';
+            font-size: 2.7rem;
+            color: green;
+        }
+    }
+
+    & div small {
+        margin-left: 24px;
+    }
+
+    .right ul{
+        gap:20px;
+    }
 }

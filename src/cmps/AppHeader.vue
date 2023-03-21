@@ -1,20 +1,22 @@
 <template>
   <header>
-    <nav>
+    <nav class="flex align-center space-between">
       <RouterLink to="/">
-        <span role="img" aria-label="logo">FiveAir<span>.</span></span>
+        <h1 class='logo'>FiveAir</h1>
       </RouterLink>
+      <section>
       <RouterLink to="/gig">Gigs</RouterLink>
       <RouterLink to="/details">Gig details</RouterLink>
       <!-- <RouterLink to="/review">Reviews</RouterLink> -->
       <!-- <RouterLink to="/chat">Chat</RouterLink> -->
       <RouterLink to="/login">Login / Signup</RouterLink>
+      </section>
     </nav>
     <section class="loggedin-user" v-if="loggedInUser">
       <RouterLink :to="`/user/${loggedInUser._id}`">
         {{ loggedInUser.fullname }}
       </RouterLink>
-      <span>{{ loggedInUser.score.toLocaleString() }}</span>
+      <!-- <span>{{ loggedInUser.score.toLocaleString() }}</span> -->
       <img :src="loggedInUser.imgUrl" />
     </section>
   </header>
