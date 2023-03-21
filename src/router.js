@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import Home from './views/Home.vue'
 import Chat from './views/Chat.vue'
-import GigIndex from './views/GigIndex.vue'
+import GigExploreList from './views/GigExploreList.vue'
 import ReviewIndex from './views/ReviewIndex.vue'
 import LoginSignup from './views/LoginSignup.vue'
 import UserDetails from './views/UserDetails.vue'
@@ -14,9 +14,9 @@ const routes = [
     component: Home,
   },
   {
-    path: '/gig',
-    name: 'GigIndex',
-    component: GigIndex,
+    path: '/explore',
+    name: 'GigExploreList',
+    component: GigExploreList,
   },
   {
     path: '/review',
