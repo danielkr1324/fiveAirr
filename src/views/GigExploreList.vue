@@ -1,27 +1,18 @@
 <template>
   <div class="container home">
-    <ul class="gig-list">
-      <li v-for="gig in gigs" :key="gig._id">
-        <p>
-          {{gig.title}}
-        </p>
-        <p>
-          ${{gig.price.toLocaleString()}}
-        </p>
-        <button @click="removeGig(gig._id)">x</button>
-        <button @click="updateGig(gig)">Update</button>
-        <hr />
-        <!-- <button @click="addGigMsg(gig._id)">Add gig msg</button>
-        <button @click="printGigToConsole(gig)">Print msgs to console</button> -->
+    <ul v-if="gigs"  class="gig-explore-list">
+      <GigExplorePreview v-for="gig in gigs" 
+        :gig="gig" 
+        :key="gig._id"
 
-      </li>
+       />
     </ul>
-    <hr />
+    <!-- <hr />
     <form @submit.prevent="addGig()">
       <h2>Add gig</h2>
       <input type="text" v-model="gigToAdd.title" />
       <button>Save</button>
-    </form>
+    </form> -->
   </div>
 </template>
 
@@ -29,6 +20,7 @@
 import {showErrorMsg, showSuccessMsg} from '../services/event-bus.service'
 import {gigService} from '../services/gig.service.local'
 import { getActionRemoveGig, getActionUpdateGig } from '../store/gig.store'
+import GigExplorePreview from '../cmps/GigExplorePreview.vue'
 export default {
   data() {
     return {
@@ -91,6 +83,9 @@ export default {
     // printGigToConsole(gig) {
     //   console.log('Gig msgs:', gig.msgs)
     // }
+  },
+  components: {
+    GigExplorePreview
   }
 
   
