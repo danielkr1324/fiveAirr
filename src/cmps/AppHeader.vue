@@ -4,7 +4,7 @@
       <RouterLink to="/">
         <span role="img" aria-label="logo">FiveAir<span>.</span></span>
       </RouterLink>
-      <RouterLink to="/gig">Gigs</RouterLink>
+      <RouterLink to="/explore">Explore</RouterLink>
       <RouterLink to="/review">Reviews</RouterLink>
       <!-- <RouterLink to="/chat">Chat</RouterLink> -->
       <RouterLink to="/login">Login / Signup</RouterLink>
