@@ -1,5 +1,5 @@
 <template>
-  <header class="main-container full" :class="{ 'navbar-scroll': isScroll, 'home-navbar': isHomepage }">
+  <header class="main-container full" :class="{ 'navbar-scroll': isScroll, 'home-navbar': isHomepage, 'other-navbar': isNotHomepage }">
     <nav class="flex align-center space-between">
       <RouterLink to="/">
         <h1 class="logo">fiveairr</h1>
@@ -49,6 +49,9 @@ export default {
     },
     isHomepage() {
       return this.$route.path === "/";
+    },
+    isNotHomepage() {
+      return this.$route.path !== "/";
     }
   }
 };

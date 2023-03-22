@@ -4,7 +4,7 @@
       <AppHero />
     </section>
     <section class="trusted-by flex">
-      <span>Trusted by:</span>
+      <p>Trusted by:</p>
       <img src="../assets/images/trusted by/meta.12b5e5c.png" alt />
       <img src="../assets/images/trusted by/google.61e78c8.png" alt />
       <img src="../assets/images/trusted by/netflix.96c5e3f.png" alt />

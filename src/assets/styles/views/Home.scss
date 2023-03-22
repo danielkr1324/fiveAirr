@@ -1,7 +1,14 @@
 .home {
     position: relative;
 
-    img {
-        height: 60px;
+    .trusted-by {
+        min-height: 90px;
+        align-items: center;
+        gap: 30px;
+
+        img {
+            height: 60px;
+            width: 120px;
+        }
     }
 }
