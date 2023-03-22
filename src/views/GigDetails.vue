@@ -133,6 +133,9 @@ export default {
             console.error(err)
         }
     },
+    mounted() {
+    window.scrollTo(0, 0);
+    },
     components: {
         VueperSlides,
         VueperSlide,

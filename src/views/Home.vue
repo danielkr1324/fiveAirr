@@ -24,7 +24,9 @@ export default {
     return {};
   },
   computed: {},
-  created() {},
+  mounted() {
+    window.scrollTo(0, 0);
+  },
   components: {
     AppHero
   }
