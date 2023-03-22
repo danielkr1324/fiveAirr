@@ -1,10 +1,18 @@
 .gig-explore-preview {
-    width: 310px;
-    height: 373px;
-    border: 1px solid ;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 400px;
+    margin: 0 auto;
 
     .preview-img {
-        width: 100%;
+        flex: 0 0 40%;
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
     }
 
     .gig-bottom {
