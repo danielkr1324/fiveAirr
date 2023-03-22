@@ -1,8 +1,40 @@
 @font-face {
-    // font-family: caveat;
-    // src: url(../../fonts/Caveat/Caveat-Regular.ttf);
+    font-family: Macan;
+    src: url('/src/assets/fonts/macan/macan-bold.ttf');
 }
+
 @font-face {
-    // font-family: montserrat;
-    // src: url(../../fonts/Montserrat/Montserrat-Regular.ttf);
+    font-family: Macan-semi-bold;
+    src: url('/src/assets/fonts/macan/macan-semibold.woff2');
+}
+
+@font-face {
+    font-family: Macan-Regular;
+    src: url('/src/assets/fonts/macan/macan-regular.woff2');
+}
+
+@font-face {
+    font-family: Macan-Light;
+    src: url('/src/assets/fonts/macan/macan-light.ttf');
+}
+
+@font-face {
+    font-family: BrixSlab-Bold;
+    src: url('/src/assets/fonts/brixSlab/BrixSlab-Bold.otf');
+}
+
+@font-face {
+    font-family: Domain-Display-Regular-Italic;
+    src: url('/src/assets/fonts/domainDisplay/domain-display-regular-italic.otf');
+}
+
+@font-face {
+    font-family: Domain-Display-Medium-Italic;
+    src: url('/src/assets/fonts/domainDisplay/domain-display-medium-italic.otf');
+}
+
+:fonts {
+    --yro524d: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --yro524e: "domainDisplay", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --yro524g: Georgia, "Times New Roman", serif;
 }
