@@ -3,8 +3,19 @@ header {
     // padding: 10px;
     height: 80px;
 
+    .navbar-scroll {
+        transition: background-color, 500;
+        box-shadow: 0 0 10px #aaa;
+        background-color: #ffffff;
+
+        // RouterLink {
+        //     color: #10b761;
+        // }
+    }
+
     a {
         color: inherit;
+        text-decoration: none;
     }
 
     h1 {
