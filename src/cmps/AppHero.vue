@@ -1,6 +1,7 @@
 <template>
-  <vueper-slides autoplay duration="4000" fade :touchable="false" :bullets="false" :arrows="false">
+  <vueper-slides autoplay duration="4000" fade :touchable="false" :bullets="false" :arrows="false" fixed-height="680px">
     <vueper-slide
+      class="full"
       v-for="(slide, i) in slides"
       :key="i"
       :image="slide.image"
