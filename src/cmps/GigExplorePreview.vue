@@ -16,7 +16,6 @@
             </router-link>
             <i class="fa-solid fa-star" style="color: #ffd43b;">&nbsp;{{fixedRating}}</i>
         </div>
-
         <footer class="gig-footer">
             <i class="fa-solid fa-heart" style="color: #b5b6ba;"></i>
             <p>STARTING AT<span class="gig-preview-price">&nbsp;${{gig.price}}</span></p>

@@ -12,7 +12,6 @@
                 <!-- </router-link> -->
                 <p class="seller-level"> Level {{ gig.owner.rate }} Seller </p>
             </div>
-
             <i class="fa-solid fa-star" style="color: #ffd43b;">&nbsp;{{ gig.owner.rate }}</i>
         </section>
 
