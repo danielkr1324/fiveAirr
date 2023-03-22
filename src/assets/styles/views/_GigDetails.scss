@@ -11,12 +11,55 @@
     .main {
         grid-column: 1/2;
         height: 100%;
+
+        .user-short {
+            margin-top: 1rem;
+        }
+
+        img {
+            margin-top: 1rem;
+        }
     }
 
+    .main-review {
+        margin-top: 1.5rem;
+    }
+
+    .about-gig {
+        margin-top: 4rem;
+        font-size: 1.25rem;
+        padding: 1rem 0;
+
+    }
+
+    .seller-long {
+        margin-top: 1.5rem;
+    }
+
+    .text {
+        line-height: 1.5rem;
+        font-size: 1rem;
+        color: $clr3;
+    }
+
+    .title {
+        margin-top: 2rem;
+        font-family: Macan-Regular;
+        color: $clr9;
+    }
 
     .head-what {
         justify-content: space-between;
         align-items: center;
+        margin-top: 4.5rem;
+        font-family: "Macan-semi-bold";
+        font-size: 1.25rem;
+    }
+
+    .seller-long-preview {
+        margin-top: 4rem;
+        font-size: 1.25rem;
+        color: $clr9;
     }
 
     .reviews {
@@ -55,6 +98,8 @@
     min-height: 400px;
     max-height: 500px;
     border: 1px $clr2 solid;
+
+    margin-top: 2rem;
 
     .order {
         justify-content: space-between;
