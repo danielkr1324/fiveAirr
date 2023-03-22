@@ -20,7 +20,7 @@ const routes = [
     component: GigExploreList,
   },
   {
-    path: '/details',
+    path: '/details/:gigId',
     name: 'GigDetails',
     component: GigDetails,
   },

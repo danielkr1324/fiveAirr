@@ -5,11 +5,11 @@
         <h1 class='logo'>FiveAir</h1>
       </RouterLink>
       <section>
-      <RouterLink to="/explore">Explore</RouterLink>
-      <RouterLink to="/details">Gig details</RouterLink>
-      <!-- <RouterLink to="/review">Reviews</RouterLink> -->
-      <!-- <RouterLink to="/chat">Chat</RouterLink> -->
-      <RouterLink to="/login">Login / Signup</RouterLink>
+        <RouterLink to="/explore">Explore</RouterLink>
+        <RouterLink to="/details/gPYQr">Gig details</RouterLink>
+        <!-- <RouterLink to="/review">Reviews</RouterLink> -->
+        <!-- <RouterLink to="/chat">Chat</RouterLink> -->
+        <RouterLink to="/login">Login / Signup</RouterLink>
       </section>
     </nav>
     <section class="loggedin-user" v-if="loggedInUser">
