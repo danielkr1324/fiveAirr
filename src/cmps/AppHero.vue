@@ -1,14 +1,29 @@
 <template>
-  <vueper-slides autoplay duration="4000" fade :touchable="false" :bullets="false" :arrows="false" fixed-height="680px">
-    <vueper-slide
-      class="full"
-      v-for="(slide, i) in slides"
-      :key="i"
-      :image="slide.image"
-      :name="slide.title"
-      :content="slide.content"
-    />
-  </vueper-slides>
+  <div>
+    <vueper-slides
+      autoplay
+      duration="4000"
+      fade
+      :touchable="false"
+      :bullets="false"
+      :arrows="false"
+      fixed-height="680px"
+    >
+      <vueper-slide
+        class="full"
+        v-for="(slide, i) in slides"
+        :key="i"
+        :image="slide.image"
+        :content="slide.content"
+      />
+      <template #content>
+      <div class="vueperslide__content-wrapper" style="flex-direction: row">
+        <span>{{ slide.content }}</span>
+        <span>TEST</span>
+      </div>
+    </template>
+    </vueper-slides>
+  </div>
 </template>
   
   <script>
@@ -17,6 +32,7 @@ import "vueperslides/dist/vueperslides.css";
 export default {
   data() {
     return {
+      // i:vueper-slide.i,
       slides: [
         {
           name: "Andrea, Fashion Designer",
