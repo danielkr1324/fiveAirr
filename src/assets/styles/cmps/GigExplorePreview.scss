@@ -1,11 +1,13 @@
 .gig-preview {
-    max-width: 326px;
-    max-height: 388px;
+    max-width: rem(310px);
+    max-height: rem(387.44px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #fff;
     border: em(1px) solid #e4e5e7; 
+    letter-spacing: 0.1px;
+
 
     .preview-preview-img {
       width: 100%;
@@ -22,13 +24,13 @@
     .gig-preview-info {
       display: flex;
       align-items: center;
-      margin-top: 10px;
-      padding: 0 em(12px);
+      padding: 12px 12px 8px;
+      line-height: 120%;
 
   
       .seller-img {
-        width: 40px;
-        height: 40px;
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
         overflow: hidden;
         margin-right: 10px;
@@ -56,13 +58,15 @@
     }
   
     .gig-preview-title {
-      margin-top: 10px;
+      margin-top: 5px;
       display: flex;
+      line-height: 22px;
       padding: 0 em(12px);
       flex-direction: column;
       border-bottom: em(1px) solid #e4e5e7; 
+      
       i {
-        margin: em(10px) 0;
+        margin: em(10px) em(12px) em(10px) 0;
         font-size: 14px;
     }
     
@@ -70,7 +74,9 @@
         font-weight: 400;
         color: #000;
         text-decoration: none;
-  
+        transition: .15s ease-in-out;
+        word-break: break-word;
+        
         &:hover {
           color: $clr1;
         }
