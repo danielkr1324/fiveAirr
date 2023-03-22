@@ -1,0 +1,12 @@
+.gig-list {
+    display:
+    grid;
+    gap:
+    32px;
+    grid-area:
+    auto / 2 / auto / auto;
+    grid-template-columns:
+    326px 326px 326px 326px;
+    grid-template-rows:
+    387.825px 387.825px 387.825px 387.825px 387.825px 387.825px 387.825px 387.825px 387.825px 387.825px 387.825px 387.825px;
+}

@@ -1,6 +1,6 @@
 .gig-preview {
     max-width: rem(310px);
-    max-height: rem(387.44px);
+    max-height: rem(373.44px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -24,7 +24,7 @@
     .gig-preview-info {
       display: flex;
       align-items: center;
-      padding: 12px 12px 8px;
+      padding: 12px 12px 12px;
       line-height: 120%;
 
   
@@ -46,6 +46,10 @@
         margin: 0;
         font-size: rem(14px);
         color: #222325;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
       }
   
       .bold {
@@ -66,8 +70,9 @@
       border-bottom: em(1px) solid #e4e5e7; 
       
       i {
-        margin: em(10px) em(12px) em(10px) 0;
-        font-size: 14px;
+        display: block;
+        margin: em(12px) em(12px) em(12px) 0;
+        font-size: 12px;
     }
     
     a {
@@ -76,6 +81,7 @@
         text-decoration: none;
         transition: .15s ease-in-out;
         word-break: break-word;
+        padding: 8 0 8px;
         
         &:hover {
           color: $clr1;
@@ -85,13 +91,14 @@
   
     .gig-footer {
       display: flex;
+      height: auto;
       align-items: center;
       justify-content: space-between;
-      margin-top: 10px;
-      padding: 0 em(12px);
+      margin: 0;
+      padding: em(13px)  em(12px) ;
   
       i {
-        font-size: 18px;
+        font-size: 16px;
       }
   
       p {
@@ -102,6 +109,7 @@
   
         span {
             font-size: 18px;
+            font-weight: 400;
         }
       }
     }

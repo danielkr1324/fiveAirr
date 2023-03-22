@@ -1,6 +1,6 @@
 <template>
   <div class="container home">
-    <ul v-if="gigs"  class="gig-explore-list">
+    <ul v-if="gigs"  class="gig-list">
       <GigExplorePreview v-for="gig in gigs" 
         :gig="gig" 
         :key="gig._id"

@@ -2,6 +2,8 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
+import gigDB from '../../data/gig.json' assert { type: 'json' }
+
 const STORAGE_KEY = 'gig'
 
 export const gigService = {
@@ -12,6 +14,8 @@ export const gigService = {
   getEmptyGig,
   // addGigMsg
 }
+_createGigs()
+
 window.cs = gigService
 
 async function query(filterBy = { txt: '', price: 0 }) {
@@ -48,6 +52,14 @@ async function save(gig) {
     savedGig = await storageService.post(STORAGE_KEY, gig)
   }
   return savedGig
+}
+
+function _createGigs() {
+  let gigs = utilService.loadFromStorage(STORAGE_KEY)
+  if (!gigs || !gigs.length) {
+    gigs = gigDB
+    utilService.saveToStorage(STORAGE_KEY, gigs)
+  }
 }
 
 // async function addGigMsg(gigId, txt) {
