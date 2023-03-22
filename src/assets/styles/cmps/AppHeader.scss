@@ -1,6 +1,5 @@
 header {
     z-index: 2;
-    background-color: $clr5;
     // padding: 10px;
     height: 80px;
 
@@ -24,14 +23,12 @@ header {
     }
 
     .loggedin-user {
-        background-color: $clr1;
         padding: 2px 8px;
         border-radius: 1em;
         align-self: flex-end;
         color: whitesmoke;
 
         span {
-            background-color: $clr2;
             padding: 4px;
             margin: 10px;
             border-radius: 50%;
@@ -45,7 +42,6 @@ header {
     }
 
     nav {
-        background-color: $clr4;
         padding: 5px 0;
         height: 80px;
     }
