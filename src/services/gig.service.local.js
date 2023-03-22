@@ -62,6 +62,32 @@ function _createGigs() {
   }
 }
 
+function _filterGigs(gigToFilter, filter) {
+  var gigs = [...gigToFilter]
+
+  const { filterBy, sortBy } = filter
+  if (filterBy.name) {
+    const regex = new RegExp(filterBy.name, 'i')
+    gigs = gigs.filter(gig => regex.test(gig.name))
+  }
+  if (filterBy.inStock) {
+    gigs = gigs.filter(gig => gig.inStock)
+  }
+  if (filterBy.labels.length && filterBy.labels[0] !== '') {
+    gigs = gigs.filter(gig => {
+      return filterBy.labels.every(label => gig.labels.includes(label))
+    })
+  }
+  if (sortBy.name)
+    gigs = gigs.sort((a, b) => a.name.localeCompare(b.name) * sortBy.diff)
+  if (sortBy.price)
+    gigs = gigs.sort((a, b) => (a.price - b.price) * sortBy.diff)
+  if (sortBy.created)
+    gigs = gigs.sort((a, b) => (a.createAt - b.createAt) * sortBy.diff)
+
+  return Promise.resolve(gigs)
+}
+
 // async function addGigMsg(gigId, txt) {
 //     // Later, this is all done by the backend
 //     const gig = await getById(gigId)

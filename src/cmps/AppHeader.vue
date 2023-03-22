@@ -6,7 +6,6 @@
       </RouterLink>
       <section class="header-links">
         <RouterLink to="/explore">Explore</RouterLink>
-        <RouterLink to="/details/gPYQr">Gig details</RouterLink>
         <!-- <RouterLink to="/review">Reviews</RouterLink> -->
         <!-- <RouterLink to="/chat">Chat</RouterLink> -->
         <RouterLink to="/login">Login / Signup</RouterLink>
