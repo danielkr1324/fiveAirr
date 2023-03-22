@@ -1,14 +1,15 @@
 <template>
-  <header>
-    <nav class="flex full align-center space-between" :class="{'navbar-scroll': isScroll}">
+  <header
+    class="main-container full"
+    :class="{'navbar-scroll': isScroll,'home-navbar': isHomepage}"
+  >
+    <nav class="flex align-center space-between">
       <RouterLink to="/">
         <h1 class="logo">FiveAir</h1>
       </RouterLink>
       <section>
         <RouterLink to="/explore">Explore</RouterLink>
         <RouterLink to="/details/gPYQr">Gig details</RouterLink>
-        <!-- <RouterLink to="/review">Reviews</RouterLink> -->
-        <!-- <RouterLink to="/chat">Chat</RouterLink> -->
         <RouterLink to="/login">Login / Signup</RouterLink>
       </section>
     </nav>
@@ -34,6 +35,8 @@ export default {
   },
   methods: {
     handleScroll() {
+      console.log("this.$route.path:", this.$route.path);
+      if (this.$route.path !== "/") return;
       if (window.scrollY > 0) {
         this.isScroll = true;
       } else {
@@ -44,6 +47,9 @@ export default {
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser;
+    },
+    isHomepage() {
+      return this.$route.path === "/";
     }
   }
 };

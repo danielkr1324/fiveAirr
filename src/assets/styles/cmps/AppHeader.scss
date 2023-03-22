@@ -3,11 +3,21 @@ header {
     // padding: 10px;
     height: 80px;
 
-    .navbar-scroll {
+    // width: 100%;
+    // font-weight: 700;
+    &.home-navbar {
+        color: white;
+        position: sticky;
+        top: 0;
+    }
+
+    // color: white;
+
+    &.navbar-scroll {
         transition: background-color, 500;
         box-shadow: 0 0 10px #aaa;
         background-color: #ffffff;
-
+        color: black;
         // RouterLink {
         //     color: #10b761;
         // }
