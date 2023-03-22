@@ -5,7 +5,7 @@
         <h1 class='logo'>FiveAir</h1>
       </RouterLink>
       <section>
-      <RouterLink to="/gig">Gigs</RouterLink>
+      <RouterLink to="/explore">Explore</RouterLink>
       <RouterLink to="/details">Gig details</RouterLink>
       <!-- <RouterLink to="/review">Reviews</RouterLink> -->
       <!-- <RouterLink to="/chat">Chat</RouterLink> -->

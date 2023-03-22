@@ -29,11 +29,11 @@ const routes = [
     name: 'ReviewIndex',
     component: ReviewIndex,
   },
-  {
-    path: '/chat',
-    name: 'Chat',
-    component: Chat,
-  },
+  // {
+  //   path: '/chat',
+  //   name: 'Chat',
+  //   component: Chat,
+  // },
   {
     path: '/login',
     name: 'LoginSignup',
