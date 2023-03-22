@@ -1,31 +1,103 @@
-.gig-explore-preview {
+.gig-preview {
+    max-width: 326px;
+    max-height: 388px;
     display: flex;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    max-width: 400px;
-    margin: 0 auto;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    border: em(1px) solid #e4e5e7; 
 
-    .preview-img {
-        flex: 0 0 40%;
-        img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+    .preview-preview-img {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
+  
+    .gig-preview-info {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+      padding: 0 em(12px);
 
-    .gig-bottom {
-        border-top: 1px solid;
-    }
-}
-
-.owner-info {
-    display: flex;
-    justify-content: flex-start;
-    .owner-img {
-        width: 24px;
-        height: 24px;
+  
+      .seller-img {
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
+        overflow: hidden;
+        margin-right: 10px;
+  
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+  
+      p {
+        margin: 0;
+        font-size: rem(14px);
+        color: #222325;
+      }
+  
+      .bold {
+        font-weight: 600;
+      }
+  
+      .level {
+        color: #8c8c8c;
+      }
     }
-}
+  
+    .gig-preview-title {
+      margin-top: 10px;
+      display: flex;
+      padding: 0 em(12px);
+      flex-direction: column;
+      border-bottom: em(1px) solid #e4e5e7; 
+      i {
+        margin: em(10px) 0;
+        font-size: 14px;
+    }
+    
+    a {
+        font-weight: 400;
+        color: #000;
+        text-decoration: none;
+  
+        &:hover {
+          color: $clr1;
+        }
+      }
+    }
+  
+    .gig-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      padding: 0 em(12px);
+  
+      i {
+        font-size: 18px;
+      }
+  
+      p {
+        margin: 0;
+        font-size: 10px;
+        font-weight: 700;
+        color: #4d4d4d;
+  
+        span {
+            font-size: 18px;
+        }
+      }
+    }
+  }
+  
