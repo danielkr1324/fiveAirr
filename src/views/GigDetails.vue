@@ -11,8 +11,10 @@
         </nav>
 
         <main class="main">
-            <p class="details-title"> {{ gig.title }}</p>
-            <section class="details-seller-preview">Mini Seller</section>
+            <h1 class="title"> {{ gig.title }}</h1>
+
+            <UserPreview :gig="gig" :type="'userShort'" class="user-short" />
+
             <div class="details-carousel">
                 <img :src="gig.imgUrl" alt="gig-pic">
 
@@ -39,22 +41,24 @@
 
             </div>
 
-            <SellerPreview :gig="gig" :type="'sellerShort'" />
 
             <section class="head-what flex">
-                <h1>What people loved about this seller</h1>
+                <p>What people loved about this seller</p>
                 <a href="#">All reviews</a>
-                <div class="main-review">Main review</div>
             </section>
 
-            <section class="detail-about-gig">
-                <h1>About This Gig</h1>
-                {{ gig.description }}
+            <div class="main-review">
+                Main review
+            </div>
+
+            <section>
+                <p class="about-gig">About This Gig</p>
+                <p class="text">{{ gig.description }}</p>
             </section>
 
-            <section class="details-seller-preview">
-                <h1>About The Seller</h1>
-                Seller Details
+            <section class="seller-long-preview">
+                <p>About The Seller</p>
+                <UserPreview :gig="gig" :type="'userLong'" class="seller-long" />
             </section>
 
             <section class="reviews">
@@ -67,7 +71,7 @@
 
             <head class="order flex">
                 <span>Order Details</span>
-                <span> {{ gig.price }} </span>
+                <span> US${{ gig.price }} </span>
             </head>
 
             <button class="order-btn">
@@ -86,7 +90,7 @@ import { gigService } from '../services/gig.service.js'
 import { userService } from '../services/user.service.js'
 import { reviewService } from '../services/review.service.js'
 
-import SellerPreview from '../cmps/SellerPreview.vue'
+import UserPreview from '../cmps/UserPreview.vue'
 
 export default {
     name: 'GigDetails',
@@ -135,7 +139,7 @@ export default {
     components: {
         VueperSlides,
         VueperSlide,
-        SellerPreview
+        UserPreview
     },
 }
 </script>
