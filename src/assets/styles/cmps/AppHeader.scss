@@ -11,16 +11,17 @@ header {
         top: 0;
     }
 
-    // color: white;
+    transition: background-color,
+    0.4s;
 
     &.navbar-scroll {
-        transition: background-color, 500;
         box-shadow: 0 0 10px #aaa;
-        background-color: #ffffff;
+        background-color: $clr6;
         color: black;
-        // RouterLink {
-        //     color: #10b761;
-        // }
+
+        .header-links a:hover {
+            color: rgb(19, 131, 45);
+        }
     }
 
     a {
@@ -39,7 +40,7 @@ header {
         &::after {
             content: '.';
             font-size: 2.7rem;
-            color: green;
+            color: $clr7;
         }
     }
 
@@ -68,7 +69,6 @@ header {
     }
 
     nav a:not(:first-child) {
-        border-top: 1px solid $clr1;
         padding: 0 5px;
         margin: 10px;
     }
