@@ -5,9 +5,9 @@
   >
     <nav class="flex align-center space-between">
       <RouterLink to="/">
-        <h1 class="logo">FiveAir</h1>
+        <h1 class="logo">fiveairr</h1>
       </RouterLink>
-      <section>
+      <section class="header-links">
         <RouterLink to="/explore">Explore</RouterLink>
         <RouterLink to="/details/gPYQr">Gig details</RouterLink>
         <RouterLink to="/login">Login / Signup</RouterLink>

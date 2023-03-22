@@ -3,27 +3,34 @@ footer {
     bottom: 0;
     // width: 98%;
     height: 80px;
+    color: #74767e;
 
     .left span {
         display: inline;
         padding: none;
         text-decoration: none;
         font-stretch: 50%;
+        font-size: 1.7rem;
 
         font-weight: 600;
 
         &::after {
-            content: '.';
-            font-size: 2.7rem;
-            color: green;
+            content: '\ae';
+            font-size: 0.6rem;
+            color: #b5b6ba;
         }
     }
 
     & div small {
         margin-left: 24px;
+        color: #b5b6ba;
     }
 
-    .right ul{
-        gap:20px;
+    .right ul {
+        gap: 20px;
+
+        li a svg {
+            fill: #74767e;
+        }
     }
 }
