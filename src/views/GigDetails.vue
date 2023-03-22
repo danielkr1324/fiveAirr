@@ -3,7 +3,7 @@
 
         <!-- {{ gig }} -->
         <nav>
-            <ul class="details main-nav">
+            <ul class="details main-nav flex">
                 <li>Overview</li>
                 <li>About the seller</li>
                 <li>Review</li>
@@ -39,7 +39,9 @@
 
             </div>
 
-            <section class="head-what">
+            <SellerPreview :gig="gig" :type="'sellerShort'" />
+
+            <section class="head-what flex">
                 <h1>What people loved about this seller</h1>
                 <a href="#">All reviews</a>
                 <div class="main-review">Main review</div>
@@ -63,7 +65,7 @@
 
         <aside class="aside">
 
-            <head class="order">
+            <head class="order flex">
                 <span>Order Details</span>
                 <span> {{ gig.price }} </span>
             </head>
@@ -83,6 +85,8 @@ import 'vueperslides/dist/vueperslides.css'
 import { gigService } from '../services/gig.service.js'
 import { userService } from '../services/user.service.js'
 import { reviewService } from '../services/review.service.js'
+
+import SellerPreview from '../cmps/SellerPreview.vue'
 
 export default {
     name: 'GigDetails',
@@ -120,14 +124,15 @@ export default {
                 this.$store.commit({ type: 'login', user })
             }
             await this.loadGig()
-            await this.$store.dispatch({ type: 'getReviews', filterBy: { gigId: this.gig._id } })
+            // await this.$store.dispatch({ type: 'getReviews', filterBy: { gigId: this.gig._id } })
         } catch (err) {
             console.error(err)
         }
     },
     components: {
         VueperSlides,
-        VueperSlide
+        VueperSlide,
+        SellerPreview
     },
 }
 </script>
