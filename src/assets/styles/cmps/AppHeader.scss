@@ -1,7 +1,7 @@
 header {
-
+    z-index: 2;
     background-color: $clr5;
-    padding: 10px;
+    // padding: 10px;
     height: 80px;
 
     a {
@@ -47,6 +47,7 @@ header {
     nav {
         background-color: $clr4;
         padding: 5px 0;
+        height: 80px;
     }
 
     nav a:not(:first-child) {

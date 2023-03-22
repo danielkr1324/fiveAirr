@@ -1,7 +1,6 @@
 <template>
-  <section class="container home text-center">
-    <h1>Homepage</h1>
-    <section>
+  <section class="main-container full home text-center">
+    <section class="app-hero full">
       <AppHero />
     </section>
   </section>

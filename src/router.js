@@ -25,16 +25,6 @@ const routes = [
     component: GigDetails,
   },
   {
-    path: '/review',
-    name: 'ReviewIndex',
-    component: ReviewIndex,
-  },
-  {
-    path: '/chat',
-    name: 'Chat',
-    component: Chat,
-  },
-  {
     path: '/login',
     name: 'LoginSignup',
     component: LoginSignup,
