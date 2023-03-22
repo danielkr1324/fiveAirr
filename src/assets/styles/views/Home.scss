@@ -1,14 +1,30 @@
 .home {
     position: relative;
+    color: #b5b6ba;
+    font-weight: 500;
+
 
     .trusted-by {
-        min-height: 90px;
-        align-items: center;
-        gap: 30px;
+        background-color: #fafafa;
+        padding: 0px 90px;
+        width: 100%;
+        margin-bottom: 95px;
+        height: 95px;
+
+        span {
+            width: fit-content;
+        }
+
+        ul li img {
+            padding-inline-end: 60px;
+        }
+
+        >* {
+            padding-inline-end: 40px;
+        }
 
         img {
             height: 60px;
-            width: 120px;
         }
     }
 }

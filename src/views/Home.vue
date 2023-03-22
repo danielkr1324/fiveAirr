@@ -3,13 +3,25 @@
     <section class="app-hero full">
       <AppHero />
     </section>
-    <section class="trusted-by flex">
-      <p>Trusted by:</p>
-      <img src="../assets/images/trusted by/meta.12b5e5c.png" alt />
-      <img src="../assets/images/trusted by/google.61e78c8.png" alt />
-      <img src="../assets/images/trusted by/netflix.96c5e3f.png" alt />
-      <img src="../assets/images/trusted by/pandg.0f4cfc2.png" alt />
-      <img src="../assets/images/trusted by/paypal.305e264.png" alt />
+    <section class="trusted-by full flex align-center justify-center">
+      <span>Trusted by:</span>
+      <ul class="flex clean-list">
+        <li>
+          <img src="../assets/images/trusted by/meta.12b5e5c.png" alt />
+        </li>
+        <li>
+          <img src="../assets/images/trusted by/google.61e78c8.png" alt />
+        </li>
+        <li>
+          <img src="../assets/images/trusted by/netflix.96c5e3f.png" alt />
+        </li>
+        <li>
+          <img src="../assets/images/trusted by/pandg.0f4cfc2.png" alt />
+        </li>
+        <li>
+          <img src="../assets/images/trusted by/paypal.305e264.png" alt />
+        </li>
+      </ul>
     </section>
   </section>
 </template>
@@ -23,7 +35,6 @@ export default {
   data() {
     return {};
   },
-  computed: {},
   mounted() {
     window.scrollTo(0, 0);
   },
