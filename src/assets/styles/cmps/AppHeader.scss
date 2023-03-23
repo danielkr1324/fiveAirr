@@ -1,18 +1,11 @@
 header {
     z-index: 2;
-    // padding: 10px;
     height: 80px;
 
-    // width: 100%;
-    // font-weight: 700;
     &.home-navbar {
         color: white;
         position: sticky;
         top: 0;
-    }
-
-    .header-links a:hover {
-        color: #1dbf73;
     }
 
     transition: background-color,
@@ -26,6 +19,12 @@ header {
         .header-links a:hover {
             color: #1dbf73;
         }
+    }
+
+    .categories-list {
+        border-top: 1px solid #e4e5e7;
+        height: 40px;
+        background-color: white;
     }
 
     a {

@@ -1,6 +1,6 @@
 <template>
   <section class="main-container">
-    <AppHeader />
+    <AppHeader @filter="setCategoryFilter" />
     <RouterView />
     <UserMsg />
     <AppFooter />
@@ -20,6 +20,15 @@ export default {
     console.log("Vue App created");
     const user = userService.getLoggedinUser();
     if (user) store.commit({ type: "setLoggedinUser", user });
+  },
+  methods: {
+    setCategoryFilter(filterBy) {
+      this.$store
+        .dispatch({ type: "setCategoryFilter", filterBy })
+        .catch(err => {
+          showErrorMsg("Cannot set filter");
+        });
+    }
   },
   components: {
     AppHeader,

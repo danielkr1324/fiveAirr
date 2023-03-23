@@ -30,6 +30,10 @@ export function getActionUpdateGig(gig) {
 export const gigStore = {
   state: {
     gigs: [],
+    filterBy: {
+      categories: '',
+      txt: ''
+    }
   },
   getters: {
     gigs({ gigs }) {
@@ -50,6 +54,10 @@ export const gigStore = {
     removeGig(state, { gigId }) {
       state.gigs = state.gigs.filter(gig => gig._id !== gigId)
     },
+    setCategoryFilterBy(state, { filterBy }) {
+      console.log('filterBy', filterBy)
+      state.filterBy.categories = filterBy
+    },
     // addGigMsg(state, { gigId , msg}) {
     //     const gig = state.gigs.find(gig => gig._id === gigId)
     //     if (!gig.msgs) gig.msgs = []
@@ -57,6 +65,16 @@ export const gigStore = {
     // },
   },
   actions: {
+    async setCategoryFilter({ commit }, { filterBy }) {
+      try {
+        commit({ type: 'setCategoryFilterBy', filterBy })
+        const gigs = await gigService.query(filterBy)
+        // commit({ type: 'setToys', gigs })
+      } catch (err) {
+        console.error('Cannot set filter', err)
+        throw err
+      }
+    },
     async addGig(context, { gig }) {
       try {
         gig = await gigService.save(gig)

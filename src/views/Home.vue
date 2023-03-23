@@ -30,11 +30,11 @@
     </div>
     <section class></section>
 
-    <section class="main-container full">
+    <section class="main-container selling-point-container full">
       <div class="selling-points">
         <div class="site-info">
           <h1>A whole world of freelance talent at your fingertips</h1>
-          <ul>
+          <ul class="clean-list">
             <li v-for="point in getSellingText" :key="point">
               <section class="flex align-center">
                 <h3>{{ point.title }}</h3>
