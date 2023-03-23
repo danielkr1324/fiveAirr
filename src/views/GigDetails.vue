@@ -39,9 +39,9 @@
                 <UserPreview :gig="gig" :type="'userLong'" class="seller-long" />
             </section>
 
-            <section class="reviews">
+            <!-- <section class="reviews">
                 All reviews
-            </section>
+            </section> -->
 
         </main>
 
@@ -74,7 +74,7 @@
 
             <button class="order-btn">
                 <span class="text" href="#">Continue</span>
-                <!-- <i class="fa-solid fa-arrow-right"></i> -->
+                <i class="fa-solid fa-arrow-right"></i>
             </button>
         </aside>
 

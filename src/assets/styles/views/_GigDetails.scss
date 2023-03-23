@@ -11,7 +11,6 @@
 
     .main {
         grid-column: 1/2;
-        height: 100%;
 
         .user-short {
             margin-top: 1rem;
@@ -65,9 +64,7 @@
     }
 
     .reviews {
-        position: relative;
-
-        margin-top: 1500px;
+        text-align: center;
     }
 
     .main-nav {
@@ -147,9 +144,11 @@
 
     .order-btn {
         display: flex;
+        position: relative;
         justify-content: center;
+        align-items: center;
         margin: auto;
-        margin-bottom: 1.25rem;
+        margin-bottom: 1.5rem;
         padding: 0.75rem;
 
         width: 86%;
@@ -166,7 +165,8 @@
         }
 
         i {
-            justify-self: right;
+            position: absolute;
+            right: 1rem;
         }
     }
 }

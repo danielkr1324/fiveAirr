@@ -1,14 +1,86 @@
-.img-small {
-    margin-left: 10px;
+.user-preview-short {
 
-    width: 30px;
-    clip-path: circle();
+    .img-small {
+        width: 30px;
+        height: 30px;
+        clip-path: circle();
+    }
+
+    .seller-username {
+        margin-left: 1rem;
+    }
+
+    .seller-level {
+        margin-left: 1rem;
+    }
 }
 
-.seller-username {
-    margin-left: 1rem;
-}
+.user-preview-long {
 
-.seller-level {
-    margin-left: 1rem;
+    width: 100%;
+
+    .img-large {
+        width: 100px;
+        height: 100px;
+        clip-path: circle();
+    }
+
+    .seller-details {
+        display: inline-block;
+        margin: 0.5rem 1rem;
+        line-height: 1.5rem;
+
+        color: $clr3;
+        font-size: 0.875rem;
+    }
+
+    .contact-btn {
+        margin-top: 0.75rem;
+        padding: 0.5rem 1.5rem;
+        color: $clr5;
+        background-color: $clr6;
+        border: 1px solid $clr5;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .contact-btn:hover {
+        color: $clr6;
+        background-color: $clr5;
+    }
+
+    .about-seller {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        width: 100%;
+        margin-top: 0.5rem;
+        padding: 1.5rem;
+        font-size: 1rem;
+        border: 1px solid #dadbdd;
+
+        span {
+            display: block;
+            margin-block: 0.75rem;
+        }
+
+        .title {
+            font-family: Macan-Light;
+        }
+
+        .from .response-time .languages {
+            grid-column: 1/2;
+        }
+
+        .member-since .last-delivery {
+            grid-column: 2/3;
+        }
+
+        .text {
+            grid-column: 1/3;
+            padding-top: 0.75rem;
+            border-top: 1px solid #dadbdd;
+        }
+    }
 }
