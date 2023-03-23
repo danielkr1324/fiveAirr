@@ -37,4 +37,11 @@
             font-family: Macan;
         }
     }
+
+    .selling-points {
+        background-color: #f3fdf9;
+        padding: 96px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }

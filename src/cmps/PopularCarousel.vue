@@ -5,11 +5,11 @@
     :bullets="false"
     :visible-slides="5"
     slide-multiple
-    :gap="5"
+    :gap="3"
     :slide-ratio="1 / 4"
     :dragging-distance="200"
-    :breakpoints="{1240:{visibleSlides: 4, slideRatio:2 / 5 , fixedHeight: '345px',gap:4 } ,
-    1060: { visibleSlides: 3, slideRatio:2 / 5 ,fixedHeight: '345px',gap:3 },
+    :breakpoints="{1240:{visibleSlides: 4, slideRatio:2 / 5 , fixedHeight: '345px'} ,
+    1060: { visibleSlides: 3, slideRatio:2 / 5 ,fixedHeight: '345px'},
     800: { visibleSlides: 2 },slideRatio:1, }"
   >
     <vueper-slide
