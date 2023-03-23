@@ -1,35 +1,27 @@
 <template>
-    <section class="gig-filter">
-        <div @click="toggleBudget" class="range-filter">
-            <p>Budget</p>    
-        </div>
+    <section class="gig-explore">
+        <div>
+            <div @click="toggleBudget" class="range-filter">
+                <p>Budget</p>    
+            </div>
 
-         <div @click="toggleDelivery" class="range-filter">
-            <p>Delivery Time</p>    
-        </div>
+            <div @click="toggleDelivery" class="range-filter">
+                <p>Delivery Time</p>    
+            </div>
 
-        <div v-show="isBudget" class="budget-filter">
-            <p>MIN.</p>
-            <input v-model.number="filter.filterBy.min"> <span>$</span>
-            <p>MAX.</p>
-            <input v-model.number="filter.filterBy.max"> <span>$</span>
+            <div v-show="isBudget" class="budget-filter">
+                <p>MIN.</p>
+                <input v-model.number="filter.filterBy.min"> <span>$</span>
+                <p>MAX.</p>
+                <input v-model.number="filter.filterBy.max"> <span>$</span>
 
-            <div class="apply-changes">
-                <button @click.stop="clearFilter">Clear All</button>
-                <button @click.stop="setFilter">Apply</button>
+                <div class="apply-changes">
+                    <button @click.stop="clearFilter">Clear All</button>
+                    <button @click.stop="setFilter">Apply</button>
+                </div>
             </div>
         </div>
-
-        <div v-show="isDelivery" class="delivery-filter">
-            <p>Delivery Time</p>
-            <input type="checkbox" id="" v-model="filter.filterBy.delivery">
-            <div class="apply-changes">
-                <button @click.stop="clearFilter">Clear All</button>
-                <button @click.stop="setFilter">Apply</button>
-            </div>
-        </div>
-
-           
+        
         <GigList :gigs="gigs"/>
     </section>
 </template>
@@ -46,6 +38,7 @@ data() {
     return {
         gigToAdd: gigService.getEmptyGig(),
         isBudget: false,
+        isDelivery: false,
         isDelivery: false,
         filter: {
             filterBy: {
@@ -99,7 +92,7 @@ computed: {
         this.isBudget = !this.isBudget
     },
     toggleDelivery() {
-        this
+        this.isDelivery = !this.isDelivery
     },
     setFilter() {        
         this.$store.dispatch({ type: 'loadGigs', filter: this.filter })       
