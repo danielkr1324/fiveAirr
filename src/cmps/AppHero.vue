@@ -16,12 +16,6 @@
         :image="slide.image"
         :content="slide.content"
       />
-      <template #content>
-        <div class="vueperslide__content-wrapper" style="flex-direction: row">
-          <span>{{ slide.content }}</span>
-          <span>TEST</span>
-        </div>
-      </template>
     </vueper-slides>
   </div>
 </template>

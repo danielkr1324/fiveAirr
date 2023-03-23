@@ -26,6 +26,7 @@
 
     <div class="popular-services">
       <p>Popular professional services</p>
+      <PopularCarousel />
     </div>
   </section>
 </template>
@@ -33,6 +34,7 @@
 
 <script>
 import AppHero from "../cmps/AppHero.vue";
+import PopularCarousel from "../cmps/PopularCarousel.vue";
 
 export default {
   name: "home",
@@ -43,7 +45,8 @@ export default {
     window.scrollTo(0, 0);
   },
   components: {
-    AppHero
+    AppHero,
+    PopularCarousel
   }
 };
 </script>
