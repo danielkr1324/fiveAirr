@@ -12,9 +12,9 @@
                 <!-- </router-link> -->
                 <p class="seller-level"> Level {{ gig.owner.rate }} Seller &nbsp;</p>
                 <div class="flex align-center" v-for="star in gig.owner.rate">
-                    <i class="fa-solid fa-star" style="color: #ffd43b;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
                 </div>
-                <span>&nbsp;{{ gig.owner.rate }}</span>
+                <span style="color: #ffb33e">&nbsp;{{ gig.owner.rate }}</span>
             </div>
         </section>
 
@@ -37,7 +37,7 @@
 
 <script>
 export default {
-    name: 'SellerPreview',
+    name: 'UserPreview',
     props: {
         type: String,
         gig: Object

@@ -17,34 +17,12 @@
 
             <div class="details-carousel">
                 <img :src="gig.imgUrl" alt="gig-pic">
-
-                <!-- <section class="gig-gallery">
-                    <section class="slideshow">
-                        <vueper-slides ref="vueperslides1" :touchable="false" :autoplay="false" :bullets="false"
-                            @slide="$refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })"
-                            :slide-ratio="(48 / 67)">
-                            <vueper-slide v-for="image in gig.images" :key="1" :image="image" style="cursor: pointer">
-                            </vueper-slide>
-                        </vueper-slides>
-                        <div class="thumbnails-slider">
-                            <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
-                                @slide="$refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
-                                :visible-slides="gig.images.length" :fixed-height="'90px'" :bullets="false"
-                                :touchable="false" :gap="1" :arrows="false" :breakpoints="breakpoints">
-                                <vueper-slide v-for="(image, i) in gig.images" :slide-ratio="(48 / 67)" :key="i"
-                                    :image="image" style="cursor:pointer" @click.native="$refs.vueperslides2.goToSlide(i)">
-                                </vueper-slide>
-                            </vueper-slides>
-                        </div>
-                    </section>
-                </section> -->
-
             </div>
 
 
             <section class="head-what flex">
                 <p>What people loved about this seller</p>
-                <a href="#">All reviews</a>
+                <a>All reviews</a>
             </section>
 
             <div class="main-review">
@@ -52,12 +30,12 @@
             </div>
 
             <section>
-                <p class="about-gig">About This Gig</p>
+                <p class="about">About This Gig</p>
                 <p class="text">{{ gig.description }}</p>
             </section>
 
             <section class="seller-long-preview">
-                <p>About The Seller</p>
+                <p class="about">About The Seller</p>
                 <UserPreview :gig="gig" :type="'userLong'" class="seller-long" />
             </section>
 
@@ -74,8 +52,23 @@
                 <span> US${{ gig.price }} </span>
             </head>
 
+            <p class="description">
+                I will active daily 10-14 hours, welcome new members, pin post create, delete spam messages
+            </p>
+
+            <p class="delivery">
+                <i class="fa-regular fa-clock"></i>
+                <span>&nbsp;&nbsp;{{ gig.daysToMake }}</span>
+                Days Delivery
+            </p>
+
+            <main>
+
+            </main>
+
             <button class="order-btn">
                 Continue
+                <span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
         </aside>
 
@@ -134,7 +127,7 @@ export default {
         }
     },
     mounted() {
-    window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
     },
     components: {
         VueperSlides,
