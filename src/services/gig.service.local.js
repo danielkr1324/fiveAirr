@@ -18,17 +18,16 @@ _createGigs()
 
 window.cs = gigService
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filter = {}) {
+  console.log(filter)
+
   var gigs = await storageService.query(STORAGE_KEY)
-  if (filterBy.txt) {
-    const regex = new RegExp(filterBy.txt, 'i')
-    gigs = gigs.filter(
-      gig => regex.test(gig.title) || regex.test(gig.description)
-    )
-  }
-  if (filterBy.price) {
-    gigs = gigs.filter(gig => gig.price <= filterBy.price)
-  }
+  const { filterBy, sortBy } = filter
+  if (filterBy?.min) gigs = gigs.filter(gig => gig.price >= filterBy.min)
+  if (filterBy?.max) gigs = gigs.filter(gig => gig.price <= filterBy.max)
+  if (filterBy?.delivery)
+    gigs = gigs.filter(gig => gig.daysToMake <= filterBy.delivery)
+
   return gigs
 }
 
@@ -60,32 +59,6 @@ function _createGigs() {
     gigs = gigDB
     utilService.saveToStorage(STORAGE_KEY, gigs)
   }
-}
-
-function _filterGigs(gigToFilter, filter) {
-  var gigs = [...gigToFilter]
-
-  const { filterBy, sortBy } = filter
-  if (filterBy.name) {
-    const regex = new RegExp(filterBy.name, 'i')
-    gigs = gigs.filter(gig => regex.test(gig.name))
-  }
-  if (filterBy.inStock) {
-    gigs = gigs.filter(gig => gig.inStock)
-  }
-  if (filterBy.labels.length && filterBy.labels[0] !== '') {
-    gigs = gigs.filter(gig => {
-      return filterBy.labels.every(label => gig.labels.includes(label))
-    })
-  }
-  if (sortBy.name)
-    gigs = gigs.sort((a, b) => a.name.localeCompare(b.name) * sortBy.diff)
-  if (sortBy.price)
-    gigs = gigs.sort((a, b) => (a.price - b.price) * sortBy.diff)
-  if (sortBy.created)
-    gigs = gigs.sort((a, b) => (a.createAt - b.createAt) * sortBy.diff)
-
-  return Promise.resolve(gigs)
 }
 
 // async function addGigMsg(gigId, txt) {
