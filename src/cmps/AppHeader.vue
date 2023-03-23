@@ -4,9 +4,25 @@
     :class="{ 'navbar-scroll': isScroll, 'home-navbar': isHomepage, 'other-navbar': isNotHomepage }"
   >
     <nav class="flex align-center space-between">
-      <RouterLink to="/">
+      <RouterLink to="/" @click="goHome">
         <h1 class="logo">fiveairr</h1>
       </RouterLink>
+
+      <form
+        v-if="isFarScroll ||isNotHomepage"
+        @submit="txtFilter(filterBy.txt)"
+        class="search-bar flex"
+      >
+        <input
+          type="text"
+          v-model="filterBy.txt"
+          placeholder=" What service are you looking for today?"
+        />
+        <button>
+          <span v-html="getSvg('search')"></span>
+        </button>
+      </form>
+
       <section class="header-links">
         <RouterLink to="/explore">Explore</RouterLink>
         <RouterLink to="/login">Login / Signup</RouterLink>
@@ -32,11 +48,13 @@
   </header>
 </template>
 <script>
+import { svgService } from "@/services/svg.service.js";
 export default {
   data() {
     return {
       filterBy: {
-        category: ""
+        category: "",
+        txt: ""
       },
       isScroll: false,
       isFarScroll: false,
@@ -54,7 +72,6 @@ export default {
     };
   },
   mounted() {
-    window.scrollTo(0, 0);
     window.addEventListener("scroll", this.handleScroll);
   },
   destroyed() {
@@ -72,12 +89,25 @@ export default {
         this.isScroll = false;
       }
     },
+    goHome() {
+      window.scrollTo(0, 0);
+      this.isScroll = false;
+      this.isFarScroll = false;
+    },
     categoryFilter(category) {
       this.filterBy.category = category;
       this.filter();
     },
+    txtFilter(txt) {
+      this.filterBy.txt = txt;
+      this.filter();
+      this.$router.push("/explore");
+    },
     filter() {
       this.$emit("filter", { ...this.filterBy });
+    },
+    getSvg(iconName) {
+      return svgService.getSvg(iconName);
     }
   },
   computed: {
