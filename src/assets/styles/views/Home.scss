@@ -3,7 +3,6 @@
     color: #b5b6ba;
     font-weight: 500;
 
-
     .trusted-by {
         background-color: #fafafa;
         padding: 0px 90px;
@@ -13,6 +12,7 @@
 
         span {
             width: fit-content;
+            font-weight: 600;
         }
 
         ul li img {
@@ -25,6 +25,16 @@
 
         img {
             height: 60px;
+        }
+    }
+
+    .popular-services {
+        p {
+            font-size: 32px;
+            font-weight: 700;
+            color: #404145;
+            text-align: start;
+            font-family: Macan;
         }
     }
 }

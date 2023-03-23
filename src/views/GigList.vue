@@ -3,12 +3,6 @@
     <ul v-if="gigs" class="gig-list">
       <GigExplorePreview v-for="gig in gigs" :gig="gig" :key="gig._id" />
     </ul>
-    <!-- <hr />
-    <form @submit.prevent="addGig()">
-      <h2>Add gig</h2>
-      <input type="text" v-model="gigToAdd.title" />
-      <button>Save</button>
-    </form>-->
   </div>
 </template>
 

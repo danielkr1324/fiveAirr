@@ -23,6 +23,10 @@
         </li>
       </ul>
     </section>
+
+    <div class="popular-services">
+      <p>Popular professional services</p>
+    </div>
   </section>
 </template>
 
