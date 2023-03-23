@@ -32,7 +32,7 @@
 import UserPreview from './UserPreview.vue';
 
 export default {
-    name: 'GigExplorePreview',
+    name: 'GigPreview',
     props: { gig: Object },
     data() {
         return {
