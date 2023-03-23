@@ -47,35 +47,40 @@
 
         <aside class="aside">
 
-            <head class="order flex">
-                <span>Order Details</span>
-                <span> US${{ gig.price }} </span>
-            </head>
+            <section class="main">
 
-            <p class="description">
-                I will active daily 10-14 hours, welcome new members, pin post create, delete spam messages
-            </p>
+                <head class="order flex">
+                    <span>Order Details</span>
+                    <span> US${{ gig.price }} </span>
+                </head>
 
-            <p class="delivery">
-                <i class="fa-regular fa-clock"></i>
-                <span>&nbsp;&nbsp;{{ gig.daysToMake }}</span>
-                Days Delivery
-            </p>
+                <p class="description">
+                    I will active daily 10-14 hours, welcome new members, pin post create, delete spam messages
+                </p>
 
-            <ul class="bullets">
-                <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Includes logo design</span></i></li>
-                <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Logo usage guidelines</span></i></li>
-                <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Color palette</span></i></li>
-                <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Typography guidelines</span></i></li>
-                <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Iconography</span></i></li>
-                <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Do's and don'ts</span></i></li>
-                <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Brand book design</span></i></li>
-            </ul>
+                <p class="delivery">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>&nbsp;&nbsp;{{ gig.daysToMake }}</span>
+                    Days Delivery
+                </p>
 
-            <button class="order-btn">
-                <span class="text" href="#">Continue</span>
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
+                <ul class="bullets">
+                    <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Includes logo design</span></i></li>
+                    <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Logo usage guidelines</span></i></li>
+                    <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Color palette</span></i></li>
+                    <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Typography guidelines</span></i></li>
+                    <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Iconography</span></i></li>
+                    <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Do's and don'ts</span></i></li>
+                    <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Brand book design</span></i></li>
+                </ul>
+
+                <button class="order-btn">
+                    <span class="text" href="#">Continue</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </section>
+
+            <button class="contact-btn">Contact Me</button>
         </aside>
 
     </section>

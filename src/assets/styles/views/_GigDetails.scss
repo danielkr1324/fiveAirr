@@ -169,4 +169,28 @@
             right: 1rem;
         }
     }
+
+    .contact-btn {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        margin-top: 4rem;
+        padding: 0.75rem;
+        border: none;
+
+        width: 86%;
+        color: $clr5;
+        background-color: $clr6;
+        border: 1px solid $clr5;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .contact-btn:hover {
+        color: $clr6;
+        background-color: $clr5;
+    }
 }
