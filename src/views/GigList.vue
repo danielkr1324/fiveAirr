@@ -1,7 +1,7 @@
 <template>
   <div class="container home">
     <ul v-if="gigs" class="gig-list">
-      <GigExplorePreview v-for="gig in gigs" :gig="gig" :key="gig._id" />
+      <GigPreview v-for="gig in gigs" :gig="gig" :key="gig._id" />
     </ul>
   </div>
 </template>
@@ -10,7 +10,7 @@
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
 import { gigService } from "../services/gig.service.local";
 import { getActionRemoveGig, getActionUpdateGig } from "../store/gig.store";
-import GigExplorePreview from "../cmps/GigExplorePreview.vue";
+import GigPreview from "../cmps/GigPreview.vue";
 export default {
   data() {
     return {
@@ -76,7 +76,7 @@ export default {
     // }
   },
   components: {
-    GigExplorePreview
+    GigPreview
   }
 };
 </script>

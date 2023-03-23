@@ -26,22 +26,28 @@
 import UserPreview from "./UserPreview.vue";
 
 export default {
-  name: "GigExplorePreview",
-  props: { gig: Object },
-  data() {
-    return {};
-  },
-  methods: {},
-  computed: {
-    fixedRating() {
-      return this.gig.owner.rate.toFixed(1);
-    }
-  },
-  created() {},
-  components: {
-    UserPreview
-  }
-};
+    name: 'GigPreview',
+    props: { gig: Object },
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+
+    },
+    computed: {
+        fixedRating() {
+            return this.gig.owner.rate.toFixed(1)
+        }
+    },
+    created() {
+
+    },
+    components: {
+        UserPreview
+    },
+}
 </script>
 
 <style></style>
