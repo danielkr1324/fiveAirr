@@ -1,5 +1,8 @@
 <template>
-  <header class="main-container full" :class="{ 'navbar-scroll': isScroll, 'home-navbar': isHomepage, 'other-navbar': isNotHomepage }">
+  <header
+    class="main-container full"
+    :class="{ 'navbar-scroll': isScroll, 'home-navbar': isHomepage, 'other-navbar': isNotHomepage }"
+  >
     <nav class="flex align-center space-between">
       <RouterLink to="/">
         <h1 class="logo">fiveairr</h1>
@@ -33,7 +36,6 @@ export default {
   },
   methods: {
     handleScroll() {
-      console.log("this.$route.path:", this.$route.path);
       if (this.$route.path !== "/") return;
       if (window.scrollY > 0) {
         this.isScroll = true;
