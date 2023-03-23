@@ -62,13 +62,19 @@
                 Days Delivery
             </p>
 
-            <main>
-
-            </main>
+            <ul class="bullets">
+                <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Includes logo design</span></i></li>
+                <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Logo usage guidelines</span></i></li>
+                <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Color palette</span></i></li>
+                <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Typography guidelines</span></i></li>
+                <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Iconography</span></i></li>
+                <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Do's and don'ts</span></i></li>
+                <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Brand book design</span></i></li>
+            </ul>
 
             <button class="order-btn">
-                Continue
-                <span><i class="fa-solid fa-arrow-right"></i></span>
+                <span class="text" href="#">Continue</span>
+                <!-- <i class="fa-solid fa-arrow-right"></i> -->
             </button>
         </aside>
 
