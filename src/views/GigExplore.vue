@@ -1,27 +1,75 @@
 <template>
-    <section class="gig-explore">
-        <div>
-            <div @click="toggleBudget" class="range-filter">
-                <p>Budget</p>    
+    <section class="gig-explore" >
+        <div class="inner-filter " :class="{ shadow: isShadow }">
+            <div class="range-filter ">
+                <button class="btn drop-filter"
+                   @click="toggleBudget">
+                    Budget <i class="fas fa-chevron-down"></i>
+                  </button>    
+
+                <div v-show="isBudget" class="budget-filter">
+                  <div class="price">
+                    <div>
+                      <p>MIN.</p>
+                      <div class="price-input">
+                        <input v-model.number="filter.filterBy.min" placeholder="ANY"> <span>$</span>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <p>MAX.</p>
+                      <div class="price-input">
+                        <input v-model.number="filter.filterBy.max"  placeholder="ANY"> <span>$</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="apply-changes">
+                      <button @click.stop="clearFilter">Clear All</button>
+                      <button @click.stop="setFilter">Apply</button>
+                  </div>
+                </div>
             </div>
 
-            <div @click="toggleDelivery" class="range-filter">
-                <p>Delivery Time</p>    
-            </div>
+            <div  class="range-filter">
+                <button class="btn drop-filter"
+                  @click="toggleDelivery">
+                  Delivery Time <i class="fas fa-chevron-down"></i>
+                 </button>   
 
-            <div v-show="isBudget" class="budget-filter">
-                <p>MIN.</p>
-                <input v-model.number="filter.filterBy.min"> <span>$</span>
-                <p>MAX.</p>
-                <input v-model.number="filter.filterBy.max"> <span>$</span>
+                <div v-show="isDelivery" class="delivery-filter">
+                  <div>
+                    <input type="radio" id="one" value="1" v-model.number="filter.filterBy.delivery" />
+                    <label for="one">Express 24H</label>
+                  </div>
 
-                <div class="apply-changes">
+                  <div>
+                    <input type="radio" id="three" value="3" v-model.number="filter.filterBy.delivery" />
+                    <label for="three">Up to 3 days</label>
+                  </div>  
+
+                  <div>
+                    <input type="radio" id="seven" value="7" v-model.number="filter.filterBy.delivery" />
+                    <label for="seven">Up to 7 days</label>
+                  </div>
+
+                  <div>
+                    <input type="radio" id="anytime" value="" v-model="filter.filterBy.delivery" />
+                    <label for="anytime">Anytime</label>
+                  </div>
+
+                  <div class="apply-changes">
                     <button @click.stop="clearFilter">Clear All</button>
                     <button @click.stop="setFilter">Apply</button>
                 </div>
+              </div> 
             </div>
+     
         </div>
         
+        <div class="inner-sort">
+          <p>{{gigs.length}} services available</p>
+        </div>
         <GigList :gigs="gigs"/>
     </section>
 </template>
@@ -37,6 +85,8 @@ name: 'GigExplore',
 data() {
     return {
         gigToAdd: gigService.getEmptyGig(),
+         windowTop: window.top.scrollY,
+        isShadow: false,
         isBudget: false,
         isDelivery: false,
         isDelivery: false,
@@ -52,89 +102,77 @@ data() {
                 desc: 1,
             },
         },
-        deliveryOptions: [
-        {
-          value: 1,
-          label: 'Express 24H',
-        },
-        {
-          value: 3,
-          label: 'Up to 3 days',
-        },
-        {
-          value: 7,
-          label: 'Up to 7 days',
-        },
-        {
-          value: '',
-          label: 'Anytime',
-        },
-      ]
     }
 },
 
 computed: {
-    loggedInUser() {
-      return this.$store.getters.loggedinUser;
-    },
-    gigs() {
-      return this.$store.getters.gigs;
+  loggedInUser() {
+    return this.$store.getters.loggedinUser;
+  },
+  gigs() {
+    return this.$store.getters.gigs;
+  }
+},
+created() {
+    this.$store.dispatch({ type: "loadGigs" });
+},
+  mounted() {
+    window.addEventListener("scroll", this.onScroll)
+},
+methods: {
+  toggleBudget() {
+      this.isBudget = !this.isBudget
+  },
+  toggleDelivery() {
+      this.isDelivery = !this.isDelivery
+  },
+  setFilter() {    
+      this.isBudget = false
+      this.isDelivery= false    
+      this.$store.dispatch({ type: 'loadGigs', filter: this.filter })       
+  },
+  clearFilter() {
+      this.filter.filterBy = {
+          min: null,
+          max: null
+      }
+      this.setFilter()
+  },
+  async addGig() {
+    try {
+      await this.$store.dispatch({ type: "addGig", gig: this.gigToAdd });
+      showSuccessMsg("Gig added");
+      this.gigToAdd = gigService.getEmptyGig();
+    } catch (err) {
+      console.log(err);
+      showErrorMsg("Cannot add gig");
     }
   },
-  created() {
-    this.$store.dispatch({ type: "loadGigs" });
+  async removeGig(gigId) {
+    try {
+      await this.$store.dispatch(getActionRemoveGig(gigId));
+      showSuccessMsg("Gig removed");
+    } catch (err) {
+      console.log(err);
+      showErrorMsg("Cannot remove gig");
+    }
   },
-  mounted() {
-    window.scrollTo(0, 0);
+  async updateGig(gig) {
+    try {
+      gig = { ...gig };
+      gig.price = +prompt("New price?", gig.price);
+      await this.$store.dispatch(getActionUpdateGig(gig));
+      showSuccessMsg("Gig updated");
+    } catch (err) {
+      console.log(err);
+      showErrorMsg("Cannot update gig");
+    }
   },
-  methods: {
-    toggleBudget() {
-        this.isBudget = !this.isBudget
-    },
-    toggleDelivery() {
-        this.isDelivery = !this.isDelivery
-    },
-    setFilter() {        
-        this.$store.dispatch({ type: 'loadGigs', filter: this.filter })       
-    },
-    clearFilter() {
-        this.filter.filterBy = {
-            min: null,
-            max: null
-        }
-        this.setFilter()
-    },
-    async addGig() {
-      try {
-        await this.$store.dispatch({ type: "addGig", gig: this.gigToAdd });
-        showSuccessMsg("Gig added");
-        this.gigToAdd = gigService.getEmptyGig();
-      } catch (err) {
-        console.log(err);
-        showErrorMsg("Cannot add gig");
-      }
-    },
-    async removeGig(gigId) {
-      try {
-        await this.$store.dispatch(getActionRemoveGig(gigId));
-        showSuccessMsg("Gig removed");
-      } catch (err) {
-        console.log(err);
-        showErrorMsg("Cannot remove gig");
-      }
-    },
-    async updateGig(gig) {
-      try {
-        gig = { ...gig };
-        gig.price = +prompt("New price?", gig.price);
-        await this.$store.dispatch(getActionUpdateGig(gig));
-        showSuccessMsg("Gig updated");
-      } catch (err) {
-        console.log(err);
-        showErrorMsg("Cannot update gig");
-      }
-    },
+    onScroll(e) {
+    this.windowTop = window.top.scrollY
+    this.isShadow = this.windowTop > 170 ? true : false
   },
+},
 components: {
     GigList
 },
