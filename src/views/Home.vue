@@ -3,6 +3,31 @@
     <section class="app-hero full">
       <AppHero />
     </section>
+
+    <section class="hero-search">
+      <h1>
+        Find the perfect
+        <span>freelance</span> services for your business
+      </h1>
+
+      <div class="hero-search-input">
+        <form class="flex" onsubmit="filterBy">
+          <div class="search-bar-icon flex align-center justify-center" v-html="getSvg('search')"></div>
+          <input type="search" placeholder="Try &#34;building mobile app&#34;" />
+          <button>Search</button>
+        </form>
+      </div>
+
+      <div class="popular-categories flex align-center">
+        <p class="fs14">Popular:</p>
+        <ul class="clean-list flex">
+          <li class="popular-category fs14" v-for="category in popular" :key="category">
+            <a href="/#/explore">{{category}}</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <section class="trusted-by full flex align-center justify-center">
       <span>Trusted by:</span>
       <ul class="flex clean-list">
@@ -37,7 +62,10 @@
           <ul class="clean-list">
             <li v-for="point in getSellingText" :key="point">
               <section class="flex align-center">
-                <h3>{{ point.title }}</h3>
+                <h3>
+                  <span v-html="getSvg('circledCheckmark')"></span>
+                  {{ point.title }}
+                </h3>
               </section>
               <p>{{ point.text }}</p>
             </li>
@@ -50,6 +78,11 @@
         </div>
       </div>
     </section>
+
+    <section class="explore-svgs main-container full">
+      <h1 class="marketplace">Explore the marketplace</h1>
+      <ExploreCategories />
+    </section>
   </section>
 </template>
 
@@ -57,11 +90,15 @@
 <script>
 import AppHero from "../cmps/AppHero.vue";
 import PopularCarousel from "../cmps/PopularCarousel.vue";
+import ExploreCategories from "@/cmps/ExploreCategories.vue";
+import { svgService } from "@/services/svg.service.js";
 
 export default {
   name: "home",
   data() {
-    return {};
+    return {
+      popular: ["Website Design", "WordPress", "Logo Design", "Video Editing"]
+    };
   },
   mounted() {
     window.scrollTo(0, 0);
@@ -92,9 +129,15 @@ export default {
       ];
     }
   },
+  methods: {
+    getSvg(iconName) {
+      return svgService.getSvg(iconName);
+    }
+  },
   components: {
     AppHero,
-    PopularCarousel
+    PopularCarousel,
+    ExploreCategories
   }
 };
 </script>

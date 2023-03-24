@@ -1,7 +1,7 @@
 <template>
   <vueper-slides
     class="no-shadow"
-    style="cursor: none"
+    style="cursor: default"
     :bullets="false"
     :visible-slides="5"
     slide-multiple

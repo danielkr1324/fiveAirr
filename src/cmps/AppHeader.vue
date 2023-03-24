@@ -23,23 +23,23 @@
         </button>
       </form>
 
-      <section class="header-links">
+      <section class="header-links flex align-center space-between">
         <RouterLink to="/explore">Explore</RouterLink>
-        <RouterLink to="/login">Login / Signup</RouterLink>
+        <RouterLink to="/explore">Become a Seller</RouterLink>
+        <RouterLink to="/explore">Sign in</RouterLink>
+        <RouterLink to="/login">Join</RouterLink>
       </section>
     </nav>
     <section v-if="isFarScroll ||isNotHomepage" class="main-container full categories-list">
-      <nav>
-        <ul class="flex align-center clean-list">
-          <li
-            v-for="category in categories"
-            :key="category"
-            @click="categoryFilter(`${category.name}`)"
-          >
-            <routerLink to="/explore">{{ category.name }}</routerLink>
-          </li>
-        </ul>
-      </nav>
+      <ul class="flex align-center clean-list">
+        <li
+          v-for="category in categories"
+          :key="category"
+          @click="categoryFilter(`${category.name}`)"
+        >
+          <routerLink to="/explore">{{ category.name }}</routerLink>
+        </li>
+      </ul>
     </section>
     <!-- <section class="loggedin-user" v-if="loggedInUser">
       <RouterLink :to="`/user/${loggedInUser._id}`">{{ loggedInUser.fullname }}</RouterLink>
@@ -59,7 +59,7 @@ export default {
       isScroll: false,
       isFarScroll: false,
       categories: [
-        { name: "Graphics&Design" },
+        { name: "Graphics & Design" },
         { name: "Digital Marketing" },
         { name: "Writing & Translation" },
         { name: "Video & Animation" },

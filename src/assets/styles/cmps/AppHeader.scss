@@ -1,5 +1,5 @@
 header {
-    z-index: 2;
+    z-index: 3;
     height: 80px;
 
     &.home-navbar {
@@ -16,9 +16,14 @@ header {
         background-color: $clr6;
         color: black;
 
-        .header-links a:hover {
-            color: #1dbf73;
+        .header-links {
+            min-width: max-content;
+
+            a:hover {
+                color: #1dbf73;
+            }
         }
+
     }
 
     .search-bar {
@@ -46,8 +51,22 @@ header {
 
     .categories-list {
         border-top: 1px solid #e4e5e7;
+        border-bottom: 1px solid #e4e5e7;
         height: 40px;
         background-color: white;
+
+        ul {
+            gap: 20px;
+
+            li {
+                min-width: max-content;
+                color: #62646a;
+
+                a {
+                    font-family: Macan-Regular;
+                }
+            }
+        }
     }
 
     a {
