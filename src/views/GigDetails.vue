@@ -107,7 +107,7 @@
 <script>
 
 import { VueperSlides, VueperSlide } from 'vueperslides'
-// import 'vueperslides/dist/vueperslides.css'
+import 'vueperslides/dist/vueperslides.css'
 import { gigService } from '../services/gig.service.js'
 import { userService } from '../services/user.service.js'
 import { reviewService } from '../services/review.service.js'
