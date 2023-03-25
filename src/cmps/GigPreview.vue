@@ -1,15 +1,17 @@
 <template>
   <li class="gig-preview">
-    <div class="preview-preview-img">
-      <img :src="gig.imgUrl" />
+   
+    <div  class="preview-preview-img">
+      <vueper-slides   transition-speed="250"  :touchable="false" :autoplay="false" :bullets="false"
+            :slide-ratio="(48 / 67)">
+            <vueper-slide  @click="goToDetails(`/details/${gig._id}`)" v-for="(image) in gig.images" :key="image" :image="image" style="cursor: pointer">
+            </vueper-slide>
+        </vueper-slides>
     </div>
-
     <UserPreview :gig="gig" :type="'listUserPreview'" />
 
     <div class="gig-preview-title">
-      <router-link :to="`/details/${gig._id}`">
-        <a>{{ gig.title }}</a>
-      </router-link>
+        <a @click="goToDetails(`/details/${gig._id}`)">{{ gig.title }}</a>
       <i class="fa-solid fa-star" style="color: #ffd43b;">&nbsp;{{ fixedRating }}</i>
     </div>
 
@@ -24,6 +26,8 @@
 </template>
 
 <script>
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
 import UserPreview from "./UserPreview.vue";
 
 export default {
@@ -35,7 +39,9 @@ export default {
         }
     },
     methods: {
-
+      goToDetails(gig) {
+            this.$router.push({ path: gig })
+        },
     },
     computed: {
         fixedRating() {
@@ -46,7 +52,9 @@ export default {
 
     },
     components: {
-        UserPreview
+        UserPreview,
+        VueperSlides,
+        VueperSlide,
     },
 }
 </script>
