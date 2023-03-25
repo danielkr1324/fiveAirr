@@ -18,6 +18,7 @@
             <section class="details-carousel">
                 <section class="slideshow">
                     <vueper-slides ref="vueperslides1" :touchable="false" :autoplay="false" :bullets="false"
+                        :arrows-outside="true"
                         @slide="$refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })"
                         :slide-ratio="(48 / 67)">
                         <vueper-slide v-for="image in gig.images" :key="1" :image="image" style="cursor: pointer">
@@ -26,8 +27,8 @@
                     <div class="thumbnails-slider">
                         <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
                             @slide="$refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
-                            :visible-slides=gig.images.length :fixed-height="'90px'" :bullets="false" :touchable="false"
-                            :gap="1" :arrows="false">
+                            :visible-slides=gig.images.length :fixed-height="'90px'" :fixed-width="'90px'" :bullets="false"
+                            :touchable="false" :gap="1" :arrows="false">
                             <vueper-slide v-for="(image, i) in gig.images" :slide-ratio="(48 / 67)" :key="i" :image="image"
                                 style="cursor:pointer" @click.native="$refs.vueperslides2.goToSlide(i)">
                             </vueper-slide>
@@ -55,9 +56,18 @@
                 <UserPreview :gig="gig" :type="'userLong'" class="seller-long" />
             </section>
 
-            <!-- <section class="reviews">
-                All reviews
-            </section> -->
+            <section v-for="review in gig.reviews" class="user-review flex">
+                <div class="img-small flex align-center">
+                    <img :src="gig.reviews.flag" alt="" />
+                </div>
+                <div class="text-container flex align-center">
+                    <p class=""> {{ gig.owner.fullname }}</p>
+                    <div class="flex align-center" v-for="star in gig.owner.rate">
+                        <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
+                    </div>
+                    <span style="color: #ffb33e">&nbsp;{{ gig.owner.rate }}</span>
+                </div>
+            </section>
 
         </main>
 
