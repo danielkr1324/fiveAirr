@@ -15,10 +15,26 @@
 
             <UserPreview :gig="gig" :type="'userShort'" class="user-short" />
 
-            <div class="details-carousel">
-                <img :src="gig.imgUrl" alt="gig-pic">
-            </div>
-
+            <section class="details-carousel">
+                <section class="slideshow">
+                    <vueper-slides ref="vueperslides1" :touchable="false" :autoplay="false" :bullets="false"
+                        @slide="$refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })"
+                        :slide-ratio="(48 / 67)">
+                        <vueper-slide v-for="image in gig.images" :key="1" :image="image" style="cursor: pointer">
+                        </vueper-slide>
+                    </vueper-slides>
+                    <div class="thumbnails-slider">
+                        <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
+                            @slide="$refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
+                            :visible-slides=gig.images.length :fixed-height="'90px'" :bullets="false" :touchable="false"
+                            :gap="1" :arrows="false">
+                            <vueper-slide v-for="(image, i) in gig.images" :slide-ratio="(48 / 67)" :key="i" :image="image"
+                                style="cursor:pointer" @click.native="$refs.vueperslides2.goToSlide(i)">
+                            </vueper-slide>
+                        </vueper-slides>
+                    </div>
+                </section>
+            </section>
 
             <section class="head-what flex">
                 <p>What people loved about this seller</p>
@@ -45,62 +61,66 @@
 
         </main>
 
-        <aside class="aside">
+        <section class="order-main">
+            <aside class="aside">
+                <section class="main">
 
-            <section class="main">
+                    <head class="order flex">
+                        <span>Order Details</span>
+                        <span> US${{ gig.price }} </span>
+                    </head>
 
-                <head class="order flex">
-                    <span>Order Details</span>
-                    <span> US${{ gig.price }} </span>
-                </head>
+                    <p class="description">
+                        I will active daily 10-14 hours, welcome new members, pin post create, delete spam messages
+                    </p>
 
-                <p class="description">
-                    I will active daily 10-14 hours, welcome new members, pin post create, delete spam messages
-                </p>
+                    <p class="delivery">
+                        <i class="fa-regular fa-clock"></i>
+                        <span>&nbsp;&nbsp;{{ gig.daysToMake }}</span>
+                        Days Delivery
+                    </p>
 
-                <p class="delivery">
-                    <i class="fa-regular fa-clock"></i>
-                    <span>&nbsp;&nbsp;{{ gig.daysToMake }}</span>
-                    Days Delivery
-                </p>
+                    <ul class="bullets">
+                        <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Includes logo design</span></i></li>
+                        <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Logo usage guidelines</span></i></li>
+                        <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Color palette</span></i></li>
+                        <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Iconography</span></i></li>
+                        <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Do's and don'ts</span></i></li>
+                        <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Brand book design</span></i></li>
+                    </ul>
 
-                <ul class="bullets">
-                    <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Includes logo design</span></i></li>
-                    <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Logo usage guidelines</span></i></li>
-                    <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Color palette</span></i></li>
-                    <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Typography guidelines</span></i></li>
-                    <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Iconography</span></i></li>
-                    <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Do's and don'ts</span></i></li>
-                    <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Brand book design</span></i></li>
-                </ul>
+                    <button class="order-btn" @click="isLogin = !isLogin">
+                        <span class="text">Continue</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </section>
 
-                <button class="order-btn">
-                    <span class="text" href="#">Continue</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </section>
+            </aside>
 
             <button class="contact-btn">Contact Me</button>
-        </aside>
+        </section>
 
+        <Login v-show="isLogin" />
     </section>
 </template>
 
 <script>
 
 import { VueperSlides, VueperSlide } from 'vueperslides'
-import 'vueperslides/dist/vueperslides.css'
+// import 'vueperslides/dist/vueperslides.css'
 import { gigService } from '../services/gig.service.js'
 import { userService } from '../services/user.service.js'
 import { reviewService } from '../services/review.service.js'
 
 import UserPreview from '../cmps/UserPreview.vue'
+import Login from '../cmps/Login.vue'
 
 export default {
     name: 'GigDetails',
     data() {
         return {
-            gig: null
+            gig: null,
+            isLogin: false
         }
     },
     methods: {
@@ -143,7 +163,8 @@ export default {
     components: {
         VueperSlides,
         VueperSlide,
-        UserPreview
+        UserPreview,
+        Login
     },
 }
 </script>
