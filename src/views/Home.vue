@@ -140,7 +140,7 @@ export default {
       console.log('filterBy(home):', filterBy)
       this.$store.commit({ type: "setFilter", filterBy: { ...filterBy } });
       this.$router.push({
-        name: "app-explore-list",
+        name: "GigExplore",
         query: { ...this.$store.getters.filterBy }
       });
     }
