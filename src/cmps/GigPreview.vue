@@ -1,19 +1,17 @@
 <template>
   <li class="gig-preview">
    
-    <div class="preview-preview-img">
-      <vueper-slides transition-speed="250"  :touchable="false" :autoplay="false" :bullets="false"
+    <div  class="preview-preview-img">
+      <vueper-slides   transition-speed="250"  :touchable="false" :autoplay="false" :bullets="false"
             :slide-ratio="(48 / 67)">
-            <vueper-slide v-for="(image) in gig.images" :key="image" :image="image" style="cursor: pointer">
+            <vueper-slide  @click="goToDetails(`/details/${gig._id}`)" v-for="(image) in gig.images" :key="image" :image="image" style="cursor: pointer">
             </vueper-slide>
         </vueper-slides>
     </div>
     <UserPreview :gig="gig" :type="'listUserPreview'" />
 
     <div class="gig-preview-title">
-      <router-link :to="`/details/${gig._id}`">
-        <a>{{ gig.title }}</a>
-      </router-link>
+        <a @click="goToDetails(`/details/${gig._id}`)">{{ gig.title }}</a>
       <i class="fa-solid fa-star" style="color: #ffd43b;">&nbsp;{{ fixedRating }}</i>
     </div>
 
@@ -41,7 +39,9 @@ export default {
         }
     },
     methods: {
-
+      goToDetails(gig) {
+            this.$router.push({ path: gig })
+        },
     },
     computed: {
         fixedRating() {
