@@ -110,12 +110,38 @@
     }
 
     .seller-long-preview {
-        margin-top: 4rem;
+        margin-block: 4rem;
         font-size: 1.25rem;
     }
 
-    .reviews {
-        text-align: center;
+    .user-review {
+        min-height: 5rem;
+        padding-block: 1rem;
+        border-block: 1px solid #e4e5e7;
+
+        .name {
+            padding-block: 0.5rem;
+        }
+
+        .main {
+            flex-direction: column;
+            margin-left: 1rem;
+            text-align: left;
+
+            .country {
+                margin-block: 0.5rem;
+
+                img {
+                    width: 2rem;
+                    height: 1.75rem;
+                }
+
+                span {
+                    margin-left: 1rem;
+                    font-family: Macan-Light;
+                }
+            }
+        }
     }
 
 }

@@ -56,16 +56,17 @@
                 <UserPreview :gig="gig" :type="'userLong'" class="seller-long" />
             </section>
 
-            <section v-for="review in gig.reviews" class="user-review flex">
-                <div class="img-small flex align-center">
-                    <img :src="gig.reviews.flag" alt="" />
-                </div>
-                <div class="text-container flex align-center">
-                    <p class=""> {{ gig.owner.fullname }}</p>
-                    <div class="flex align-center" v-for="star in gig.owner.rate">
-                        <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
+
+            <section v-for="review in gig.reviews">
+                <div class="user-review flex">
+                    <div class="main flex">
+                        <p class="name"> {{ review.name }}</p>
+                        <div class="country flex align-center">
+                            <img :src="review.flag">
+                            <span> {{ review.country }}</span>
+                        </div>
+                        <p class="text"> {{ review.review }}</p>
                     </div>
-                    <span style="color: #ffb33e">&nbsp;{{ gig.owner.rate }}</span>
                 </div>
             </section>
 
