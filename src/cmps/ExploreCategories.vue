@@ -3,7 +3,7 @@
     <span v-for="category in categories" :key="category">
       <div @click="categoryFilter(`${category.name}`)">
         <span v-html="getSvg(category.svg)"></span>
-        <h4 class="regular">{{ category.name }}</h4>
+        <h4  class="regular">{{ category.name }}</h4>
       </div>
     </span>
   </section>
@@ -33,6 +33,7 @@ export default {
   methods: {
     categoryFilter(category) {
       this.filterBy.category = category;
+      this.$router.push({path: '/explore', query: { ...this.filterBy} })
       this.filter();
     },
     filter() {

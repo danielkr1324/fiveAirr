@@ -31,16 +31,66 @@ export const gigStore = {
   state: {
     gigs: [],
     filterBy: {
-      categories: '',
-      txt: ''
-    }
+      sortBy: '',
+      title: '',
+      category: '',
+      subCategory: '',
+      min: null,
+      max: null,
+      delivery: '',
+    },
   },
   getters: {
-    gigs({ gigs }) {
-      return gigs
+    filterBy({ filterBy }) {
+      const filters = { ...filterBy }
+      for (const key in filters) {
+        if (!filters[key]) delete filters[key]
+      }
+      return filters
+    },
+    gigs({ gigs, filterBy }) {
+      if (!gigs) return null
+
+      var filteredGigs = gigs
+      const regex = new RegExp(filterBy.title, 'i')
+      filteredGigs = filteredGigs.filter(gig => regex.test(gig.title))
+
+      if (filterBy.category)
+        filteredGigs = filteredGigs.filter(
+          gig => gig.category === filterBy.category
+        )
+
+      if (filterBy.subCategory)
+        filteredGigs = filteredGigs.filter(
+          gig => gig.subCategory === filterBy.subCategory
+        )
+
+      if (filterBy.min)
+        filteredGigs = filteredGigs.filter(gig => gig.price >= filterBy.min)
+
+      if (filterBy.max)
+        filteredGigs = filteredGigs.filter(gig => gig.price <= filterBy.max)
+
+      if (filterBy.delivery)
+        filteredGigs = filteredGigs.filter(
+          gig => gig.daysToMake <= filterBy.delivery
+        )
+
+      if (filterBy.sortBy === 'rating') {
+        filteredGigs.sort((gig1, gig2) => gig2.owner.rate - gig1.owner.rate)
+      }
+
+      if (filterBy.sortBy === 'level') {
+        filteredGigs.sort((gig1, gig2) => gig2.owner.level - gig1.owner.level)
+      }
+
+      return filteredGigs
     },
   },
   mutations: {
+    setFilter(state, { filterBy }) {
+      state.filterBy = { ...state.filterBy, ...filterBy }
+    },
     setGigs(state, { gigs }) {
       state.gigs = gigs
     },
@@ -96,10 +146,12 @@ export const gigStore = {
         throw err
       }
     },
-    async loadGigs({ commit }, { filter }) {
+    async loadGigs(context, { filterBy }) {
       try {
-        const gigs = await gigService.query(filter)
-        commit({ type: 'setGigs', gigs })
+        const gigs = await gigService.query()
+        console.log(gigs)
+
+        context.commit({ type: 'setGigs', gigs })
       } catch (err) {
         console.log('gigStore: Error in loadGigs', err)
         throw err

@@ -1,9 +1,10 @@
 <template>
     <section class="gig-explore" >
+       <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
         <div class="inner-filter " :class="{ shadow: isShadow }">
             <div class="range-filter ">
                 <button class="btn drop-filter"
-                   @click="toggleBudget">
+                   @click.stop="toggleBudget">
                     Budget <i class="fas fa-chevron-down"></i>
                   </button>    
 
@@ -12,14 +13,14 @@
                     <div>
                       <p>MIN.</p>
                       <div class="price-input">
-                        <input v-model.number="filter.filterBy.min" placeholder="ANY"> <span>$</span>
+                        <input v-model.number="filterBy.min" placeholder="ANY"> <span>$</span>
                       </div>
                     </div>
                     
                     <div>
                       <p>MAX.</p>
                       <div class="price-input">
-                        <input v-model.number="filter.filterBy.max"  placeholder="ANY"> <span>$</span>
+                        <input v-model.number="filterBy.max"  placeholder="ANY"> <span>$</span>
                       </div>
                     </div>
                   </div>
@@ -31,33 +32,34 @@
                 </div>
             </div>
 
-            <div  class="range-filter">
+            <div class="range-filter">
                 <button class="btn drop-filter"
-                  @click="toggleDelivery">
+                  @click.stop="toggleDelivery">
                   Delivery Time <i class="fas fa-chevron-down"></i>
                  </button>   
 
                 <div v-show="isDelivery" class="delivery-filter">
-                  <div>
-                    <input type="radio" id="one" value="1" v-model.number="filter.filterBy.delivery" />
-                    <label for="one">Express 24H</label>
+                  <div class="delivery-options">
+                    <div class="delivery-option">
+                      <input type="radio" id="one" value="1" v-model.number="filterBy.delivery" />
+                      <label for="one">Express 24H</label>
+                    </div>
+
+                    <div class="delivery-option">
+                      <input type="radio" id="three" value="3" v-model.number="filterBy.delivery" />
+                      <label for="three">Up to 3 days</label>
+                    </div>  
+
+                    <div class="delivery-option">
+                      <input type="radio" id="seven" value="7" v-model.number="filterBy.delivery" />
+                      <label for="seven">Up to 7 days</label>
+                    </div>
+
+                    <div class="delivery-option">
+                      <input type="radio" id="anytime" value="" v-model="filterBy.delivery" />
+                      <label for="anytime">Anytime</label>
+                    </div>
                   </div>
-
-                  <div>
-                    <input type="radio" id="three" value="3" v-model.number="filter.filterBy.delivery" />
-                    <label for="three">Up to 3 days</label>
-                  </div>  
-
-                  <div>
-                    <input type="radio" id="seven" value="7" v-model.number="filter.filterBy.delivery" />
-                    <label for="seven">Up to 7 days</label>
-                  </div>
-
-                  <div>
-                    <input type="radio" id="anytime" value="" v-model="filter.filterBy.delivery" />
-                    <label for="anytime">Anytime</label>
-                  </div>
-
                   <div class="apply-changes">
                     <button @click.stop="clearFilter">Clear All</button>
                     <button @click.stop="setFilter">Apply</button>
@@ -90,18 +92,7 @@ data() {
         isBudget: false,
         isDelivery: false,
         isDelivery: false,
-        filter: {
-            filterBy: {
-                min: null,
-                max: null,
-                delivery: null
-            },
-
-            sortBy: {
-                by: '',
-                desc: 1,
-            },
-        },
+         filterBy: {},
     }
 },
 
@@ -114,27 +105,40 @@ computed: {
   }
 },
 created() {
-    this.$store.dispatch({ type: "loadGigs" });
+     this.$store.dispatch({ type: "loadGigs" });
+    const filterBy = this.$store.getters.filterBy
+    // this.$router.push({ name: 'GigExplore', query: { ...filterBy } })
+    this.filterBy = {
+      sortBy: filterBy.sortBy,
+      min: filterBy.min,
+      max: filterBy.max,
+      delivery: filterBy.delivery
+    }
 },
   mounted() {
     window.addEventListener("scroll", this.onScroll)
 },
 methods: {
   toggleBudget() {
+      this.isDelivery = false
       this.isBudget = !this.isBudget
   },
   toggleDelivery() {
+    this.isBudget = false
       this.isDelivery = !this.isDelivery
   },
   setFilter() {    
       this.isBudget = false
       this.isDelivery= false    
-      this.$store.dispatch({ type: 'loadGigs', filter: this.filter })       
+      this.$store.commit({ type: 'setFilter', filterBy: { ...this.filterBy } })
+      this.$router.push({ name: 'GigExplore', query: { ...this.$store.getters.filterBy } })       
   },
   clearFilter() {
-      this.filter.filterBy = {
-          min: null,
-          max: null
+       this.filterBy = {
+        sortBy: '',
+        min: null,
+        max: null,
+        delivery: ''
       }
       this.setFilter()
   },

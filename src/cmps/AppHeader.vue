@@ -31,7 +31,8 @@
       </section>
     </nav>
     <section v-if="isFarScroll ||isNotHomepage" class="main-container full categories-list">
-      <ul class="flex align-center clean-list">
+      <GigFilter class="flex align-center" :type="'header'" />
+      <!-- <ul class="flex align-center clean-list">
         <li
           v-for="category in categories"
           :key="category"
@@ -39,7 +40,7 @@
         >
           <routerLink to="/explore">{{ category.name }}</routerLink>
         </li>
-      </ul>
+      </ul>-->
     </section>
     <!-- <section class="loggedin-user" v-if="loggedInUser">
       <RouterLink :to="`/user/${loggedInUser._id}`">{{ loggedInUser.fullname }}</RouterLink>
@@ -49,6 +50,7 @@
 </template>
 <script>
 import { svgService } from "@/services/svg.service.js";
+import GigFilter from "../cmps/GigFilter.vue";
 export default {
   data() {
     return {
@@ -120,6 +122,7 @@ export default {
     isNotHomepage() {
       return this.$route.path !== "/";
     }
-  }
+  },
+  components: { GigFilter }
 };
 </script>
