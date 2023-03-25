@@ -51,7 +51,8 @@
 
     <div class="popular-services">
       <p>Popular professional services</p>
-      <PopularCarousel />
+      <!-- <PopularCarousel /> -->
+      <GigFilter @filter="filter" :type="'carousel'" />
     </div>
     <section class></section>
 
@@ -81,7 +82,8 @@
 
     <section class="explore-svgs main-container full">
       <h1 class="marketplace">Explore the marketplace</h1>
-      <ExploreCategories />
+      <!-- <ExploreCategories /> -->
+      <GigFilter @filter="filter" :type="'svgs'" />
     </section>
   </section>
 </template>
@@ -90,6 +92,7 @@
 <script>
 import AppHero from "../cmps/AppHero.vue";
 import PopularCarousel from "../cmps/PopularCarousel.vue";
+import GigFilter from "../cmps/GigFilter.vue";
 import ExploreCategories from "@/cmps/ExploreCategories.vue";
 import { svgService } from "@/services/svg.service.js";
 
@@ -132,11 +135,20 @@ export default {
   methods: {
     getSvg(iconName) {
       return svgService.getSvg(iconName);
+    },
+    filter(filterBy) {
+      console.log('filterBy(home):', filterBy)
+      this.$store.commit({ type: "setFilter", filterBy: { ...filterBy } });
+      this.$router.push({
+        name: "app-explore-list",
+        query: { ...this.$store.getters.filterBy }
+      });
     }
   },
   components: {
     AppHero,
     PopularCarousel,
+    GigFilter,
     ExploreCategories
   }
 };
