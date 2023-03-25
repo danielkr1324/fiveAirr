@@ -1,8 +1,8 @@
 <template>
     <section class="gig-explore" >
-      <h1 v-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
       <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
-      <h1 v-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
+      <h1 v-else-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
+      <h1 v-else-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
         <div class="inner-filter main-container full" :class="{ shadow: isShadow }">
             <div class="range-filter ">
                 <button class="btn drop-filter"
@@ -89,12 +89,11 @@ name: 'GigExplore',
 data() {
     return {
         gigToAdd: gigService.getEmptyGig(),
-         windowTop: window.top.scrollY,
+        windowTop: window.top.scrollY,
         isShadow: false,
         isBudget: false,
         isDelivery: false,
-        isDelivery: false,
-         filterBy: {},
+        filterBy: {},
     }
 },
 
@@ -106,10 +105,9 @@ computed: {
     return this.$store.getters.gigs;
   }
 },
-created() {
+created() {  
      this.$store.dispatch({ type: "loadGigs" });
     const filterBy = this.$store.getters.filterBy    
-    // this.$router.push({ name: 'GigExplore', query: { ...filterBy } })
     this.filterBy = {
       sortBy: filterBy.sortBy ,
       min: filterBy.min ,
@@ -120,6 +118,9 @@ created() {
   mounted() {
     window.addEventListener("scroll", this.onScroll)
 },
+ beforeDestroy() {
+    this.clearFilter()
+  },
 methods: {
   toggleBudget() {
       this.isDelivery = false
@@ -131,17 +132,12 @@ methods: {
   },
   setFilter() {    
       this.isBudget = false
-      this.isDelivery= false    
+      this.isDelivery= false   
       this.$store.commit({ type: 'setFilter', filterBy: { ...this.filterBy } })
       this.$router.push({ name: 'GigExplore', query: { ...this.$store.getters.filterBy } })       
   },
   clearFilter() {
-       this.filterBy = {
-        sortBy: '',
-        min: null,
-        max: null,
-        delivery: ''
-      }
+      this.filterBy = {}
       this.setFilter()
   },
   async addGig() {

@@ -10,7 +10,7 @@
 
       <form
         v-if="isFarScroll ||isNotHomepage"
-        @submit="txtFilter(filterBy.title)"
+        @submit.prevent="txtFilter(filterBy.title)"
         class="search-bar flex"
       >
         <input
@@ -76,6 +76,10 @@ export default {
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
   },
+  unmounted() {
+    this.filterBy = {}
+    this.filter({})
+  },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
   },
@@ -103,6 +107,7 @@ export default {
     txtFilter(title) {
       this.filterBy.title = title;
       this.filter(this.filterBy);
+      this.filterBy.title = ""
     },
     filter(filterBy) {
       this.$store.commit({ type: "setFilter", filterBy: { ...filterBy } });
