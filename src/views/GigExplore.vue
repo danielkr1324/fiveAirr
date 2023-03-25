@@ -106,13 +106,13 @@ computed: {
 },
 created() {
      this.$store.dispatch({ type: "loadGigs" });
-    const filterBy = this.$store.getters.filterBy
+    const filterBy = this.$store.getters.filterBy    
     // this.$router.push({ name: 'GigExplore', query: { ...filterBy } })
     this.filterBy = {
-      sortBy: filterBy.sortBy,
-      min: filterBy.min,
-      max: filterBy.max,
-      delivery: filterBy.delivery
+      sortBy: filterBy.sortBy ,
+      min: filterBy.min ,
+      max: filterBy.max ,
+      delivery: filterBy.delivery 
     }
 },
   mounted() {
