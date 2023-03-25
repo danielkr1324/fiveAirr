@@ -46,12 +46,15 @@
         }
 
         .details-carousel {
+            margin: auto;
             margin-top: 1rem;
+            width: 90%;
         }
     }
 
     .vueperslide[href] {
         border-radius: 2px;
+        margin-block: 0.5rem;
     }
 
     .vueperslides__bullets {
