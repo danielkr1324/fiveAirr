@@ -10,12 +10,12 @@
 
       <form
         v-if="isFarScroll ||isNotHomepage"
-        @submit="txtFilter(filterBy.txt)"
+        @submit="txtFilter(filterBy.title)"
         class="search-bar flex"
       >
         <input
           type="text"
-          v-model="filterBy.txt"
+          v-model="filterBy.title"
           placeholder=" What service are you looking for today?"
         />
         <button>
@@ -31,7 +31,7 @@
       </section>
     </nav>
     <section v-if="isFarScroll ||isNotHomepage" class="main-container full categories-list">
-      <GigFilter class="flex align-center" :type="'header'" />
+      <GigFilter @filter="filter" class="flex align-center" :type="'header'" />
       <!-- <ul class="flex align-center clean-list">
         <li
           v-for="category in categories"
@@ -56,7 +56,7 @@ export default {
     return {
       filterBy: {
         category: "",
-        txt: ""
+        title: ""
       },
       isScroll: false,
       isFarScroll: false,
@@ -96,17 +96,20 @@ export default {
       this.isScroll = false;
       this.isFarScroll = false;
     },
-    categoryFilter(category) {
-      this.filterBy.category = category;
-      this.filter();
+    // categoryFilter(category) {
+    //   this.filterBy.category = category;
+    //   this.filter();
+    // },
+    txtFilter(title) {
+      this.filterBy.title = title;
+      this.filter(this.filterBy);
     },
-    txtFilter(txt) {
-      this.filterBy.txt = txt;
-      this.filter();
-      this.$router.push("/explore");
-    },
-    filter() {
-      this.$emit("filter", { ...this.filterBy });
+    filter(filterBy) {
+      this.$store.commit({ type: "setFilter", filterBy: { ...filterBy } });
+      this.$router.push({
+        name: "GigExplore",
+        query: { ...this.$store.getters.filterBy }
+      });
     },
     getSvg(iconName) {
       return svgService.getSvg(iconName);

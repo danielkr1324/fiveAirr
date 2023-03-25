@@ -11,18 +11,22 @@
       </h1>
 
       <div class="hero-search-input">
-        <form class="flex" onsubmit="filterBy">
+        <form class="flex" @submit="txtFilter(filterBy.title)">
           <div class="search-bar-icon flex align-center justify-center" v-html="getSvg('search')"></div>
-          <input type="search" placeholder="Try &#34;building mobile app&#34;" />
-          <button>Search</button>
+          <input
+            type="search"
+            v-model="filterBy.title"
+            placeholder="Try &#34;building mobile app&#34;"
+          />
+          <button type="submit">Search</button>
         </form>
       </div>
 
       <div class="popular-categories flex align-center">
         <p class="fs14">Popular:</p>
         <ul class="clean-list flex">
-          <li class="popular-category fs14" v-for="category in popular" :key="category">
-            <a href="/#/explore">{{category}}</a>
+          <li class="popular-category fs14" v-for="subCategory in popular" :key="subCategory">
+            <a @click="popularFilter(subCategory)">{{subCategory}}</a>
           </li>
         </ul>
       </div>
@@ -100,6 +104,10 @@ export default {
   name: "home",
   data() {
     return {
+      filterBy: {
+        subCategory: "",
+        title: ""
+      },
       popular: ["Website Design", "WordPress", "Logo Design", "Video Editing"]
     };
   },
@@ -136,8 +144,18 @@ export default {
     getSvg(iconName) {
       return svgService.getSvg(iconName);
     },
+    txtFilter(title) {
+      console.log("title:", title);
+      this.filterBy.title = title;
+      this.filter(this.filterBy);
+    },
+    popularFilter(subCategory) {
+      console.log("subCategory:", subCategory);
+      this.filterBy.subCategory = subCategory;
+      this.filter(this.filterBy);
+    },
     filter(filterBy) {
-      console.log('filterBy(home):', filterBy)
+      console.log("filterBy:", filterBy);
       this.$store.commit({ type: "setFilter", filterBy: { ...filterBy } });
       this.$router.push({
         name: "GigExplore",
