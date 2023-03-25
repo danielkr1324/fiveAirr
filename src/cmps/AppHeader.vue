@@ -10,12 +10,12 @@
 
       <form
         v-if="isFarScroll ||isNotHomepage"
-        @submit="txtFilter(filterBy.txt)"
+        @submit="txtFilter(filterBy.title)"
         class="search-bar flex"
       >
         <input
           type="text"
-          v-model="filterBy.txt"
+          v-model="filterBy.title"
           placeholder=" What service are you looking for today?"
         />
         <button>
@@ -56,7 +56,7 @@ export default {
     return {
       filterBy: {
         category: "",
-        txt: ""
+        title: ""
       },
       isScroll: false,
       isFarScroll: false,
@@ -100,9 +100,9 @@ export default {
     //   this.filterBy.category = category;
     //   this.filter();
     // },
-    txtFilter(txt) {
-      this.filterBy.txt = txt;
-      this.filter();
+    txtFilter(title) {
+      this.filterBy.title = title;
+      this.filter(this.filterBy);
     },
     filter(filterBy) {
       this.$store.commit({ type: "setFilter", filterBy: { ...filterBy } });
