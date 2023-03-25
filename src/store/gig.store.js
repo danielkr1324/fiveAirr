@@ -55,10 +55,11 @@ export const gigStore = {
       const regex = new RegExp(filterBy.title, 'i')
       filteredGigs = filteredGigs.filter(gig => regex.test(gig.title))
 
-      if (filterBy.category)
-        filteredGigs = filteredGigs.filter(
-          gig => gig.category === filterBy.category
-        )
+      if (filterBy.category) console.log(filterBy.category)
+
+      filteredGigs = filteredGigs.filter(
+        gig => gig.category === filterBy.category
+      )
 
       if (filterBy.subCategory)
         filteredGigs = filteredGigs.filter(
@@ -149,7 +150,6 @@ export const gigStore = {
     async loadGigs(context, { filterBy }) {
       try {
         const gigs = await gigService.query()
-        console.log(gigs)
 
         context.commit({ type: 'setGigs', gigs })
       } catch (err) {
