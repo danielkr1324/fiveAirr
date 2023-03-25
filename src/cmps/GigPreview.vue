@@ -1,9 +1,13 @@
 <template>
   <li class="gig-preview">
+   
     <div class="preview-preview-img">
-      <img :src="gig.imgUrl" />
+      <vueper-slides ref="vueperslides1" :touchable="false" :autoplay="false" :bullets="false"
+            :slide-ratio="(48 / 67)">
+            <vueper-slide v-for="(image) in gig.images" :key="image" :image="image" style="cursor: pointer">
+            </vueper-slide>
+        </vueper-slides>
     </div>
-
     <UserPreview :gig="gig" :type="'listUserPreview'" />
 
     <div class="gig-preview-title">
@@ -24,6 +28,8 @@
 </template>
 
 <script>
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
 import UserPreview from "./UserPreview.vue";
 
 export default {
@@ -46,7 +52,9 @@ export default {
 
     },
     components: {
-        UserPreview
+        UserPreview,
+        VueperSlides,
+        VueperSlide,
     },
 }
 </script>
