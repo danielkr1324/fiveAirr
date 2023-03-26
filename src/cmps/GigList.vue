@@ -1,5 +1,5 @@
 <template>
-  <section class="container home">
+  <section class="main-container full home">
 
     <ul v-if="gigs" class="gig-list">
       <GigPreview v-for="gig in gigs" :gig="gig" :key="gig._id" />

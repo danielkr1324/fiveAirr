@@ -6,6 +6,7 @@
 
     .inner-filter {
         display: flex;
+        flex-wrap: wrap;
         padding-block-end: 16px;
         background-color: #fff;
         position: sticky;

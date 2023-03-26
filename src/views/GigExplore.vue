@@ -1,9 +1,10 @@
 <template>
-    <section class="gig-explore" >
+    <section class="gig-explore main-container full" >
       <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
       <h1 v-else-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
       <h1 v-else-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
-        <div class="inner-filter" :class="{ shadow: isShadow }">
+        <main class="main-container full" :class="{ shadow: isShadow }">
+          <section class="inner-filter main-container full">
             <div class="range-filter ">
                 <button class="btn drop-filter"
                    @click.stop="toggleBudget">
@@ -68,14 +69,15 @@
                 </div>
               </div> 
             </div>
-     
-        </div>
+          </section>
+
         
         <div class="inner-sort">
           <p>{{gigs.length}} services available</p>
         </div>
-        
+
         <GigList :gigs="gigs"/>
+        </main>
     </section>
 </template>
 
@@ -83,7 +85,7 @@
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { gigService } from "../services/gig.service.local"
 import { getActionRemoveGig, getActionUpdateGig } from "../store/gig.store"
-import GigList from '../views/GigList.vue'
+import GigList from '../cmps/GigList.vue'
 
 export default {
 name: 'GigExplore',
