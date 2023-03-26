@@ -24,7 +24,7 @@
       </form>
 
       <section class="header-links flex align-center space-between">
-        <RouterLink @click="resetCategoryFilter" to="/explore">Explore</RouterLink>
+        <RouterLink @click="resetFilter" to="/explore">Explore</RouterLink>
         <RouterLink to="/explore">Become a Seller</RouterLink>
         <RouterLink to="/explore">Sign in</RouterLink>
         <RouterLink class="join" to="/login">Join</RouterLink>
@@ -100,9 +100,9 @@ export default {
       this.isScroll = false;
       this.isFarScroll = false;
     },
-    resetCategoryFilter() {
+    resetFilter() {
       this.filterBy.category = "";
-      this.filter();
+      this.filter(this.filterBy);
     },
     txtFilter(title) {
       this.filterBy.title = title;
