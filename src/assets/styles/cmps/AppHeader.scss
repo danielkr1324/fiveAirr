@@ -10,7 +10,18 @@ header {
         padding: 5px 0;
         height: 80px;
 
+        :not(:first-child) {
+            align-items: center;
+        }
+
+
+
         a {
+            &:first-child {
+                padding: 0;
+                margin-left: 0;
+            }
+
             .header-links {
                 color: #74767e;
             }
@@ -20,7 +31,7 @@ header {
 
             &.join {
                 font-size: 14px;
-                padding: 7px 20px;
+                padding: 10px 16px;
                 color: #1dbf73;
                 border: 1px solid #1dbf73;
                 border-radius: 4px;
@@ -97,8 +108,10 @@ header {
         input {
             padding: 0 5px;
             font-size: 1rem;
-            width: 300px;
+            width: 70%;
+            height: 42px,;
             border-radius: 4px;
+            border-left: none;
             border: 1px solid #c5c6c9;
             ;
 
@@ -114,6 +127,7 @@ header {
         }
 
         button {
+            margin-left: -3px;
             height: 42px;
             width: 50px;
             border-radius: 0 5% 5% 0;
@@ -128,7 +142,7 @@ header {
         background-color: white;
 
         ul {
-            gap: 20px;
+            gap: 2%;
 
             li {
                 margin-top: 14px;

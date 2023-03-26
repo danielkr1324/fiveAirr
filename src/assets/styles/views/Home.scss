@@ -13,6 +13,7 @@
 
         h1 {
             font-size: 3rem;
+            line-height: 3.5rem;
             color: white;
             text-align: left;
 
@@ -25,7 +26,7 @@
         }
 
         .hero-search-input {
-            margin: 24px 0;
+            margin: 14px 0;
 
         }
 
@@ -55,7 +56,7 @@
             font-size: 1rem;
             font-family: Macan-Regular;
             font-weight: 600;
-            width: 100px;
+            width: 110px;
             border-radius: 0 4px 4px 0;
             background-color: #1dbf73;
             border: 1px solid #1dbf73;
@@ -135,6 +136,17 @@
             text-align: left;
             font-family: Macan;
         }
+
+
+
+        .vueperslides--touchable .vueperslides__track {
+            cursor: ew-resize;
+            cursor: default;
+        }
+
+        // .vueperslides__parallax-wrapper>div>div>div.vueperslide.vueperslide--active.vueperslide--visible {
+        //     width: 220px;
+        // }
 
         .vueperslides__arrow {
             cursor: pointer;
