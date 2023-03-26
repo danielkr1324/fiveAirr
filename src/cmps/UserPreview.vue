@@ -25,7 +25,10 @@
                     <img :src="gig.owner.imgUrl" alt="seller-img" />
                 </div>
                 <section class="seller-details">
-                    <p>{{ gig.owner.fullname }}</p>
+                    <div class="flex">
+                        <p>{{ gig.owner.fullname }}</p>
+                        <span class="icon">Online</span>
+                    </div>
                     <p>Level {{ gig.owner.rate }} Seller</p>
                     <div class="flex">
                         <div class="flex align-center" v-for="star in gig.owner.rate">
