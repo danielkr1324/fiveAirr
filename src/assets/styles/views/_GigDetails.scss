@@ -4,7 +4,7 @@
 
     &.main-grid {
         display: grid;
-        grid-template-columns: minmax(380px, 760px) minmax(40px, 70px) minmax(223px, 450px);
+        grid-template-columns: minmax(450px, 830px) minmax(40px, 70px) minmax(230px, 450px);
 
         margin: auto;
         min-width: 90%;
@@ -16,9 +16,7 @@
         top: 0px;
         grid-column: 1/-1;
         z-index: 2;
-
         margin-top: 2.5rem;
-        padding: 1rem 0;
 
         background-color: $clr6;
         font-family: Macan;
@@ -29,13 +27,22 @@
             color: $clr10;
             list-style-type: none;
             margin-right: 1rem;
+            padding: 1rem 0;
             text-align: left;
+            cursor: pointer;
+        }
+
+        .active {
+            box-shadow: 0px -4px 0px 0px $clr1 inset;
+            color: $clr3;
         }
 
         :hover {
+            transition: 300ms;
             color: $clr3;
             cursor: pointer;
         }
+
     }
 
     .main {
@@ -48,13 +55,57 @@
         .details-carousel {
             margin: auto;
             margin-top: 1rem;
-            width: 90%;
+        }
+    }
+
+    .vueperslides__arrow {
+        position: absolute;
+        font-size: inherit;
+        color: inherit;
+        text-align: center;
+        transform: translateY(-50%);
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        outline: none;
+        z-index: 2;
+        line-height: 1;
+        background-color: $clr6;
+        opacity: 1;
+        border-radius: 50%;
+        color: $clr6;
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+
+        svg {
+            color: $clr3;
+            height: 48px;
+            width: 48px;
+            stroke-width: 3px;
+        }
+
+        &.vueperslides__arrow--prev {
+            transform: translate(-70%, -50%);
+        }
+
+        &.vueperslides__arrow--next {
+            transform: translate(70%, -50%);
+        }
+
+        @media screen and (max-width: 700px) {
+            &.vueperslides__arrow--prev {
+                transform: translate(-7%, -50%);
+            }
+
+            &.vueperslides__arrow--next {
+                transform: translate(7%, -50%);
+            }
         }
     }
 
     .vueperslide[href] {
         border-radius: 2px;
-        margin-block: 0.5rem;
     }
 
     .vueperslides__bullets {
@@ -71,6 +122,10 @@
         border: 1px solid rgba(200, 193, 193, 0.688);
     }
 
+    .vueperslide[href] {
+        border-radius: 2px;
+        margin-block: 0.5rem;
+    }
 
     .title {
         margin-top: 2rem;
@@ -83,7 +138,7 @@
     }
 
     .about {
-        margin-top: 4rem;
+        margin-top: 2rem;
         font-size: 1.25rem;
         padding: 1rem 0;
         color: $clr9;
@@ -164,15 +219,15 @@
 
         .order {
             justify-content: space-between;
-            padding: 1rem;
-            margin: 1rem;
+            padding: 0.75rem;
+            margin: 1.5rem 1rem;
             color: $clr9;
         }
 
         .description {
             min-height: 20%;
             margin: 1rem;
-            padding: 1rem;
+            padding: 0.75rem;
 
             font-family: Macan-Light;
             font-size: 0.9rem;
@@ -181,7 +236,7 @@
 
         .delivery {
             margin-inline: 1rem;
-            padding-inline: 1rem;
+            padding-inline: 0.75rem;
             font-size: 0.9rem;
             line-height: 1.5rem;
         }
@@ -189,7 +244,7 @@
         .bullets {
             list-style-type: none;
             margin: 1rem;
-            padding: 1rem;
+            padding: 0.75rem;
             font-size: 0.875rem;
             line-height: 1.5rem;
             font-family: Macan-Light;
@@ -216,7 +271,7 @@
             margin-bottom: 1.5rem;
             padding: 0.75rem;
 
-            width: 86%;
+            width: 88%;
             border: none;
             border-radius: 0.25rem;
 
@@ -255,7 +310,7 @@
         padding: 0.75rem;
         border: none;
 
-        width: 86%;
+        width: 88%;
         color: $clr5;
         background-color: $clr6;
         border: 1px solid $clr5;

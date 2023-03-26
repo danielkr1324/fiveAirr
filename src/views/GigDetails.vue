@@ -4,7 +4,7 @@
         <!-- {{ gig }} -->
         <nav>
             <ul class="details main-nav flex">
-                <li>Overview</li>
+                <li class="active">Overview</li>
                 <li>About the seller</li>
                 <li>Review</li>
             </ul>
@@ -18,7 +18,6 @@
             <section class="details-carousel">
                 <section class="slideshow">
                     <vueper-slides ref="vueperslides1" :touchable="false" :autoplay="false" :bullets="false"
-                        :arrows-outside="true"
                         @slide="$refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })"
                         :slide-ratio="(48 / 67)">
                         <vueper-slide v-for="image in gig.images" :key="1" :image="image" style="cursor: pointer">
@@ -36,15 +35,6 @@
                     </div>
                 </section>
             </section>
-
-            <section class="head-what flex">
-                <p>What people loved about this seller</p>
-                <a>All reviews</a>
-            </section>
-
-            <div class="main-review">
-                Main review
-            </div>
 
             <section>
                 <p class="about">About This Gig</p>
