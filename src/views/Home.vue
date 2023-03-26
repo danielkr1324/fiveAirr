@@ -25,8 +25,13 @@
       <div class="popular-categories flex align-center">
         <p class="fs14">Popular:</p>
         <ul class="clean-list flex">
-          <li class="popular-category fs14" v-for="subCategory in popular" :key="subCategory">
-            <a @click="popularFilter(subCategory)">{{subCategory}}</a>
+          <li
+            class="popular-category fs14"
+            v-for="subCategory in popular"
+            :key="subCategory"
+            @click="popularFilter(subCategory)"
+          >
+            <a>{{subCategory}}</a>
           </li>
         </ul>
       </div>
@@ -108,7 +113,7 @@ export default {
         subCategory: "",
         title: ""
       },
-      popular: ["Website Design", "WordPress", "Logo Design", "Video Editing"]
+      popular: ["Website Design", "WordPress", "Logo Design", "AI Services"]
     };
   },
   mounted() {

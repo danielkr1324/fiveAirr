@@ -24,14 +24,14 @@
       </form>
 
       <section class="header-links flex align-center space-between">
-        <RouterLink to="/explore">Explore</RouterLink>
+        <RouterLink @click="resetCategoryFilter" to="/explore">Explore</RouterLink>
         <RouterLink to="/explore">Become a Seller</RouterLink>
         <RouterLink to="/explore">Sign in</RouterLink>
-        <RouterLink to="/login">Join</RouterLink>
+        <RouterLink class="join" to="/login">Join</RouterLink>
       </section>
     </nav>
     <section v-if="isFarScroll ||isNotHomepage" class="main-container full categories-list">
-      <GigFilter @filter="filter" class="flex align-center" :type="'header'" />
+      <GigFilter @filter="filter" class="flex align-center justify-center" :type="'header'" />
       <!-- <ul class="flex align-center clean-list">
         <li
           v-for="category in categories"
@@ -77,8 +77,8 @@ export default {
     window.addEventListener("scroll", this.handleScroll);
   },
   unmounted() {
-    this.filterBy = {}
-    this.filter({})
+    this.filterBy = {};
+    this.filter({});
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -100,14 +100,14 @@ export default {
       this.isScroll = false;
       this.isFarScroll = false;
     },
-    // categoryFilter(category) {
-    //   this.filterBy.category = category;
-    //   this.filter();
-    // },
+    resetCategoryFilter() {
+      this.filterBy.category = "";
+      this.filter();
+    },
     txtFilter(title) {
       this.filterBy.title = title;
       this.filter(this.filterBy);
-      this.filterBy.title = ""
+      this.filterBy.title = "";
     },
     filter(filterBy) {
       this.$store.commit({ type: "setFilter", filterBy: { ...filterBy } });
