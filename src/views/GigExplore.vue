@@ -3,7 +3,7 @@
     <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
     <h1 v-else-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
     <h1 v-else-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
-    <div class="inner-filter main-container full" :class="{ shadow: isShadow }">
+    <div class="inner-filter" :class="{ shadow: isShadow }">
       <div class="range-filter">
         <button class="btn drop-filter" @click.stop="toggleBudget">
           Budget
@@ -59,24 +59,25 @@
               <label for="seven">Up to 7 days</label>
             </div>
 
-            <div class="delivery-option">
-              <input type="radio" id="anytime" value v-model="filterBy.delivery" />
-              <label for="anytime">Anytime</label>
+                    <div class="delivery-option">
+                      <input type="radio" id="anytime" value="" v-model="filterBy.delivery" />
+                      <label for="anytime">Anytime</label>
+                    </div>
+                  </div>
+                  <div class="apply-changes">
+                    <button @click.stop="clearFilter">Clear All</button>
+                    <button @click.stop="setFilter">Apply</button>
+                </div>
+              </div> 
             </div>
-          </div>
-          <div class="apply-changes">
-            <button @click.stop="clearFilter">Clear All</button>
-            <button @click.stop="setFilter">Apply</button>
-          </div>
+     
         </div>
-      </div>
-    </div>
-
-    <div class="inner-sort">
-      <p>{{gigs.length}} services available</p>
-    </div>
-    <GigList :gigs="gigs" />
-  </section>
+        
+        <div class="inner-sort">
+          <p>{{gigs.length}} services available</p>
+        </div>
+        <GigList :gigs="gigs"/>
+    </section>
 </template>
 
 <script>

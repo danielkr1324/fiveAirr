@@ -89,7 +89,6 @@ export const gigStore = {
   },
   mutations: {
     setFilter(state, { filterBy }) {
-      state.filterBy = {}
       state.filterBy = { ...state.filterBy, ...filterBy }
     },
     setGigs(state, { gigs }) {
