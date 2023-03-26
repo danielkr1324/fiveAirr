@@ -2,7 +2,7 @@
   <div>
     <vueper-slides
       autoplay
-      duration="5000"
+      duration="7500"
       fade
       :pause-on-hover="false"
       :touchable="false"

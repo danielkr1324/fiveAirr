@@ -30,7 +30,7 @@
                         <span class="icon">Online</span>
                     </div>
                     <p>Level {{ gig.owner.rate }} Seller</p>
-                    <div class="flex">
+                    <div class="rating flex">
                         <div class="flex align-center" v-for="star in gig.owner.rate">
                             <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
                         </div>

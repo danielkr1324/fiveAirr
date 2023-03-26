@@ -13,6 +13,12 @@
     .seller-level {
         margin-left: 1rem;
     }
+
+    .text-container {
+        span {
+            margin-top: 0.25rem;
+        }
+    }
 }
 
 .user-preview-long {
@@ -41,6 +47,12 @@
             color: $clr1;
             border: 1px $clr1 solid;
             border-radius: 1rem;
+        }
+    }
+
+    .rating {
+        span {
+            margin-top: 0.1875rem;
         }
     }
 
