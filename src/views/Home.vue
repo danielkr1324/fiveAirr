@@ -60,7 +60,6 @@
 
     <div class="popular-services">
       <p>Popular professional services</p>
-      <!-- <PopularCarousel /> -->
       <GigFilter @filter="filter" :type="'carousel'" />
     </div>
     <section class></section>
@@ -100,7 +99,6 @@
 
 <script>
 import AppHero from "../cmps/AppHero.vue";
-import PopularCarousel from "../cmps/PopularCarousel.vue";
 import GigFilter from "../cmps/GigFilter.vue";
 import ExploreCategories from "@/cmps/ExploreCategories.vue";
 import { svgService } from "@/services/svg.service.js";
@@ -170,7 +168,6 @@ export default {
   },
   components: {
     AppHero,
-    PopularCarousel,
     GigFilter,
     ExploreCategories
   }
