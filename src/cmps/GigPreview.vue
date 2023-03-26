@@ -12,7 +12,7 @@
 
     <div class="gig-preview-title">
         <a @click="goToDetails(`/details/${gig._id}`)">{{ gig.title }}</a>
-      <i class="fa-solid fa-star" style="color: #ffd43b;">&nbsp;{{ fixedRating }}</i>
+      <i class="fa-solid fa-star" style="color: #ffb33e;">&nbsp;{{ fixedRating }}</i>
     </div>
 
     <footer class="gig-footer">

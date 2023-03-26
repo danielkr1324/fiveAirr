@@ -1,6 +1,5 @@
 <template>
-  <section class="main-container full home">
-
+  <section class="container home">
     <ul v-if="gigs" class="gig-list">
       <GigPreview v-for="gig in gigs" :gig="gig" :key="gig._id" />
     </ul>
@@ -8,7 +7,6 @@
 </template>
 
 <script>
-
 
 import GigPreview from "../cmps/GigPreview.vue"
 
