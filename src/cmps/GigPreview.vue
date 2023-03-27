@@ -2,7 +2,7 @@
   <li class="gig-preview">
    
     <div  class="preview-preview-img">
-      <vueper-slides   transition-speed="250"  :touchable="false" :autoplay="false" :bullets="false"
+      <vueper-slides transition-speed="250"  :touchable="false" :autoplay="false" :bullets="true"
             :slide-ratio="(48 / 67)">
             <vueper-slide  @click="goToDetails(`/details/${gig._id}`)" v-for="(image) in gig.images" :key="image" :image="image" style="cursor: pointer">
             </vueper-slide>
@@ -12,7 +12,11 @@
 
     <div class="gig-preview-title">
         <a @click="goToDetails(`/details/${gig._id}`)">{{ gig.title }}</a>
-      <i class="fa-solid fa-star" style="color: #ffb33e;">&nbsp;{{ fixedRating }}</i>
+      <div class="raiting">
+        <i class="fa-solid fa-star" style="color: #ffbe5b;"></i>
+        <span style="color: #ffbe5b;">{{ fixedRating }}</span>
+        <span class="rate-num">({{ numOfRates}})</span>
+      </div>
     </div>
 
     <footer class="gig-footer">
@@ -26,6 +30,8 @@
 </template>
 
 <script>
+
+import { utilService } from '../services/util.service.js' 
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 import UserPreview from "./UserPreview.vue";
@@ -44,6 +50,9 @@ export default {
         },
     },
     computed: {
+        numOfRates() {
+          return utilService.getRandomIntInclusive(150, 500)
+        },
         fixedRating() {
             return this.gig.owner.rate.toFixed(1)
         }

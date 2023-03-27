@@ -11,7 +11,8 @@
         }
     }
 
-    @media screen and (min-width: 900px) {
+
+    @include for-narrow-layout {
         grid-template-columns:
             2rem 1fr 2rem;
     }

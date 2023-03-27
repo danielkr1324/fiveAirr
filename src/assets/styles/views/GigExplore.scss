@@ -1,21 +1,24 @@
 .gig-explore {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    // flex-direction: column;
     margin-top: 75px;
     
-
+     .inner-filter-container {
+      position: sticky;
+      top: 0;
+      z-index: 8;
+      transition: all 0.3s ease;
+      &.shadow {
+          box-shadow: 0 9px 20px -13px rgb(116 118 126 / 85%);
+        }
+     }
     .inner-filter {
+        
         display: flex;
         flex-wrap: wrap;
         padding-block-end: 16px;
         background-color: #fff;
-        position: sticky;
-        top: 0;
-        z-index: 8;
-        transition: all 0.3s ease;
-        &.shadow {
-            box-shadow: 0 9px 20px -13px rgb(116 118 126 / 85%);
-          }
+       
     }
 
     .drop-filter {
@@ -35,6 +38,7 @@
     }
 
     .inner-sort {
+      
         font-size: rem(14px);
         display: flex;
         flex-direction: row;
