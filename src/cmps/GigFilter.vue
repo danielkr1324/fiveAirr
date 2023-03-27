@@ -1,27 +1,25 @@
 <template>
   <div class="filters">
-    <section v-if="(type === 'header')">
-      <ul class="flex align-center clean-list">
-        <li
-          v-for="category in categories"
-          :key="category"
-          @click="categoryFilter(`${category.name}`)"
-        >{{ category.name }}</li>
-      </ul>
-    </section>
+    <ul v-if="(type === 'header')" class="filter-header flex space-between align-center clean-list">
+      <li
+        v-for="category in categories"
+        :key="category"
+        @click="categoryFilter(`${category.name}`)"
+      >{{ category.name }}</li>
+    </ul>
 
     <section v-if="(type === 'carousel')">
       <vueper-slides
         class="no-shadow"
-        style="cursor: default"
         :bullets="false"
         :visible-slides="5"
+        :fixedHeight="'345px'"
         slide-multiple
         :gap="3"
         :slide-ratio="1 / 4"
         :dragging-distance="200"
-        :breakpoints="{1240:{visibleSlides: 4, slideRatio:2 / 5 , fixedHeight: '345px'} ,
-    1060: { visibleSlides: 3, slideRatio:2 / 5 ,fixedHeight: '345px'},
+        :breakpoints="{1240:{visibleSlides: 4, slideRatio:2 / 5 , fixedHeight: '340px'} ,
+    1060: { visibleSlides: 3, slideRatio:2 / 5 ,fixedHeight: '340px'},
     800: { visibleSlides: 2 },slideRatio:1, }"
       >
         <vueper-slide

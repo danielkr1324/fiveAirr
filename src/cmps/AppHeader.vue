@@ -3,7 +3,7 @@
     class="main-container full"
     :class="{ 'navbar-scroll': isScroll, 'home-navbar': isHomepage, 'other-navbar': isNotHomepage }"
   >
-    <nav class="flex align-center space-between">
+    <nav class="flex space-between">
       <RouterLink to="/" @click="goHome">
         <h1 class="logo">fiveairr</h1>
       </RouterLink>
@@ -30,18 +30,14 @@
         <RouterLink class="join" to="/login">Join</RouterLink>
       </section>
     </nav>
-    <section v-if="isFarScroll ||isNotHomepage" class="main-container full categories-list">
-      <GigFilter @filter="filter" class="flex align-center justify-center" :type="'header'" />
-      <!-- <ul class="flex align-center clean-list">
-        <li
-          v-for="category in categories"
-          :key="category"
-          @click="categoryFilter(`${category.name}`)"
-        >
-          <routerLink to="/explore">{{ category.name }}</routerLink>
-        </li>
-      </ul>-->
-    </section>
+    <!-- <section v-if="isFarScroll ||isNotHomepage" class="main-container full categories-list"> -->
+    <GigFilter
+      v-if="isFarScroll ||isNotHomepage"
+      @filter="filter"
+      class="main-container full categories-list"
+      :type="'header'"
+    />
+    <!-- </section> -->
     <!-- <section class="loggedin-user" v-if="loggedInUser">
       <RouterLink :to="`/user/${loggedInUser._id}`">{{ loggedInUser.fullname }}</RouterLink>
       <img :src="loggedInUser.imgUrl" />
