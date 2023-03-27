@@ -36,10 +36,8 @@
 
     <section v-if="(type === 'svgs')" class="category-svgs">
       <span v-for="category in categories" :key="category">
-        <div>
-          <!-- <div @click="categoryFilter(`${category.name}`)"> -->
+        <div @click="categoryFilter(`${category.name}`)">
           <span v-html="getSvg(category.svg)"></span>
-          <!-- <img :src="getSvg(category.svg)" alt /> -->
           <h4 class="regular">{{ category.name }}</h4>
         </div>
       </span>

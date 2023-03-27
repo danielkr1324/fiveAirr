@@ -1,10 +1,12 @@
 .gig-preview {
 
-  
+  .vueperslides__bullet {
+    margin: 4px;
+  }
   .vueperslides__bullet .default {
-    width: 5px;
-    height: 5px;
-    border-radius: 5px;
+    width: 5.5px;
+    height: 5.5px;
+    border-radius: 5.5px;
     border: 1px solid currentColor;
     background-color: #fff;
     box-shadow: 0 0 1px #00000080, 0 0 3px #0000004d;
@@ -25,6 +27,7 @@
 
     .vueperslides__arrow {
       width: 25px;
+      padding: 0.2em 0.1em;
       transition: 0.2s;
       & svg {
         width: 1.6em;
@@ -32,9 +35,9 @@
         vertical-align: middle;
         stroke: currentColor;
         fill: none;
-        padding: 0.3em 0.5em;
+        padding: 0.3em 0;
         stroke-width: 2;
-        color: red;
+        color: transparent;
       }
     }
     .vueperslides__arrow--prev {
@@ -49,7 +52,7 @@
     }
     @media screen and (max-width: 800px) {
           .vueperslides__arrow {
-              margin: 0 9px;
+              margin: 0 -9px;
               background-color: #fff;
               opacity: 1;
               border: 1px solid rgba(126, 125, 125, 0.6);
@@ -60,7 +63,7 @@
             }
       }
     &:hover .vueperslides__arrow {
-      margin: 0 -10px;
+      margin: 0 -9px;
       background-color: #fff;
       opacity: 1;
       border: 1px solid rgba(126, 125, 125, 0.6);

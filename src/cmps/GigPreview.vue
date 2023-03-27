@@ -2,7 +2,7 @@
   <li class="gig-preview">
    
     <div  class="preview-preview-img">
-      <vueper-slides transition-speed="250"  :touchable="false" :autoplay="false" :bullets="true"
+      <vueper-slides transition-speed="170"   :touchable="false" :autoplay="false" :bullets="true"
             :slide-ratio="(48 / 67)">
             <vueper-slide  @click="goToDetails(`/details/${gig._id}`)" v-for="(image) in gig.images" :key="image" :image="image" style="cursor: pointer">
             </vueper-slide>

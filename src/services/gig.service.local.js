@@ -19,8 +19,6 @@ _createGigs()
 window.cs = gigService
 
 async function query(filter = {}) {
-  console.log(filter)
-
   return await storageService.query(STORAGE_KEY)
 }
 
