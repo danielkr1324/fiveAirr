@@ -15,6 +15,7 @@
                     <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
                 </div>
                 <span style="color: #ffb33e">&nbsp;{{ gig.owner.rate }}</span>
+                <div class="reviews"> ({{ gig.reviews.length }})</div>
             </div>
         </section>
 
@@ -35,8 +36,9 @@
                             <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
                         </div>
                         <span style="color: #ffb33e">&nbsp;{{ gig.owner.rate }}</span>
+                        <div class="reviews"> ({{ gig.reviews.length }})</div>
                     </div>
-                    <button class="contact-btn">Contact Me</button>
+                    <!-- <button class="contact-btn">Contact Me</button> -->
                 </section>
             </div>
             <section class="about-seller">

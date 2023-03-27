@@ -1,5 +1,5 @@
 <template>
-    <section v-if="gig" class="details main-grid">
+    <section v-if="gig" class="details main-grid" :class="{ shadow: isLogin }">
 
         <!-- {{ gig }} -->
         <nav>
@@ -90,7 +90,7 @@
                         <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Brand book design</span></i></li>
                     </ul>
 
-                    <button class="order-btn" @click="isLogin = !isLogin">
+                    <button class="order-btn" @click="onLogin">
                         <span class="text">Continue</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </button>
@@ -98,7 +98,7 @@
 
             </aside>
 
-            <button class="contact-btn">Contact Me</button>
+            <!-- <button class="contact-btn">Contact Me</button> -->
         </section>
 
         <Login v-show="isLogin" />
@@ -136,6 +136,10 @@ export default {
         },
         goBack() {
             this.$router.push('/explore')
+        },
+        onLogin() {
+            this.isLogin = !this.isLogin
+            body.classlist.add("dark")
         }
     },
     computed: {
