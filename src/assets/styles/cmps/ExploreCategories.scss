@@ -3,14 +3,17 @@
   padding-inline-start: 20px;
   padding-inline-end: 20px;
   grid-template-columns: repeat(5, 1fr);
-  gap: 55px;
+  column-gap: 3em;
+  row-gap: 2em;
 
   h4 {
-    font-family: Macan-light;
-    color: #404145;
+    font-family: Macan;
+    // font-weight: 400;
+    color: #222325;
   }
 
   span {
+    padding-top: 1em;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -49,7 +52,6 @@
 
       h4 {
         text-align: center;
-
       }
     }
 
