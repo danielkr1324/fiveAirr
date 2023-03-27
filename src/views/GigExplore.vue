@@ -1,9 +1,10 @@
 <template>
-    <section class="gig-explore">
+    <section class="gig-explore main-container full">
       <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
       <h1 v-else-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
       <h1 v-else-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
-        <div class="inner-filter" :class="{ shadow: isShadow }">
+        <div class=" inner-filter-container main-container full" :class="{ shadow: isShadow }">
+          <div class="inner-filter">
             <div class="range-filter ">
                 <button class="btn drop-filter"
                    @click.stop="toggleBudget">
@@ -69,6 +70,7 @@
               </div> 
             </div>
      
+        </div>
         </div>
         
         <div class="inner-sort">

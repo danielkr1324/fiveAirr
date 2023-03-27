@@ -1,4 +1,20 @@
 .gig-preview {
+
+  
+  .vueperslides__bullet .default {
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    border: 1px solid currentColor;
+    background-color: #fff;
+    box-shadow: 0 0 1px #00000080, 0 0 3px #0000004d;
+    transition: .2s ease-in-out;
+}
+  .vueperslides__bullet--active .default {
+    width: 9px;
+    height: 9px;
+    border-radius: 9px;
+  }
   .vueperslides__parallax-wrapper {
     position: relative;
     overflow: hidden;
@@ -9,7 +25,6 @@
 
     .vueperslides__arrow {
       width: 25px;
-      padding: 0.2em 0.1em;
       transition: 0.2s;
       & svg {
         width: 1.6em;
@@ -17,9 +32,9 @@
         vertical-align: middle;
         stroke: currentColor;
         fill: none;
-        padding: 0.3em 0;
+        padding: 0.3em 0.5em;
         stroke-width: 2;
-        color: transparent;
+        color: red;
       }
     }
     .vueperslides__arrow--prev {
@@ -34,7 +49,7 @@
     }
     @media screen and (max-width: 800px) {
           .vueperslides__arrow {
-              margin: 0 -9px;
+              margin: 0 9px;
               background-color: #fff;
               opacity: 1;
               border: 1px solid rgba(126, 125, 125, 0.6);
@@ -45,7 +60,7 @@
             }
       }
     &:hover .vueperslides__arrow {
-      margin: 0 -9px;
+      margin: 0 -10px;
       background-color: #fff;
       opacity: 1;
       border: 1px solid rgba(126, 125, 125, 0.6);
@@ -86,6 +101,7 @@
     }
     &:hover {
       a{
+        cursor: pointer;
         color: $clr1;
       }
     }
@@ -128,8 +144,9 @@
         margin: 0;
         font-size: rem(14px);
         color: $clr4;
-        cursor: pointer;
-        &:hover {
+
+        &.bold:hover {
+            cursor: pointer;
             text-decoration: underline;
         }
       }
@@ -142,6 +159,7 @@
         font-family: Macan-Regular;
         color: #8c8c8c;
       }
+      
     }
   
     .gig-preview-title {
@@ -152,10 +170,24 @@
       flex-direction: column;
       border-bottom: em(1px) solid #e4e5e7; 
       
+      .raiting {
+        display: flex;
       i {
+        width: 12px;
         display: block;
         margin: em(12px) em(12px) em(12px) 0;
-        font-size: 12px;
+        font-size: 13px;
+      }
+      span {
+        font-family: Macan;
+        align-self: center;
+        font-size: 14px;
+      }
+
+      .rate-num {
+        font-family: Macan-regular;
+        margin: 0 0 0 2px;
+      }
     }
     
     
