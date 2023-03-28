@@ -1,0 +1,21 @@
+.profile {
+    margin-top: 4rem;
+}
+
+.main-grid {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 400px minmax(2rem, 4rem) minmax(500px, 900px);
+}
+
+.seller-details {
+    grid-column: 1/2;
+}
+
+.orders {
+    grid-column: 3/4;
+}
+
+.statistics {
+    grid-column: 1/2;
+}

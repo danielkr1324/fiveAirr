@@ -11,7 +11,7 @@
             </nav>
         </div>
 
-        <section v-if="gig" class="details partA main-grid" :class="{ shadow: isLogin }">
+        <section v-if="gig" class="details main-grid" :class="{ shadow: isLogin }">
 
             <main class="main" id="overview">
                 <h1 class="title"> {{ gig.title }}</h1>

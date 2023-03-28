@@ -53,18 +53,19 @@
 
 }
 
-.main-grid {
-    display: grid;
-    grid-template-columns: minmax(485px, 712px) minmax(2rem, 5rem) minmax(290px, 413px);
-
-    margin: auto;
-    max-width: 1300px;
-    position: relative;
-}
 
 .details {
     font-family: Macan;
     color: $clr3;
+
+    &.main-grid {
+        display: grid;
+        grid-template-columns: minmax(485px, 712px) minmax(2rem, 5rem) minmax(290px, 413px);
+
+        margin: auto;
+        max-width: 1300px;
+        position: relative;
+    }
 
     .main {
         grid-column: 1/2;
@@ -358,6 +359,7 @@
     margin-top: 2rem;
 
     height: fit-content;
+    max-width: 860px;
 
     aside {
         padding: 1.5rem;

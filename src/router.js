@@ -2,9 +2,10 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import Home from './views/Home.vue'
 import GigExplore from './views/GigExplore.vue'
-import LoginSignup from './views/LoginSignup.vue'
-import UserDetails from './views/UserDetails.vue'
 import GigDetails from './views/GigDetails.vue'
+import LoginSignup from './views/LoginSignup.vue'
+import SellerProfile from './views/SellerProfile.vue'
+import UserDetails from './views/UserDetails.vue'
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: '/user/:id',
     name: 'UserDetails',
     component: UserDetails,
+  },
+  {
+    path: '/seller/profile',
+    name: 'SellerProfile',
+    component: SellerProfile,
   },
 ]
 
