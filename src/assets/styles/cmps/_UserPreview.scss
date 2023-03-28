@@ -8,15 +8,27 @@
 
     .seller-username {
         margin-left: 1rem;
+
+        font-size: 0.875rem;
+        color: $clr9;
     }
 
     .seller-level {
         margin-left: 1rem;
+
+        font-family: Macan-Light;
+        font-size: 0.875rem;
+        color: $clr3;
+    }
+
+    .stars {
+        font-size: 0.875rem;
     }
 
     .text-container {
         span {
             margin-top: 0.25rem;
+            font-size: 0.875rem;
         }
     }
 
@@ -25,7 +37,6 @@
         margin-top: 0.25rem;
 
         font-family: Macan-Light;
-        ;
         font-size: 0.875rem;
     }
 }
@@ -96,17 +107,24 @@
 
         width: 100%;
         margin-top: 1.5rem;
-        padding: 1.5rem;
+        padding-inline: 1.5rem;
         font-size: 1rem;
         border: 1px solid #dadbdd;
 
         span {
             display: block;
-            margin-block: 0.75rem;
+            // margin-block: 0.5rem;
         }
 
         .title {
+            font-size: 1rem;
             font-family: Macan-Light;
+            color: $clr5;
+        }
+
+        .content {
+            font-family: Macan-semi-bold;
+            color: $clr3;
         }
 
         .from .response-time .languages {
@@ -119,7 +137,7 @@
 
         .text {
             grid-column: 1/3;
-            padding-top: 0.75rem;
+            padding-block: 1rem;
 
             border-top: 1px solid #dadbdd;
         }

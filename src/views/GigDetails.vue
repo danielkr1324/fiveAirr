@@ -1,14 +1,14 @@
 <template>
+    <!-- <section class="main-container full"> -->
+    <nav class="details-nav  main-container full">
+        <ul class="categories">
+            <li class="active">Overview</li>
+            <li>About the seller</li>
+            <li>Review</li>
+        </ul>
+    </nav>
     <section v-if="gig" class="details main-grid" :class="{ shadow: isLogin }">
 
-        <!-- {{ gig }} -->
-        <nav>
-            <ul class="details main-nav flex">
-                <li class="active">Overview</li>
-                <li>About the seller</li>
-                <li>Review</li>
-            </ul>
-        </nav>
 
         <main class="main">
             <h1 class="title"> {{ gig.title }}</h1>
@@ -35,6 +35,33 @@
                     </div>
                 </section>
             </section>
+
+            <section class="head-what flex">
+                <p>What people loved about this seller</p>
+                <!-- <a>All reviews</a> -->
+            </section>
+
+            <div class="main-review" v-if="gig.reviews">
+                <div class="img-small flex align-center justify-center">
+                    {{ gig.reviews[0].name[0] }}
+                </div>
+                <div class="main flex align-center">
+                    <span class="username"> {{ gig.reviews[0].name }}</span>
+                    <img class="flag" :src="gig.reviews[0].flag">
+                    <span class="country"> {{ gig.reviews[0].country }}</span>
+                    <span class="space">|</span>
+                    <span class="stars" v-for="n in 5">
+                        <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
+                    </span>
+                    <span class="rating">5</span>
+                </div>
+                <div class="text">
+                    {{ gig.reviews[0].review }}
+                </div>
+                <div class="reviewedAt">
+                    {{ gig.reviews[0].reviewedAt }}
+                </div>
+            </div>
 
             <section>
                 <p class="about">About This Gig</p>
@@ -68,7 +95,7 @@
 
                     <head class="order flex">
                         <span>Order Details</span>
-                        <span> US${{ gig.price }} </span>
+                        <span class="price"> US${{ gig.price }} </span>
                     </head>
 
                     <p class="description">
@@ -99,9 +126,10 @@
             </aside>
 
             <!-- <button class="contact-btn">Contact Me</button> -->
-        </section>
+            <!-- </section> -->
 
-        <Login v-show="isLogin" />
+            <Login v-show="isLogin" />
+        </section>
     </section>
 </template>
 

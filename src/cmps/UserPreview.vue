@@ -11,11 +11,11 @@
                 <p class="seller-username"> {{ gig.owner.fullname }}</p>
                 <!-- </router-link> -->
                 <p class="seller-level"> Level {{ gig.owner.rate }} Seller &nbsp;</p>
-                <div class="flex align-center" v-for="star in gig.owner.rate">
+                <div class="stars flex align-center" v-for="star in gig.owner.rate">
                     <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
                 </div>
                 <span style="color: #ffb33e">&nbsp;{{ gig.owner.rate }}</span>
-                <div class="reviews"> ({{ gig.reviews.length }})</div>
+                <div class="reviews"> ({{ numOfRates }})</div>
             </div>
         </section>
 
@@ -36,7 +36,7 @@
                             <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
                         </div>
                         <span style="color: #ffb33e">&nbsp;{{ gig.owner.rate }}</span>
-                        <div class="reviews"> ({{ gig.reviews.length }})</div>
+                        <div class="reviews"> ({{ numOfRates }}) </div>
                     </div>
                     <!-- <button class="contact-btn">Contact Me</button> -->
                 </section>
@@ -81,6 +81,9 @@
 </template>
 
 <script>
+
+import { utilService } from '../services/util.service.js'
+
 export default {
     name: 'UserPreview',
     props: {
@@ -89,8 +92,8 @@ export default {
     },
     computed:
     {
-        sellerRate() { //demo data
-            return 5
+        numOfRates() {
+            return utilService.getRandomIntInclusive(150, 500)
         },
         level() {
             const level = this.gig.owner.level ? `Level ${this.gig.owner.level}` : 'New'
