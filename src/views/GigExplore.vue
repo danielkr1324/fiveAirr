@@ -80,9 +80,9 @@
         <div class="inner-sort">
           <p>{{gigs.length}} services available</p>
           <div class="sort-input light">
-          <span> Sort by </span>
+          <span class="sort-title"> Sort by </span>
           <el-select @change="setFilter()" id="sortby-select" class="m-2 sortby-select"
-            v-model="filterBy.sortBy" value="Relevance" placeholder="Relevance" size="large">
+            v-model="filterBy.sortBy" value="Best Selling" placeholder="Best Selling" size="large">
             <el-option value="rating" label="Recommended">Recommended</el-option>
             <el-option value="level" label="Best Selling">Best Selling</el-option>
           </el-select>
@@ -111,7 +111,7 @@ data() {
     }
 },
 created() {  
-    this.$store.dispatch({ type: "loadGigs" });
+
     const filterBy = this.$store.getters.filterBy    
     this.filterBy = {
       sortBy: filterBy.sortBy ,
@@ -124,7 +124,7 @@ computed: {
   loggedInUser() {
     return this.$store.getters.loggedinUser;
   },
-  gigs() {
+  gigs() { 
     return this.$store.getters.gigs;
   }
 },
@@ -133,7 +133,6 @@ computed: {
     window.addEventListener("scroll", this.onScroll)
 },
  beforeDestroy() {
-    this.clearFilter()
   },
 methods: {
   toggleBudget() {
@@ -158,6 +157,7 @@ methods: {
   clearFilter() {
       this.filterBy = {}
       this.setFilter()
+      this.$router.push('/explore')
   },
   async addGig() {
     try {
