@@ -11,7 +11,7 @@
             </nav>
         </div>
 
-        <section v-if="gig" class="details main-grid" :class="{ shadow: isLogin }">
+        <section v-if="gig" class="details partA main-grid" :class="{ shadow: isLogin }">
 
             <main class="main" id="overview">
                 <h1 class="title"> {{ gig.title }}</h1>
@@ -38,7 +38,50 @@
                         </div>
                     </section>
                 </section>
+            </main>
 
+            <section class="order-main">
+                <aside class="aside">
+                    <section class="main">
+
+                        <head class="order flex">
+                            <span>Order Details</span>
+                            <span class="price"> US${{ gig.price }} </span>
+                        </head>
+
+                        <p class="description">
+                            I will active daily 10-14 hours, welcome new members, pin post create, delete spam messages
+                        </p>
+
+                        <p class="delivery">
+                            <i class="fa-regular fa-clock"></i>
+                            <span>&nbsp;&nbsp;{{ gig.daysToMake }}</span>
+                            Days Delivery
+                        </p>
+
+                        <ul class="bullets">
+                            <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Includes logo design</span></i>
+                            </li>
+                            <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Logo usage guidelines</span></i>
+                            </li>
+                            <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Color palette</span></i></li>
+                            <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Iconography</span></i></li>
+                            <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Do's and don'ts</span></i></li>
+                            <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Brand book design</span></i></li>
+                        </ul>
+
+                        <button class="order-btn" @click="onLogin">
+                            <span class="text">Continue</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </section>
+
+                </aside>
+
+                <button class="contact-btn">Contact Me</button>
+            </section>
+
+            <section>
                 <section class="head-what flex">
                     <p>What people loved about this seller</p>
                     <!-- <a>All reviews</a> -->
@@ -95,46 +138,6 @@
                         </div>
                     </div>
                 </section>
-
-            </main>
-
-            <section class="order-main">
-                <aside class="aside">
-                    <section class="main">
-
-                        <head class="order flex">
-                            <span>Order Details</span>
-                            <span class="price"> US${{ gig.price }} </span>
-                        </head>
-
-                        <p class="description">
-                            I will active daily 10-14 hours, welcome new members, pin post create, delete spam messages
-                        </p>
-
-                        <p class="delivery">
-                            <i class="fa-regular fa-clock"></i>
-                            <span>&nbsp;&nbsp;{{ gig.daysToMake }}</span>
-                            Days Delivery
-                        </p>
-
-                        <ul class="bullets">
-                            <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Includes logo design</span></i></li>
-                            <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Logo usage guidelines</span></i></li>
-                            <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Color palette</span></i></li>
-                            <li><i class="fa-solid fa-check green">&nbsp;&nbsp;<span>Iconography</span></i></li>
-                            <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Do's and don'ts</span></i></li>
-                            <li><i class="fa-solid fa-check">&nbsp;&nbsp;<span>Brand book design</span></i></li>
-                        </ul>
-
-                        <button class="order-btn" @click="onLogin">
-                            <span class="text">Continue</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </section>
-
-                </aside>
-
-                <!-- <button class="contact-btn">Contact Me</button> -->
             </section>
 
             <Login v-show="isLogin" />
@@ -193,16 +196,11 @@ export default {
         reviews() {
             return this.$store.getters.getReviews
         },
-        // ranUserPic() {
-        //     const ranNum = utilService.getRandomIntInclusive(1, 30)
-        //     const gender = utilService.getRandomIntInclusive(0, 1) ? male : female
-        //     return `https://xsgames.co/randomusers/assets/avatars/${gender}/${ranNum}.jpg`
-        // }
     },
     created() {
-        const ranNum = utilService.getRandomIntInclusive(1, 30)
-        const gender = utilService.getRandomIntInclusive(0, 1) ? male : female
-        const ranUserPic = `https://xsgames.co/randomusers/assets/avatars/${gender}/${ranNum}.jpg`
+        // const ranNum = utilService.getRandomIntInclusive(1, 30)
+        // const gender = utilService.getRandomIntInclusive(0, 1) ? male : female
+        // const ranUserPic = `https://xsgames.co/randomusers/assets/avatars/${gender}/${ranNum}.jpg`
     },
     async created() {
         try {
