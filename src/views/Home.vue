@@ -71,10 +71,8 @@
           <ul class="clean-list">
             <li v-for="point in getSellingText" :key="point">
               <section class="flex align-center">
-                <h3>
-                  <span v-html="getSvg('circledCheckmark')"></span>
-                  {{ point.title }}
-                </h3>
+                <span v-html="getSvg('circledCheckmark')"></span>
+                <h3>{{ point.title }}</h3>
               </section>
               <p>{{ point.text }}</p>
             </li>
