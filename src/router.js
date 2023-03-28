@@ -38,4 +38,13 @@ export const router = createRouter({
   routes,
   history: createWebHashHistory(),
   // base: process.env.BASE_URL,
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+        top: 80,
+      }
+    }
+  }
 })
