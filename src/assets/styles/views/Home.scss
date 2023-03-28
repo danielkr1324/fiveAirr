@@ -5,14 +5,14 @@
 
     .hero-search {
 
-        max-width: 650px;
+        max-width: 550px;
         z-index: 2;
         position: absolute;
         top: 150px;
         gap: 0;
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             line-height: 3.5rem;
             color: white;
             text-align: left;
@@ -62,7 +62,130 @@
             border: 1px solid #1dbf73;
             color: white
         }
+
+        @media screen and (min-width: 1160px) {
+            max-width: 650px;
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            input {
+                width: 630px;
+            }
+        }
+        @media screen and (min-width: 1160px) {
+            max-width: 650px;
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            input {
+                width: 630px;
+            }
+        }
     }
+
+
+    //WORK IN PROGRESS
+    // .hero-search {
+    //     padding: 96px 64px;
+    //     background-color: black;
+    //     max-width: 550px;
+    //     z-index: 2;
+    //     gap: 0;
+
+    //     h1 {
+    //         font-size: 2.5rem;
+    //         line-height: 3.5rem;
+    //         color: white;
+    //         text-align: left;
+
+    //         span {
+    //             font-style: italic;
+    //             font-family: Domain-Display-Medium-Italic;
+    //             font-weight: 400;
+
+    //         }
+    //     }
+
+    //     .hero-search-input {
+    //         margin: 14px 0;
+
+    //     }
+
+    //     input {
+    //         border-left: none;
+    //         font-size: 1rem;
+    //         width: 530px;
+    //         border: none;
+
+    //         &:focus {
+    //             outline-width: 0;
+    //         }
+    //     }
+
+    //     .search-bar-icon {
+    //         height: 3rem;
+    //         width: 3rem;
+    //         background-color: #fff;
+    //         border-radius: 4px 0 0 4px;
+
+    //         svg {
+    //             fill: #95979d;
+    //         }
+    //     }
+
+    //     button {
+    //         font-size: 1rem;
+    //         font-family: Macan-Regular;
+    //         font-weight: 600;
+    //         width: 110px;
+    //         border-radius: 0 4px 4px 0;
+    //         background-color: #1dbf73;
+    //         border: 1px solid #1dbf73;
+    //         color: white
+    //     }
+
+    //     @media screen and (min-width: 600px) {
+    //         max-width: 650px;
+
+    //         h1 {
+    //             font-size: 3rem;
+    //         }
+
+    //         input {
+    //             width: 630px;
+    //         }
+    //     }
+
+    //     @media screen and (min-width: 900px) {
+    //         position: absolute;
+    //         top: 150px;
+    //         max-width: 550px;
+
+    //         h1 {
+    //             font-size: 3rem;
+    //         }
+
+    //         input {
+    //             width: 530px;
+    //         }
+    //     }
+
+    //     @media screen and (min-width: 1160px) {
+    //         max-width: 650px;
+
+    //         h1 {
+    //             font-size: 3rem;
+    //         }
+
+    //         input {
+    //             width: 630px;
+    //         }
+    //     }
+    // }
 
     .popular-categories {
         color: white;
@@ -111,13 +234,18 @@
         span {
             width: fit-content;
             font-weight: 600;
+            display: none;
+
+            @media screen and (min-width: 1160px) {
+                display: inline;
+            }
         }
 
         ul li img {
             padding-inline-end: 60px;
         }
 
-        >* {
+        >*:not(:last-child) {
             padding-inline-end: 40px;
         }
 
@@ -185,20 +313,19 @@
         background-color: #f3fdf9;
 
         .selling-points {
-            padding: 96px 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            padding: 3rem 0;
+            display: flex;
+            flex-direction: column;
             text-align: start;
 
-
             .site-info {
-                padding-inline-end: 25%;
+                padding-bottom: 3rem;
                 line-height: 1.5em;
 
                 h1 {
                     padding-bottom: 0.65em;
                     line-height: 1.2em;
-                    font-size: 2em;
+                    font-size: 1.75rem;
                     color: #404145;
                 }
 
@@ -231,9 +358,37 @@
             }
 
             .point-image img {
+                height: fit-content;
                 object-fit: contain;
+                align-content: center;
             }
 
+            @media screen and (min-width: 600px) {
+                font-size: 1.125rem;
+
+                .site-info {
+                    h1 {
+                        font-size: 2rem;
+                    }
+                }
+
+                h3 {
+                    font-size: 1rem;
+                }
+            }
+
+            @media screen and (min-width: 900px) {
+                padding: 6rem 0;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+                align-items: center;
+                padding-bottom: 3rem;
+
+                .site-info {
+                    padding-inline-end: 25%;
+                }
+            }
         }
     }
 

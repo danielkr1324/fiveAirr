@@ -18,9 +18,10 @@
         :gap="3"
         :slide-ratio="1 / 4"
         :dragging-distance="200"
-        :breakpoints="{1240:{visibleSlides: 4, slideRatio:2 / 5 , fixedHeight: '340px'} ,
-    1060: { visibleSlides: 3, slideRatio:2 / 5 ,fixedHeight: '340px'},
-    800: { visibleSlides: 2 },slideRatio:1, }"
+        :breakpoints="{1240:{visibleSlides: 4, slideRatio:2 / 5 } ,
+    1060: { visibleSlides: 3, slideRatio:2 / 5 },
+    800: { visibleSlides: 2, slideRatio:1},
+    600: { visibleSlides: 1}}"
       >
         <vueper-slide
           v-for="(slide, i) in slides"

@@ -39,7 +39,7 @@
 
     <section class="trusted-by full flex align-center justify-center">
       <span>Trusted by:</span>
-      <ul class="flex clean-list">
+      <ul class="flex space-between clean-list">
         <li>
           <img src="../assets/images/trusted by/meta.12b5e5c.png" alt />
         </li>
