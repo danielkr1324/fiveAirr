@@ -36,9 +36,12 @@
         }
 
         .selected {
-            color: #222325;
             box-shadow: 0px -4px 0px 0px $clr1 inset;
             font-family: Macan-semi-bold;
+
+            a {
+                color: #222325;
+            }
         }
 
         :hover {
