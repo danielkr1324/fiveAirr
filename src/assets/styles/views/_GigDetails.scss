@@ -163,7 +163,7 @@
     .head-what {
         justify-content: space-between;
         align-items: center;
-        margin-top: 4.5rem;
+        margin-block: 1rem;
         font-family: Macan-semi-bold;
         font-size: 1.25rem;
         color: $clr9;
@@ -173,8 +173,7 @@
         display: grid;
         grid-template-columns: 5rem 1fr;
 
-        margin-top: 0.5rem;
-        padding-bottom: 0.75rem;
+        padding-bottom: 1rem;
 
         border: 1px solid #dadbdd;
 
@@ -473,6 +472,10 @@
 .contact-btn:hover {
     color: $clr6;
     background-color: $clr5;
+}
+
+dialog::backdrop {
+    background-color: rgba(255, 0, 0, 0.25);
 }
 
 @media (max-width: 900px) {
