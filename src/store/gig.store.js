@@ -48,6 +48,13 @@ export const gigStore = {
       }
       return filters
     },
+    gigsByUser({ gigs }, rootGetters) {
+      const user = rootGetters.loggedinUser
+      var filteredGigs = gigs.filter((gig) => gig.owner._id === user._id)
+
+      if (!filteredGigs.length) return []
+      return filteredGigs
+    },
     gigs({ gigs, filterBy }) {
       if (!gigs) return null
 

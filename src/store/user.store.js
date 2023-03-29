@@ -1,28 +1,39 @@
-import { userService } from '../services/user.service'
+// import { userService } from '../services/user.service'
+import { userService } from "../services/user.service.local";
 import { socketService, SOCKET_EMIT_USER_WATCH, SOCKET_EVENT_USER_UPDATED } from '../services/socket.service'
 
-// var localLoggedinUser = null
-// if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user || null)
+var loggedinUser = null
+if (sessionStorage.user) loggedinUser = JSON.parse(sessionStorage.user || null)
 
 export const userStore = {
     state: {
         loggedinUser: null,
         users: [],
+        user: null,
         watchedUser: null
     },
     getters: {
         users({ users }) { return users },
+        users({ user }) {
+            return user
+        },
         loggedinUser({ loggedinUser }) { return loggedinUser },
         watchedUser({ watchedUser }) { return watchedUser }
     },
     mutations: {
         setLoggedinUser(state, { user }) {
             // Yaron: needed this workaround as for score not reactive from birth
-            state.loggedinUser = (user)? {...user} : null
+            state.loggedinUser = (user) ? { ...user } : null
         },
         setWatchedUser(state, { user }) {
             state.watchedUser = user
-        },       
+        },
+        setUser(state, { user }) {
+            // console.log(user);
+            // console.log(state.user);
+            state.user = user
+            // console.log(state.user);
+        },
         setUsers(state, { users }) {
             state.users = users
         },
@@ -45,6 +56,7 @@ export const userStore = {
             }
         },
         async signup({ commit }, { userCred }) {
+            console.log('userCred:', userCred)
             try {
                 const user = await userService.signup(userCred)
                 commit({ type: 'setLoggedinUser', user })
@@ -73,12 +85,21 @@ export const userStore = {
                 console.log('userStore: Error in loadUsers', err)
                 throw err
             }
-        },        
+        },
+        async loadUser({ commit }, { userId }) {
+            try {
+                const user = await userService.getById(userId)
+                commit({ type: 'setUser', user })
+            } catch (err) {
+                console.log('userStore: Error in loadUser', err)
+                throw err
+            }
+        },
         async loadAndWatchUser({ commit }, { userId }) {
             try {
                 const user = await userService.getById(userId)
                 commit({ type: 'setWatchedUser', user })
-                
+
             } catch (err) {
                 console.log('userStore: Error in loadAndWatchUser', err)
                 throw err
@@ -113,9 +134,9 @@ export const userStore = {
             }
         },
         // Keep this action for compatability with a common user.service ReactJS/VueJS
-        setWatchedUser({commit}, payload) {
+        setWatchedUser({ commit }, payload) {
             commit(payload)
-        },       
+        },
 
     }
 }

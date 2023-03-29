@@ -1,5 +1,12 @@
 /* Breakpoint mixins */
 
+@mixin card ($width: 100%, $height) {
+    background-color: white;
+    width: $width;
+    height: $height;
+    border: 1px solid var(--yro5245)
+  }
+
 @mixin for-mobile-layout {
     @media (max-width: calc($mobile-breakpoint + 40px)) {
         @content;

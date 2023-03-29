@@ -5,6 +5,7 @@ import GigExplore from './views/GigExplore.vue'
 import GigDetails from './views/GigDetails.vue'
 import SellerProfile from './views/SellerProfile.vue'
 import UserDetails from './views/UserDetails.vue'
+import GigEdit from './views/GigEdit.vue'
 
 const routes = [
   {
@@ -21,6 +22,11 @@ const routes = [
     path: '/details/:gigId',
     name: 'GigDetails',
     component: GigDetails,
+  },
+  {
+    path: '/login',
+    name: 'LoginSignup',
+    component: LoginSignup,
   },
   {
     path: '/user/:id',
@@ -46,5 +52,5 @@ export const router = createRouter({
         top: 80,
       }
     }
-  }
+  },
 })

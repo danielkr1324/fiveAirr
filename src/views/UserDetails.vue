@@ -7,9 +7,7 @@
     <ul>
       <li v-for="review in user.givenReviews" :key="review._id">
         {{ review.txt }}
-        <RouterLink :to="`/user/${review.aboutUser._id}`">
-          About {{ review.aboutUser.fullname }}
-        </RouterLink>
+        <RouterLink :to="`/user/${review.aboutUser._id}`">About {{ review.aboutUser.fullname }}</RouterLink>
       </li>
     </ul>
 
@@ -22,12 +20,13 @@
 
 <script>
 // import {userService} from '../services/user.service'
+import { userService } from "@/services/user.service.local.js";
 
 export default {
   data() {
     return {
       // user: null
-    }
+    };
   },
   async created() {
     // const user = await userService.getById(id)
@@ -36,23 +35,26 @@ export default {
   watch: {
     userId: {
       handler() {
-        if(this.userId){
-            this.$store.dispatch({ type: "loadAndWatchUser", userId: this.userId })
+        if (this.userId) {
+          this.$store.dispatch({
+            type: "loadAndWatchUser",
+            userId: this.userId
+          });
         }
       },
-      immediate: true,
-    },
+      immediate: true
+    }
   },
   computed: {
     user() {
-      return this.$store.getters.watchedUser
+      return this.$store.getters.watchedUser;
     },
     userId() {
-      return this.$route.params.id
+      return this.$route.params.id;
     },
     isMe() {
-      return this.userId === this.$store.getters.loggedinUser._id
-    },
-  },
-}
+      return this.userId === this.$store.getters.loggedinUser._id;
+    }
+  }
+};
 </script>

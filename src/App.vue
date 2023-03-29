@@ -8,7 +8,8 @@
 </template>
 
 <script>
-import { userService } from "./services/user.service";
+// import { userService } from "./services/user.service";
+import { userService } from "./services/user.service.local";
 import { store } from "./store/store";
 
 import AppHeader from "./cmps/AppHeader.vue";
