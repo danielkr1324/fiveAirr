@@ -9,6 +9,7 @@ import {
 import { showSuccessMsg } from './event-bus.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
+const USER_STORAGE_KEY = 'user'
 
 export const userService = {
   login,
@@ -26,7 +27,7 @@ export const userService = {
 window.userService = userService
 
 function getUsers() {
-  return storageService.query('user')
+  return storageService.query(USER_STORAGE_KEY)
   // return httpService.get(`user`)
 }
 
@@ -38,7 +39,7 @@ function onUserUpdate(user) {
 }
 
 async function getById(userId) {
-  const user = await storageService.get('user', userId)
+  const user = await storageService.get(USER_STORAGE_KEY, userId)
   // const user = await httpService.get(`user/${userId}`)
 
   socketService.emit(SOCKET_EMIT_USER_WATCH, userId)
@@ -48,15 +49,15 @@ async function getById(userId) {
   return user
 }
 function remove(userId) {
-  return storageService.remove('user', userId)
+  return storageService.remove(USER_STORAGE_KEY, userId)
   // return httpService.delete(`user/${userId}`)
 }
 
 async function update({ _id, score }) {
-  const user = await storageService.get('user', _id)
+  const user = await storageService.get(USER_STORAGE_KEY, _id)
   // let user = getById(_id)
   user.score = score
-  await storageService.put('user', user)
+  await storageService.put(USER_STORAGE_KEY, user)
 
   // user = await httpService.put(`user/${user._id}`, user)
   // Handle case in which admin updates other user's details
@@ -65,7 +66,7 @@ async function update({ _id, score }) {
 }
 
 async function login(userCred) {
-  const users = await storageService.query('user')
+  const users = await storageService.query(USER_STORAGE_KEY)
   const user = users.find(user => user.username === userCred.username)
   // const user = await httpService.post('auth/login', userCred)
   if (user) {
@@ -74,11 +75,12 @@ async function login(userCred) {
   }
 }
 async function signup(userCred) {
-  userCred.score = 10000
+  // userCred.score = 10000
+  console.log('userCred:', userCred)
   if (!userCred.imgUrl)
     userCred.imgUrl =
       'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
-  const user = await storageService.post('user', userCred)
+  const user = await storageService.post(USER_STORAGE_KEY, userCred)
   // const user = await httpService.post('auth/signup', userCred)
   socketService.login(user._id)
   return saveLocalUser(user)
@@ -122,10 +124,10 @@ var seller =
 {
   _id: "u101",
   fullname: "Test Seller",
-  imgUrl: "/img/img1.jpg",
+  imgUrl: "",
   country: "United States",
   joinedAt: "April 2020",
-  description: "Hello, this is the Test Seller, stand up for vividstore,I am a young and enthusiastic graphic artist and realistic pencil sketch artist. I am certified as graphic designer from George Washington University, USA. I have almost 11 years experience in this field since my university life. I really love to work with Adobe Illustrator, Adobe Photoshop, and so on as a full time online freelancer. And also passionate about sketching. Thank you.",
+  description: "Hello, this is the Test Seller,Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
   username: "user",
   password: 1234,
   level: "basic/premium",
@@ -142,5 +144,6 @@ var seller =
       }
     }
   ],
-
 }
+// signup(seller)
+// login(seller)
