@@ -2,7 +2,7 @@
   <section v-if="user" class="profile main-container full">
     <main class="main-grid">
       <section class="seller-details">
-        <div class="user-profile">
+        <div class="user-profile flex column">
           <img class="user-img" :src="user.imgUrl" alt srcset />
           <h2>{{ user.fullname }}</h2>
           <hr />
@@ -31,8 +31,8 @@
       </section>
 
       <section class="orders">
-        <h1>Active Gigs</h1>
-        <section>
+        <p class="active-gigs">Active Gigs</p>
+        <section class="seller-gig-list flex">
           <div @click="editGig" class="add-gig flex justify-center align-center">
             <div class="flex column align-center">
               <span class="add-gig-btn">+</span>
@@ -68,6 +68,9 @@ export default {
   methods: {
     editGig() {
       this.$router.push({ name: "gig-edit", query: { ...this.loggedUser } });
+    },
+    getSvg(iconName) {
+      return svgService.getSvg(iconName);
     }
   },
   computed: {},

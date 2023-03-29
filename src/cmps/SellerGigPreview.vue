@@ -2,11 +2,8 @@
   <section class="seller-gig-preview">
     <div class="gig-info flex column space-between">
       <div class="img-container">
-        <img
-          ref="img"
-          :src="gig.images[0]"
-          onerror="this.onerror=null;this.src='https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670794425/gigs/twojxakjb7tdlrbinkdq.jpg';"
-        />
+        <img ref="img" :src="gig.images[0]"
+          onerror="this.onerror=null;this.src='https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670794425/gigs/twojxakjb7tdlrbinkdq.jpg';" />
       </div>
       <div class="preview-title">
         <router-link :to="`/details/${gig._id}`">
