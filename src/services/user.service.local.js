@@ -120,30 +120,30 @@ function getLoggedinUser() {
 //     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
 // })()
 
-var seller =
-{
-  _id: "u101",
-  fullname: "Test Seller",
-  imgUrl: "",
-  country: "United States",
-  joinedAt: "April 2020",
-  description: "Hello, this is the Test Seller,Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
-  username: "user",
+var seller = {
+  _id: 'u101',
+  fullname: 'Test Seller',
+  imgUrl: '',
+  country: 'United States',
+  joinedAt: 'April 2020',
+  description:
+    "Hello, this is the Test Seller,Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
+  username: 'user',
   password: 1234,
-  level: "basic/premium",
+  level: 'basic/premium',
   reviews: [
     {
-      id: "madeId",
-      gig: "{optional-mini-gig}",
-      txt: "Very kind and works fast",
+      id: 'madeId',
+      gig: '{optional-mini-gig}',
+      txt: 'Very kind and works fast',
       rate: 4,
       by: {
-        _id: "u102",
-        fullname: "user2",
-        imgUrl: "/img/img2.jpg"
-      }
-    }
+        _id: 'u102',
+        fullname: 'user2',
+        imgUrl: '/img/img2.jpg',
+      },
+    },
   ],
 }
 // signup(seller)
-login(seller)
+// login(seller)

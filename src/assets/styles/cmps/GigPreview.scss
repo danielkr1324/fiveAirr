@@ -114,17 +114,15 @@
       transition: .15s ease-in-out;
       word-break: break-word;
       padding: 8 0 8px;
-      overflow: hidden;
-      
-     
+      overflow: hidden;     
     }
+    
     &:hover {
       a{
         cursor: pointer;
         color: $clr1;
       }
     }
-
 
     .preview-preview-img {
       width: 100%;
@@ -213,10 +211,8 @@
         font-family: Macan-regular;
         margin: 0 0 0 2px;
       }
-    }
-    
-    
-    }
+    }    
+  }
   
     .gig-footer {
       display: flex;
@@ -230,20 +226,19 @@
         font-size: 16px;
       }
   
-      p {
-        
+      p {        
         margin: 0;
         font-size: 10px;
         font-weight: 700;
         color: #74767e;
   
-        span {
-            color: #404145;
-            font-family: Macan-Regular;
-            font-size: 18px;
-            font-weight: 400;
-        }
+      span {
+          color: #404145;
+          font-family: Macan-Regular;
+          font-size: 18px;
+          font-weight: 400;
       }
     }
   }
+}
   
