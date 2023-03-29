@@ -7,6 +7,7 @@
         color: #828385;
         border-radius: 4px;
         border: 1px solid #828385;
+        text-overflow: ellipsis;
 
         &:focus {
             border: none;
@@ -15,9 +16,17 @@
     }
 
     form {
+        @include card(772px, fit-content);
+        background: white;
+        padding: 30px;
+        margin: 30px auto;
+        @media screen and (max-width: 800px) {
+                width:90%;
+        
+            }
+
         border: 1px solid #dadbdd;
         background-color: white;
-        max-width: 772px;
         margin: 75px auto 25px;
         padding: 30px;
 
@@ -35,6 +44,7 @@
             padding: 10px;
             width: 100%;
             font-size: 1.12em;
+            text-overflow: ellipsis;
         }
 
         textarea {
@@ -96,6 +106,14 @@
                 font-size: 1rem;
                 height: 64px;
                 padding: 10px;
+
+                @media screen and (max-width: 800px) {
+                    span,
+                    select,
+                    input {
+                        width: 100%;
+                    }
+                }
             }
         }
 
@@ -122,7 +140,7 @@
     .btn {
         display: flex;
         justify-content: space-between;
-        width: 770px;
+        width: 772px;
         margin: auto;
         margin-bottom: 20px;
         @media screen and (max-width: 800px) {
@@ -130,7 +148,6 @@
         }
 
         button {
-
             height: 45px;
             border-radius: 4px;
             font-family: Macan;
