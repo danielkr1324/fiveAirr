@@ -1,5 +1,5 @@
 <template>
-  <section class="gig-preview-seller">
+  <section class="seller-gig-preview">
     <div class="gig-info flex column space-between">
       <div class="img-container">
         <img
