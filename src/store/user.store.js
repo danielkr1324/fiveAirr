@@ -132,6 +132,5 @@ export const userStore = {
         setWatchedUser({ commit }, payload) {
             commit(payload)
         },
-
     }
 }

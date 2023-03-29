@@ -14,8 +14,6 @@ header {
             align-items: center;
         }
 
-
-
         a {
             &:first-child {
                 padding: 0;
@@ -29,6 +27,13 @@ header {
             padding: 0 5px;
             margin: 10px;
 
+
+            .header-user-img {
+                width: 30px;
+                height: 30px;
+                clip-path: circle();
+            }
+
             &.join {
                 font-size: 14px;
                 padding: 10px 16px;
@@ -36,6 +41,7 @@ header {
                 border: 1px solid #1dbf73;
                 border-radius: 4px;
                 margin: 0 0 0 10px;
+                cursor: pointer;
 
                 &:hover {
                     color: #fff;
