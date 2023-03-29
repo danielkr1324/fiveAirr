@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     editGig() {
-      this.$router.push({ name: "gig-edit", query: { ...this.loggedUser } });
+      this.$router.push({ name: "GigEdit", query: { ...this.loggedUser } });
     }
   },
   computed: {},
