@@ -4,7 +4,6 @@ import Home from './views/Home.vue'
 import GigExplore from './views/GigExplore.vue'
 import GigDetails from './views/GigDetails.vue'
 import SellerProfile from './views/SellerProfile.vue'
-import UserDetails from './views/UserDetails.vue'
 import GigEdit from './views/GigEdit.vue'
 
 const routes = [
@@ -27,11 +26,6 @@ const routes = [
     path: '/explore/edit/:id',
     name: 'GigEdit ',
     component: GigEdit,
-  },
-  {
-    path: '/user/:id',
-    name: 'UserDetails',
-    component: UserDetails,
   },
   {
     path: '/seller/profile',
