@@ -1,0 +1,27 @@
+@charset "UTF-8";
+footer {
+  position: relative;
+  bottom: 0;
+  height: 80px;
+  color: #74767e;
+}
+footer .left span {
+  display: inline;
+  padding: none;
+  text-decoration: none;
+  font-stretch: 50%;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+footer .left span::after {
+  content: "®";
+  font-size: 0.6rem;
+  color: #b5b6ba;
+}
+footer div small {
+  margin-left: 24px;
+  color: #b5b6ba;
+}
+footer .right ul {
+  gap: 20px;
+}/*# sourceMappingURL=AppFooter.css.map */

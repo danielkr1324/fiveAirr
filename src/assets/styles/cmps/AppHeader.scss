@@ -87,6 +87,7 @@ header {
         .header-links {
             min-width: max-content;
             color: #74767e;
+            cursor: pointer;
 
             a:not(:last-child):hover {
                 color: #1dbf73;
@@ -95,9 +96,16 @@ header {
             .join {
                 color: #1dbf73;
                 border: 1px solid #1dbf73;
+                cursor: pointer;
             }
+
         }
 
+
+    }
+
+    .login-link {
+        cursor: pointer;
     }
 
     .search-bar {
@@ -109,7 +117,7 @@ header {
             padding: 0 5px;
             font-size: 1rem;
             width: 70%;
-            height: 42px,;
+            height: 42px, ;
             border-radius: 4px;
             border-left: none;
             border: 1px solid #c5c6c9;

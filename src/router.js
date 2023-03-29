@@ -3,7 +3,6 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from './views/Home.vue'
 import GigExplore from './views/GigExplore.vue'
 import GigDetails from './views/GigDetails.vue'
-import LoginSignup from './views/LoginSignup.vue'
 import SellerProfile from './views/SellerProfile.vue'
 import UserDetails from './views/UserDetails.vue'
 import GigEdit from './views/GigEdit.vue'
@@ -24,16 +23,11 @@ const routes = [
     name: 'GigDetails',
     component: GigDetails,
   },
-  {
-    path: '/explore/edit/:_id?',
-    name: 'GigEdit',
-    component: GigEdit,
-  },
-  {
-    path: '/login',
-    name: 'LoginSignup',
-    component: LoginSignup,
-  },
+  // {
+  //   path: '/login',
+  //   name: 'LoginSignup',
+  //   component: LoginSignup,
+  // },
   {
     path: '/user/:id',
     name: 'UserDetails',

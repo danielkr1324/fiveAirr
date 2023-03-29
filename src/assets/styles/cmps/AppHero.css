@@ -1,0 +1,11 @@
+.app-hero {
+  position: relative;
+  bottom: 80px;
+  margin-bottom: -80px;
+}
+.app-hero .vueperslide__content {
+  position: absolute;
+  bottom: 35px;
+  right: 60px;
+  color: white;
+}/*# sourceMappingURL=AppHero.css.map */
