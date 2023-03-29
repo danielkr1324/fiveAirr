@@ -68,6 +68,9 @@ export default {
   methods: {
     editGig() {
       this.$router.push({ name: "gig-edit", query: { ...this.loggedUser } });
+    },
+    getSvg(iconName) {
+      return svgService.getSvg(iconName);
     }
   },
   computed: {},

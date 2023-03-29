@@ -25,7 +25,7 @@
 
       <section class="header-links flex align-center space-between">
         <RouterLink @click="resetFilter" to="/explore">Explore</RouterLink>
-        <RouterLink to="">Become a Seller</RouterLink>
+        <RouterLink to>Become a Seller</RouterLink>
         <a v-if="!loggedInUser" class="login-link" @click="onSetAuthType('login')">Sign in</a>
         <a v-if="!loggedInUser" class="join" @click="onSetAuthType('signup')">Join</a>
         <a v-if="loggedInUser" class="logout-link" @click="doLogout">Logout</a>
