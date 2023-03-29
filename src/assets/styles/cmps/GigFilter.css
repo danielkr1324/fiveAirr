@@ -1,0 +1,24 @@
+.popular-services p {
+  margin-bottom: 32px;
+}
+.popular-services .vueperslide {
+  border-radius: 4px;
+  color: white;
+}
+.popular-services .vueperslide__content {
+  position: absolute;
+  font-family: macan-regular;
+  top: 1.5rem;
+  left: 1rem;
+  font-size: 0.9rem;
+}
+.popular-services .vueperslide__title {
+  position: absolute;
+  top: 3rem;
+  left: 1rem;
+  font-size: 1.5rem;
+}
+.popular-services .vueperslide:hover {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0.85;
+}/*# sourceMappingURL=GigFilter.css.map */
