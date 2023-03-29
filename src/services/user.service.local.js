@@ -120,17 +120,35 @@ function getLoggedinUser() {
 //     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
 // })()
 
+// {
+//   username: 'rashin07',
+
+//   imgUrl:
+//     'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/1fe02234f0b300905f098d1c2eef2599-1621414093019/30dd09bd-748a-49c0-b3bc-ee3071bdfadb.jpg',
+
+//   location: 'India',
+//   memberSince: 'March 2019',
+//   description:
+//     'I am a professional artist having rich experience in hand sketched and digital artwork. I have served tons of businesses with smarter business solutions. I am here to get the global exposure and would like to contribute more towards our creative community. Thanks.',
+//   level: 3,
+//   rate: 5,
+//   avgResponseTime: 2,
+//   lastDelivery: 'about 22 minutes',
+// },
+
 var seller = {
   _id: 'u101',
-  fullname: 'Test Seller',
-  imgUrl: '',
-  country: 'United States',
-  joinedAt: 'April 2020',
-  description:
-    "Hello, this is the Test Seller,Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
-  username: 'user',
+  fullname: 'Rashin',
+  imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/1fe02234f0b300905f098d1c2eef2599-1621414093019/30dd09bd-748a-49c0-b3bc-ee3071bdfadb.jpg',
+  country: 'India',
+  joinedAt: 'March 2019',
+  description: "Hello, My name is Rashin, I am a professional artist having rich experience in hand sketched and digital artwork. I have served tons of businesses with smarter business solutions. I am here to get global exposure and would like to contribute more towards our creative community. Thanks.",
+  username: 'rashin07',
   password: 1234,
-  level: 'basic/premium',
+  level: 3,
+  rate: 5,
+  avgResponseTime: 2,
+  lastDelivery: 'about 22 minutes',
   reviews: [
     {
       id: 'madeId',

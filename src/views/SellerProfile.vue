@@ -2,12 +2,32 @@
   <section v-if="user" class="profile main-container full">
     <main class="main-grid">
       <section class="seller-details">
-        <h1>Details</h1>
-        <img class="user-img" :src="user.imgUrl" alt srcset />
-        <p>{{ user.fullname }}</p>
-        <p>{{ user.country }}</p>
-        <p>{{user.joinedAt}}</p>
-        <p>{{user.description}}</p>
+        <div class="user-profile">
+          <img class="user-img" :src="user.imgUrl" alt srcset />
+          <h2>{{ user.fullname }}</h2>
+          <hr />
+          <ul>
+            <li class="flex space-between">
+              <div>
+                <span v-html="getSvg('location')"></span>
+                Country
+              </div>
+              <span>{{ user.country }}</span>
+            </li>
+            <li class="flex space-between">
+              <div>
+                <span v-html="getSvg('member')"></span>
+                Member Since
+              </div>
+              <span>{{user.joinedAt}}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="user-description">
+          <h3>Description</h3>
+          <p>{{user.description}}</p>
+        </div>
       </section>
 
       <section class="orders">
@@ -22,14 +42,13 @@
           <SellerGigPreview v-for="gig in gigs" :key="gig._id" :gig="gig" />
         </section>
       </section>
-
-      <section class="statistics">Description</section>
     </main>
   </section>
 </template>
 
 <script>
 import SellerGigPreview from "@/cmps/SellerGigPreview.vue";
+import { svgService } from "@/services/svg.service.js";
 
 export default {
   name: "",
@@ -49,6 +68,9 @@ export default {
   methods: {
     editGig() {
       this.$router.push({ name: "gig-edit", query: { ...this.loggedUser } });
+    },
+    getSvg(iconName) {
+      return svgService.getSvg(iconName);
     }
   },
   computed: {},
