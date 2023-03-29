@@ -61,7 +61,7 @@ export default {
   },
   async created() {
     window.scrollTo(0, 0);
-    await this.$store.dispatch({ type: "loadUser", userId: "Cc4CJ" });
+    await this.$store.dispatch({ type: "loadUser", userId: "u101" });
     // this.user = this.$store.getters.user;
     await this.$store.dispatch({ type: "loadGigs" });
     // this.gigs = storeGigs;
