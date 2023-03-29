@@ -14,9 +14,7 @@ export const userStore = {
     },
     getters: {
         users({ users }) { return users },
-        users({ user }) {
-            return user
-        },
+        user({ user }) { return user },
         loggedinUser({ loggedinUser }) { return loggedinUser },
         watchedUser({ watchedUser }) { return watchedUser }
     },
@@ -29,10 +27,7 @@ export const userStore = {
             state.watchedUser = user
         },
         setUser(state, { user }) {
-            // console.log(user);
-            // console.log(state.user);
             state.user = user
-            // console.log(state.user);
         },
         setUsers(state, { users }) {
             state.users = users

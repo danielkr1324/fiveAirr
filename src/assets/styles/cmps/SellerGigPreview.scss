@@ -1,4 +1,4 @@
-.gig-preview-seller {
+.seller-gig-preview {
     @include card(230px, 254px);
     margin-bottom: 30px;
 
@@ -6,16 +6,13 @@
     .gig-info {
         background-color: lightblue;
         height: 100%;
+
         @media screen and (max-width: 400px) {
-        min-width: 250px;
+            min-width: 250px;
         }
 
         h3 {
             font-size: 1rem;
-        }
-
-        p {
-            font-size: 0.9rem;
         }
 
         a {
@@ -28,9 +25,8 @@
                 color: $clr1;
             }
 
-            .preview-footer>.tools>span>svg {
+            svg {
                 visibility: visible;
-
             }
         }
     }
@@ -118,7 +114,6 @@
         }
     }
 
-
     button {
         display: block;
         width: 100%;
@@ -126,10 +121,6 @@
         border: none;
         margin-bottom: 30px;
         border-bottom: 1px solid var(--yro5245);
-
-
-
-
     }
 
     a {
@@ -137,10 +128,5 @@
     }
 
     // color: $CLR00;
-
-
     height: 100%;
-
-
-
 }
