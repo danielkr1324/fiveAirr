@@ -17,8 +17,9 @@
         <RouterLink @click="resetFilter" to="/explore">Explore</RouterLink>
         <RouterLink to="/seller/profile">Become a Seller</RouterLink>
         <a v-if="!loggedInUser" class="login-link" @click="onSetAuthType('login')">Sign in</a>
-        <a v-if="loggedInUser" class="logout-link" @click="doLogout">Logout</a>
         <a v-if="!loggedInUser" class="join" @click="onSetAuthType('signup')">Join</a>
+        <a v-if="loggedInUser" class="logout-link" @click="doLogout">Logout</a>
+        {{ loggedInUser }}
         <!-- <RouterLink class="join" to="/login">Join</RouterLink> -->
       </section>
     </nav>
@@ -119,8 +120,6 @@ export default {
     },
     doLogout() {
       this.$store.dispatch({ type: 'logout' })
-      // showLoginModal = false
-      this.$router.push('/')
     },
   },
   computed: {

@@ -6,10 +6,10 @@
         <section class="login" v-if="(typeOfAuth === 'login')">
             <form @submit.prevent="doLogin">
                 <h2>Sign In to fiveairr</h2>
-                <input typeOfAuth="text" v-model="loginCred.user" placeholder="Username" />
-                <input typeOfAuth="text" v-model="loginCred.password" placeholder="Password" />
+                <input type="text" v-model="loginCred.username" placeholder="Username" />
+                <input type="password" v-model="loginCred.password" placeholder="Password" />
                 <button>Login</button>
-                <span>Don't have an account yet?</span><a @click="goToSignup">Open account</a>
+                <!-- <span>Don't have an account yet?</span><a @click="goToSignup">Open account</a> -->
             </form>
             <h2>{{ loggedInUser }}</h2>
         </section>
@@ -17,10 +17,11 @@
         <section v-if="(typeOfAuth === 'signup')" class="login">
             <form @submit.prevent="doLogin">
                 <h2>Join fiveairr</h2>
-                <input typeOfAuth="text" v-model="loginCred.user" placeholder="Username" />
-                <input typeOfAuth="text" v-model="loginCred.password" placeholder="Password" />
-                <button>Login</button>
-                <span>Don't have an account yet?</span><a @click="goToSignup">Open account</a>
+                <input type="text" v-model="signupCred.fullname" placeholder="Your full name" />
+                <input type="text" v-model="signupCred.username" placeholder="Username" />
+                <input type="password" v-model="signupCred.password" placeholder="Password" />
+                <!-- <ImgUploader @uploaded="onUploaded" /> -->
+                <button>Signup</button>
             </form>
             <h2>{{ loggedInUser }}</h2>
         </section>
@@ -29,6 +30,7 @@
 </template>
   
 <script>
+import ImgUploader from '../cmps/ImgUploader.vue'
 
 export default {
     name: 'LoginSignup',
@@ -37,10 +39,8 @@ export default {
     },
     data() {
         return {
-            loginCred: {
-                user: '',
-                password: '',
-            },
+            loginCred: { username: 'user1', password: '123' },
+            signupCred: { username: '', password: '', fullname: '', imgUrl: '' }
         }
     },
     computed: {
@@ -57,18 +57,30 @@ export default {
             try {
                 this.$router.push('/explore')
                 await this.$store.dispatch({ typeOfAuth: "login", userCred: { ...this.loginCred } })
-                this.close()
+                // this.close()
             } catch (err) {
                 console.log(err)
-                this.msg = 'Failed to login'
+                // this.msg = 'Failed to login'
             }
         },
-        loadUsers() {
-            this.$store.dispatch({ typeOfAuth: "loadUsers" })
+        async doSignup() {
+            if (!this.signupCred.fullname || !this.signupCred.password || !this.signupCred.username) {
+                // this.msg = 'Please fill up the form'
+                return
+            }
+            await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
+            this.$router.push('/')
+
         },
+        // loadUsers() {
+        //     this.$store.dispatch({ typeOfAuth: "loadUsers" })
+        // },
         onCloseModal() {
             this.$emit("closeModal", false)
         },
+        components: {
+            ImgUploader
+        }
 
     },
 }

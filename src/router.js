@@ -23,11 +23,11 @@ const routes = [
     name: 'GigDetails',
     component: GigDetails,
   },
-  // {
-  //   path: '/login',
-  //   name: 'LoginSignup',
-  //   component: LoginSignup,
-  // },
+  {
+    path: '/explore/edit/:id',
+    name: 'GigEdit ',
+    component: GigEdit,
+  },
   {
     path: '/user/:id',
     name: 'UserDetails',
