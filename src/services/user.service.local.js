@@ -83,6 +83,7 @@ async function signup(userCred) {
   const user = await storageService.post(USER_STORAGE_KEY, userCred)
   // const user = await httpService.post('auth/signup', userCred)
   socketService.login(user._id)
+  console.log(user._id);
   return saveLocalUser(user)
 }
 async function logout() {
@@ -166,4 +167,4 @@ var seller = {
   ],
 }
 // signup(seller)
-login(seller)
+// login(seller)

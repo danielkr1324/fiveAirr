@@ -21,7 +21,7 @@
                 <input type="text" v-model="signupCred.username" placeholder="Username" />
                 <input type="password" v-model="signupCred.password" placeholder="Password" />
                 <!-- <ImgUploader @uploaded="onUploaded" /> -->
-                <button>Signup</button>
+                <button @click="doSignup">Signup</button>
             </form>
             <h2>{{ loggedInUser }}</h2>
         </section>
@@ -35,7 +35,7 @@ import ImgUploader from '../cmps/ImgUploader.vue'
 export default {
     name: 'LoginSignup',
     props: {
-        typeOfAuth: String,
+        typeOfAuth: null,
     },
     data() {
         return {
@@ -55,19 +55,19 @@ export default {
                 return
             }
             try {
-                this.$router.push('/explore')
-                await this.$store.dispatch({ typeOfAuth: "login", userCred: { ...this.loginCred } })
+                // this.$router.push('/explore')
+                await this.$store.dispatch({ type: "login", userCred: { ...this.loginCred } })
                 // this.close()
             } catch (err) {
                 console.log(err)
-                // this.msg = 'Failed to login'
+                this.msg = 'Failed to login'
             }
         },
         async doSignup() {
             if (!this.signupCred.fullname || !this.signupCred.password || !this.signupCred.username) {
-                // this.msg = 'Please fill up the form'
                 return
             }
+            console.log(' signupCred : ', this.signupCred)
             await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
             this.$router.push('/')
 
@@ -78,10 +78,9 @@ export default {
         onCloseModal() {
             this.$emit("closeModal", false)
         },
-        components: {
-            ImgUploader
-        }
-
     },
+    components: {
+        ImgUploader
+    }
 }
 </script> 

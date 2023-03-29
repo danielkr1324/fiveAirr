@@ -3,7 +3,7 @@
         <form @submit.prevent="saveGig">
             <div class="top-form">
                 <label class="edit-title">
-                    <span >Gig Title
+                    <span>Gig Title
                         <p>As your Gig storefront, your title is the most important place to include keywords
                             that buyers would likely use to search for a service like yours.
                         </p>
@@ -20,7 +20,7 @@
             </div>
             <div class="bottom-form">
                 <label class="category">
-                    <span >Category
+                    <span>Category
                         <p>Choose the category most suitable for your Gig.</p>
                     </span>
                     <select v-model="gigToEdit.category" name="Graphics and Design" id="">
