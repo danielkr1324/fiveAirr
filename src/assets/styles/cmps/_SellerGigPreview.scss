@@ -4,8 +4,9 @@
 
 
     .gig-info {
-        background-color: lightblue;
+        background-color: #fff;
         height: 100%;
+        border: 1px solid #dadbdd;
 
         @media screen and (max-width: 400px) {
             min-width: 250px;
@@ -62,9 +63,8 @@
         padding: 0.625em 0.75em;
 
 
-        .tools>span>svg:hover {
+        svg:hover {
             cursor: pointer;
-
         }
 
 
