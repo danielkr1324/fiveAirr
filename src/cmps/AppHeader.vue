@@ -1,13 +1,23 @@
 <template>
-  <header class="main-container full"
-    :class="{ 'navbar-scroll': isScroll, 'home-navbar': isHomepage, 'other-navbar': isNotHomepage }">
+  <header
+    class="main-container full"
+    :class="{ 'navbar-scroll': isScroll, 'home-navbar': isHomepage, 'other-navbar': isNotHomepage }"
+  >
     <nav class="flex space-between">
       <RouterLink to="/" @click="goHome">
         <h1 class="logo">fiveairr</h1>
       </RouterLink>
 
-      <form v-if="isFarScroll || isNotHomepage" @submit.prevent="txtFilter(filterBy.title)" class="search-bar flex">
-        <input type="text" v-model="filterBy.title" placeholder=" What service are you looking for today?" />
+      <form
+        v-if="isFarScroll || isNotHomepage"
+        @submit.prevent="txtFilter(filterBy.title)"
+        class="search-bar flex"
+      >
+        <input
+          type="text"
+          v-model="filterBy.title"
+          placeholder=" What service are you looking for today?"
+        />
         <button>
           <span v-html="getSvg('search')"></span>
         </button>
@@ -15,19 +25,25 @@
 
       <section class="header-links flex align-center space-between">
         <RouterLink @click="resetFilter" to="/explore">Explore</RouterLink>
-        <RouterLink to="/seller/profile">Become a Seller</RouterLink>
+        <RouterLink to="">Become a Seller</RouterLink>
         <a v-if="!loggedInUser" class="login-link" @click="onSetAuthType('login')">Sign in</a>
         <a v-if="!loggedInUser" class="join" @click="onSetAuthType('signup')">Join</a>
         <a v-if="loggedInUser" class="logout-link" @click="doLogout">Logout</a>
-        {{ loggedInUser }}
+        <RouterLink to="/seller/profile">
+          <img class="header-user-img" v-if="loggedInUser" :src="loggedInUser.imgUrl" alt />
+        </RouterLink>
         <!-- <RouterLink class="join" to="/login">Join</RouterLink> -->
       </section>
     </nav>
     <LoginSignup :typeOfAuth="type" v-show="showLoginModal" @closeModal="closeModal" />
 
     <!-- <section v-if="isFarScroll ||isNotHomepage" class="main-container full categories-list"> -->
-    <GigFilter v-if="isFarScroll || isNotHomepage" @filter="filter" class="main-container full categories-list"
-      :type="'header'" />
+    <GigFilter
+      v-if="isFarScroll || isNotHomepage"
+      @filter="filter"
+      class="main-container full categories-list"
+      :type="'header'"
+    />
     <!-- </section> -->
     <!-- <section class="loggedin-user" v-if="loggedInUser">
       <RouterLink :to="`/user/${loggedInUser._id}`">{{ loggedInUser.fullname }}</RouterLink>
@@ -112,15 +128,15 @@ export default {
       return svgService.getSvg(iconName);
     },
     onSetAuthType(type) {
-      this.type = type
-      this.showLoginModal = !this.showLoginModal
+      this.type = type;
+      this.showLoginModal = !this.showLoginModal;
     },
     closeModal(ans) {
-      this.showLoginModal = ans
+      this.showLoginModal = ans;
     },
     doLogout() {
-      this.$store.dispatch({ type: 'logout' })
-    },
+      this.$store.dispatch({ type: "logout" });
+    }
   },
   computed: {
     loggedInUser() {

@@ -164,4 +164,4 @@ var seller = {
   ],
 }
 // signup(seller)
-// login(seller)
+login(seller)
