@@ -15,12 +15,12 @@
 @import "cmps/AppHeader";
 @import "cmps/AppHero";
 @import "cmps/ExploreCategories";
+@import "cmps/ImgUploader";
 @import "cmps/UserMsg";
 @import "cmps/ReviewList";
 @import "cmps/AppFooter";
 @import "cmps/SellerGigPreview";
 @import "cmps/GigPreview";
-@import "cmps/GigEdit";
 @import "cmps/GigFilter";
 @import "cmps/UserPreview";
 @import "cmps/Login";
@@ -29,6 +29,7 @@
 // Views
 @import "views/GigDetails.scss";
 @import "views/GigList.scss";
+@import "views/GigEdit";
 @import "views/home.scss";
 @import "views/GigExplore.scss";
 @import "views/SellerProfile"

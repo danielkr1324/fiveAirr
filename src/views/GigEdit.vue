@@ -1,26 +1,26 @@
 <template>
-    <section v-if="gigToEdit" class="gig-edit full">
+    <section v-if="gigToEdit" class="gig-edit main-container full">
         <form @submit.prevent="saveGig">
-            <div class="top-form flex column space-between">
+            <div class="top-form">
                 <label class="edit-title">
-                    <span class="flex-column">Gig Title
+                    <span >Gig Title
                         <p>As your Gig storefront, your title is the most important place to include keywords
                             that buyers would likely use to search for a service like yours.
                         </p>
                     </span>
                     <input v-model="gigToEdit.title" type="text" placeholder="I will..." />
                 </label>
-                <label class="description">
-                    <span class="flex-column">Description
+                <label class="edit-title">
+                    <span>Description
                         <p>Briefly Describe Your Gig</p>
                     </span>
                     <textarea v-model="gigToEdit.description"
                         placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry...."> </textarea>
                 </label>
             </div>
-            <div class="bottom-form flex space-between">
-                <label class="category flex column">
-                    <span class="flex-column">Category
+            <div class="bottom-form">
+                <label class="category">
+                    <span >Category
                         <p>Choose the category most suitable for your Gig.</p>
                     </span>
                     <select v-model="gigToEdit.category" name="Graphics and Design" id="">
@@ -33,9 +33,10 @@
                         <option value="Busines">Busines</option>
                         <option value="Lifestyle">Lifestyle</option>
                         <option value="Data">Data</option>
+                        <option value="Photography">Photography</option>
                     </select>
                 </label>
-                <label class="days-to-make flex column">
+                <label class="category">
                     <span>Days to Make
                         <p>Days it will take you on average to finish this gig</p>
                     </span>
@@ -45,20 +46,21 @@
                         <option value="3">3</option>
                     </select>
                 </label>
-                <label class="price flex column">
+                <label class="category">
                     <span>Price
                         <p>Price you're offering for this gig</p>
                     </span>
-                    <input v-model="gigToEdit.price" type="number" name="" id=""></label>
+                    <input v-model="gigToEdit.price" type="number" name="" id="">
+                </label>
             </div>
-            <div class="images flex-column">
+            <div class="images">
                 <span>Upload Images
                     <p>Encourage buyers to choose your Gig by featuring a variety of your work.</p>
                 </span>
-                <img-uploader @uploaded="onUploaded" :images="gigToEdit.images"></img-uploader>
+                <ImgUploader @uploaded="onUploaded" :images="gigToEdit.images"></ImgUploader>
             </div>
         </form>
-        <div class="btns  flex space-between">
+        <div class="btn">
             <button class="cancel-btn" @click="returnToProfile">Cancel</button>
             <button class="save-btn" @click="saveGig">Save</button>
         </div>
