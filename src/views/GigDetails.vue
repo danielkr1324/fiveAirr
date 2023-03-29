@@ -11,7 +11,7 @@
       </nav>
     </div>
 
-    <section v-if="gig" class="details main-grid" :class="{ shadow: isLogin }">
+    <section v-if="gig" class="details main-grid">
 
       <main class="main" id="overview">
         <h1 class="title"> {{ gig.title }}</h1>
@@ -94,7 +94,7 @@
               </li>
             </ul>
 
-            <button class="order-btn" @click="onLogin">
+            <button class="order-btn" @click="onSetAuthType('login')">
               <span class="text">Continue</span>
               <i class="fa-solid fa-arrow-right"></i>
             </button>
@@ -152,27 +152,22 @@
         </section>
       </section>
 
-      <Login v-show="isLogin" />
+      <LoginSignup :typeOfAuth="type" v-show="showLoginModal" @closeModal="closeModal" />
     </section>
   </section>
 </template>
 
 <script>
-import { VueperSlides, VueperSlide } from "vueperslides";
-import "vueperslides/dist/vueperslides.css";
-import { gigService } from "../services/gig.service.js";
-// import { userService } from "../services/user.service.js";
-import { userService } from "@/services/user.service.local.js";
-import { reviewService } from "../services/review.service.js";
 
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 import { gigService } from '../services/gig.service.js'
-import { userService } from '../services/user.service.js'
+// import { userService } from '../services/user.service.js'
+import { userService } from "@/services/user.service.local.js";
 import { reviewService } from '../services/review.service.js'
 
 import UserPreview from '../cmps/UserPreview.vue'
-import Login from '../cmps/Login.vue'
+import LoginSignup from '../cmps/LoginSignup.vue'
 import { utilService } from '../services/util.service'
 
 export default {
@@ -180,7 +175,8 @@ export default {
   data() {
     return {
       gig: null,
-      isLogin: false,
+      type: null,
+      showLoginModal: false,
       selected: 0,
       links: [
         { to: 'overview', title: 'Overview' },
@@ -202,10 +198,13 @@ export default {
     goBack() {
       this.$router.push('/explore')
     },
-    onLogin() {
-      this.isLogin = !this.isLogin
-      body.classlist.add("dark")
-    }
+    onSetAuthType(type) {
+      this.type = type
+      this.showLoginModal = !this.showLoginModal
+    },
+    closeModal(ans) {
+      this.showLoginModal = ans
+    },
   },
   computed: {
     user() {
@@ -239,7 +238,7 @@ export default {
     VueperSlides,
     VueperSlide,
     UserPreview,
-    Login
+    LoginSignup
   },
 }
 </script>
