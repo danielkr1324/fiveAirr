@@ -11,7 +11,7 @@
             </nav>
         </div>
 
-        <section v-if="gig" class="details main-grid" :class="{ shadow: isLogin }">
+        <section v-if="gig" class="details main-grid">
 
             <main class="main" id="overview">
                 <h1 class="title"> {{ gig.title }}</h1>
@@ -140,7 +140,7 @@
                 </section>
             </section>
 
-            <Login v-show="isLogin" />
+            <LoginSignup v-show="showLoginModal" :type="'login'" @closeModal="closeModal" />
         </section>
     </section>
 </template>
@@ -154,7 +154,7 @@ import { userService } from '../services/user.service.js'
 import { reviewService } from '../services/review.service.js'
 
 import UserPreview from '../cmps/UserPreview.vue'
-import Login from '../cmps/Login.vue'
+import LoginSignup from '../cmps/LoginSignup.vue'
 import { utilService } from '../services/util.service'
 
 export default {
@@ -162,13 +162,17 @@ export default {
     data() {
         return {
             gig: null,
-            isLogin: false,
+            showLoginModal: false,
             selected: 0,
             links: [
                 { to: 'overview', title: 'Overview' },
                 { to: 'aboutSeller', title: 'About the seller' },
                 { to: 'reviews', title: 'Reviews' },
-            ]
+            ],
+            credentials: {
+                username: '',
+                password: '',
+            },
         }
     },
     methods: {
@@ -185,9 +189,14 @@ export default {
             this.$router.push('/explore')
         },
         onLogin() {
-            this.isLogin = !this.isLogin
-            body.classlist.add("dark")
+            console.log('Here')
+            this.showLoginModal = !this.showLoginModal
+        },
+        closeModal(ans) {
+            console.log('Here')
+            this.showLoginModal = ans
         }
+
     },
     computed: {
         user() {
@@ -221,7 +230,7 @@ export default {
         VueperSlides,
         VueperSlide,
         UserPreview,
-        Login
+        LoginSignup
     },
 }
 </script>

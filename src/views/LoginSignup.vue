@@ -2,7 +2,7 @@
   <div class="container about">
     <p>{{ msg }}</p>
 
-    <div v-if="loggedinUser">
+    <!-- <div v-if="loggedinUser">
       <h3>
         Loggedin User:
         {{ loggedinUser.fullname }}
@@ -16,50 +16,49 @@
           <option value="">Select User</option>
           <option v-for="user in users" :key="user._id" :value="user.username">{{ user.fullname }}</option>
         </select>
-        <!-- <input type="text" v-model="loginCred.username" placeholder="User name" />
+        <input type="text" v-model="loginCred.username" placeholder="User name" />
         <input
           type="text"
           v-model="loginCred.password"
           placeholder="Password"
-        /> -->
+        /> 
         <button>Login</button>
-      </form>
-      <p class="mute">user1 or admin, pass:123 </p>
-      <form @submit.prevent="doSignup">
-        <h2>Signup</h2>
-        <input type="text" v-model="signupCred.fullname" placeholder="Your full name" />
-        <input type="text" v-model="signupCred.username" placeholder="Username" />
-        <input type="password" v-model="signupCred.password" placeholder="Password" />
-        <ImgUploader @uploaded="onUploaded" />
-        <button>Signup</button>
-      </form>
-    </div>
-    <hr />
-    <details>
-      <summary>
-        Admin Section
-      </summary>
-      <ul>
-        <li v-for="user in users" :key="user._id">
-          <pre>{{ user }}</pre>
-          <button @click="removeUser(user._id)">x</button>
-        </li>
-      </ul>
-    </details>
+      </form> -->
+    <!-- <p class="mute">user1 or admin, pass:123 </p> -->
+    <form @submit.prevent="doSignup">
+      <h2>Signup</h2>
+      <input type="text" v-model="signupCred.fullname" placeholder="Your full name" />
+      <input type="text" v-model="signupCred.username" placeholder="Username" />
+      <input type="password" v-model="signupCred.password" placeholder="Password" />
+      <ImgUploader @uploaded="onUploaded" />
+      <button>Signup</button>
+    </form>
   </div>
-</template>
+  <hr />
+  <details>
+    <summary>
+      Admin Section
+    </summary>
+    <ul>
+      <li v-for="user in users" :key="user._id">
+        <pre>{{ user }}</pre>
+        <button @click="removeUser(user._id)">x</button>
+      </li>
+    </ul>
+  </details>
+</div></template>
 
 <script>
 
 import ImgUploader from '../cmps/ImgUploader.vue'
 
 export default {
-  name: 'login-signup',
+  name: 'Signup',
   data() {
     return {
       msg: '',
       loginCred: { username: 'user1', password: '123' },
-      signupCred: { username: '', password: '', fullname: '', imgUrl : '' },
+      signupCred: { username: '', password: '', fullname: '', imgUrl: '' },
     }
   },
   computed: {

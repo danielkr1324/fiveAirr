@@ -16,10 +16,14 @@
       <section class="header-links flex align-center space-between">
         <RouterLink @click="resetFilter" to="/explore">Explore</RouterLink>
         <RouterLink to="/seller/profile">Become a Seller</RouterLink>
-        <RouterLink to="/explore">Sign in</RouterLink>
-        <RouterLink class="join" to="/login">Join</RouterLink>
+        <span v-if="!loggedInUser" class="login-link" @click="onLogin">Sign in</span>
+        <!-- <a v-if="loggedInUser" class="logout-link" @click="doLogout">Logout</a> -->
+        <span v-if="!loggedInUser" class="join" @click="onSignup">Join</span>
+        <!-- <RouterLink class="join" to="/login">Join</RouterLink> -->
       </section>
     </nav>
+    <!-- <LoginSignup :type="type" v-show="showLoginModal" @closeModal="closeModal" /> -->
+
     <!-- <section v-if="isFarScroll ||isNotHomepage" class="main-container full categories-list"> -->
     <GigFilter v-if="isFarScroll || isNotHomepage" @filter="filter" class="main-container full categories-list"
       :type="'header'" />
@@ -32,10 +36,15 @@
 </template>
 <script>
 import { svgService } from "@/services/svg.service.js";
+import { stringifyQuery } from "vue-router";
 import GigFilter from "../cmps/GigFilter.vue";
+import LoginSignup from "./LoginSignup.vue";
+
 export default {
   data() {
     return {
+      showLoginModal: false,
+      type: null,
       filterBy: {
         category: "",
         title: ""
@@ -100,7 +109,25 @@ export default {
     },
     getSvg(iconName) {
       return svgService.getSvg(iconName);
-    }
+    },
+    onLogin() {
+      this.type = "login"
+      console.log('type : ', type)
+      this.showLoginModal = !this.showLoginModal
+    },
+    onSignup() {
+      this.type = "signup"
+      console.log('type : ', type)
+      this.showLoginModal = !this.showLoginModal
+    },
+    closeModal(ans) {
+      this.showLoginModal = ans
+    },
+    doLogout() {
+      this.$store.dispatch({ type: 'logout' })
+      // showLoginModal = false
+      this.$router.push('/')
+    },
   },
   computed: {
     loggedInUser() {
@@ -113,6 +140,9 @@ export default {
       return this.$route.path !== "/";
     }
   },
-  components: { GigFilter }
+  components: {
+    GigFilter,
+    LoginSignup
+  }
 };
 </script>
