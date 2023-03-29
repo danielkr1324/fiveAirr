@@ -4,15 +4,15 @@
       <h1 v-else-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
       <h1 v-else-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
       <h1 v-else>Explore</h1>
-        <main class=" inner-filter-container main-container full" :class="{ shadow: isShadow }">
-          <section class="inner-filter">
-            <div class="range-filter ">
+        <main  class=" inner-filter-container main-container full" :class="{ shadow: isShadow }">
+          <section @click.self="closeFilterDrop" class="inner-filter">
+            <div  class="range-filter ">
                 <button class="btn drop-filter"
                    @click.stop="toggleBudget">
                     Budget <i class="fas fa-chevron-down"></i>
                 </button>    
 
-                <div v-show="isBudget" class="budget-filter">
+                <div  v-show="isBudget" class="budget-filter">
                   <div class="price">
                     <div>
                       <p>MIN.</p>
