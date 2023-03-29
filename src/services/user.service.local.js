@@ -145,5 +145,5 @@ var seller = {
     },
   ],
 }
-// signup(seller)
+signup(seller)
 // login(seller)

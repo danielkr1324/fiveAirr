@@ -14,7 +14,7 @@
 
       <section class="orders">
         <h1>Active Gigs</h1>
-        <SellerGigList v-for="gig in gigs" :key="gig._id" :gig="gig" />
+        <SellerGigPreview v-for="gig in gigs" :key="gig._id" :gig="gig" />
       </section>
 
       <section class="statistics">Description</section>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import SellerGigList from "@/cmps/SellerGigList.vue";
+import SellerGigPreview from "@/cmps/SellerGigPreview.vue";
 
 export default {
   name: "",
@@ -86,6 +86,6 @@ export default {
     // }
   },
   computed: {},
-  components: { SellerGigList }
+  components: { SellerGigPreview }
 };
 </script>
