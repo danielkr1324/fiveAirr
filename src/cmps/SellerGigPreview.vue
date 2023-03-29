@@ -14,11 +14,11 @@
         </router-link>
       </div>
       <div class="preview-footer">
-        <!-- <div class="tools">
-                    <span @click="previewGig" v-icon="'preview'"></span>
-                    <span @click="editGig" v-icon="'edit'"></span>
-                    <span @click="removeGig" v-icon="'trash'"></span>
-        </div>-->
+        <div class="tools">
+          <span @click="previewGig" v-html="getSvg('preview')"></span>
+          <span @click="editGig" v-html="getSvg('edit')"></span>
+          <span @click="removeGig" v-html="getSvg('trash')"></span>
+        </div>
 
         <div class="preview-price-container flex">
           <p>starting at</p>
@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import { svgService } from "@/services/svg.service.js";
+
 export default {
   props: {
     gig: Object
@@ -39,10 +41,13 @@ export default {
       this.$emit("gigRemoved", this.gig._id);
     },
     editGig() {
-      this.$router.push(`/gig/edit/${this.gig._id}`);
+      this.$router.push(`/explore/edit/${this.gig._id}`);
     },
     previewGig() {
-      this.$router.push(`/gig/${this.gig._id}`);
+      this.$router.push(`/details/${this.gig._id}`);
+    },
+    getSvg(iconName) {
+      return svgService.getSvg(iconName);
     }
   }
 };
