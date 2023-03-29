@@ -13,11 +13,6 @@ const routes = [
     component: Home,
   },
   {
-    path: '/explore/edit?_id',
-    name: 'GigEdit',
-    component: GigEdit,
-  },
-  {
     path: '/explore',
     name: 'GigExplore',
     component: GigExplore,

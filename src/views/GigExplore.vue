@@ -148,46 +148,15 @@ methods: {
     this.isDelivery = false
   },
   setFilter() {    
-    
       this.isBudget = false
       this.isDelivery= false   
-      this.$store.commit({ type: 'setFilter', filterBy: { ...this.filterBy } })
       this.$router.push({ name: 'GigExplore', query: { ...this.$store.getters.filterBy } })       
+      this.$store.commit({ type: 'setFilter', filterBy: { ...this.filterBy } })
   },
   clearFilter() {
       this.filterBy = {}
       this.setFilter()
       this.$router.push('/explore')
-  },
-  async addGig() {
-    try {
-      await this.$store.dispatch({ type: "addGig", gig: this.gigToAdd });
-      showSuccessMsg("Gig added");
-      this.gigToAdd = gigService.getEmptyGig();
-    } catch (err) {
-      console.log(err);
-      showErrorMsg("Cannot add gig");
-    }
-  },
-  async removeGig(gigId) {
-    try {
-      await this.$store.dispatch(getActionRemoveGig(gigId));
-      showSuccessMsg("Gig removed");
-    } catch (err) {
-      console.log(err);
-      showErrorMsg("Cannot remove gig");
-    }
-  },
-  async updateGig(gig) {
-    try {
-      gig = { ...gig };
-      gig.price = +prompt("New price?", gig.price);
-      await this.$store.dispatch(getActionUpdateGig(gig));
-      showSuccessMsg("Gig updated");
-    } catch (err) {
-      console.log(err);
-      showErrorMsg("Cannot update gig");
-    }
   },
     onScroll(e) {
     this.windowTop = window.top.scrollY
