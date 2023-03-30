@@ -60,7 +60,6 @@ export default {
             }
             try {
                 await this.$store.dispatch({ type: "login", userCred: { ...this.loginCred } })
-                this.$router.push('/')
                 this.onCloseModal()
             } catch (err) {
                 console.log(err)
@@ -79,9 +78,6 @@ export default {
             this.$router.push('/')
             this.onCloseModal()
         },
-        // loadUsers() {
-        //     this.$store.dispatch({ typeOfAuth: "loadUsers" })
-        // },
         onCloseModal() {
             this.$emit("closeModal", false)
         },
