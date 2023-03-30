@@ -6,8 +6,8 @@ import {
   SOCKET_EVENT_USER_UPDATED,
 } from '../services/socket.service'
 
-var loggedinUser = null
-if (sessionStorage.user) loggedinUser = JSON.parse(sessionStorage.user || null)
+// var loggedinUser = null
+// if (sessionStorage.user) loggedinUser = JSON.parse(sessionStorage.user || null)
 
 export const userStore = {
   state: {

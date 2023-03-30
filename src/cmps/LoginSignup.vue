@@ -11,7 +11,6 @@
                 <button>Login</button>
                 <!-- <span>Don't have an account yet?</span><a @click="goToSignup">Open account</a> -->
             </form>
-            <h2>{{ loggedInUser }}</h2>
         </section>
 
         <section v-if="(typeOfAuth === 'signup')" class="login">
@@ -23,7 +22,6 @@
                 <!-- <ImgUploader @uploaded="onUploaded" /> -->
                 <button @click="doSignup">Signup</button>
             </form>
-            <h2>{{ loggedInUser }}</h2>
         </section>
 
     </section>
@@ -39,7 +37,7 @@ export default {
     },
     data() {
         return {
-            loginCred: { username: 'user1', password: '123' },
+            loginCred: { username: 'rashin07', password: '1234' },
             signupCred: { username: '', password: '', fullname: '', imgUrl: '' }
         }
     },
@@ -48,16 +46,22 @@ export default {
             return this.$store.getters.loggedinUser;
         },
     },
+    created() {
+        this.loadUsers()
+    },
     methods: {
+        loadUsers() {
+            this.$store.dispatch({ type: "loadUsers" })
+        },
         async doLogin() {
             if (!this.loginCred.username) {
                 this.msg = 'Please enter username/password'
                 return
             }
             try {
-                // this.$router.push('/explore')
                 await this.$store.dispatch({ type: "login", userCred: { ...this.loginCred } })
-                // this.close()
+                this.clearCred()
+                this.onCloseModal()
             } catch (err) {
                 console.log(err)
                 this.msg = 'Failed to login'
@@ -69,15 +73,19 @@ export default {
             }
             console.log(' signupCred : ', this.signupCred)
             await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
+            this.loginCred.username = this.signupCred.username
+            this.loginCred.password = this.signupCred.password
+            this.doLogin()
+            // this.onCloseModal()
             this.$router.push('/')
-
         },
-        // loadUsers() {
-        //     this.$store.dispatch({ typeOfAuth: "loadUsers" })
-        // },
         onCloseModal() {
             this.$emit("closeModal", false)
         },
+        clearCred() {
+            this.signupCred = { username: '', password: '', fullname: '', imgUrl: '' }
+            this.loginCred = { username: '', password: '' }
+        }
     },
     components: {
         ImgUploader

@@ -3,20 +3,22 @@
     background-color: #F7F7F7;
     border-bottom: 1px solid #e4e5e7;
 
-
     button {
         height: 40px;
         width: 40px;
     }
 
     .main-grid {
-        grid-column: 2/3;
-        display: grid;
-        grid-template-columns: 400px minmax(2rem, 4rem) minmax(230px, 900px);
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
     }
 
     .seller-details {
         min-height: 700px;
+        max-width: 400px;
+
         grid-column: 1/2;
 
         .user-profile {
@@ -77,6 +79,7 @@
 
         grid-column: 3/4;
 
+
         .active-gigs {
             background-color: #fff;
             width: 100%;
@@ -89,6 +92,8 @@
         .seller-gig-list {
             gap: 20px;
             flex-wrap: wrap;
+            justify-content: center;
+            padding-bottom: 3rem;
 
             .add-gig {
                 background-color: #fff;
@@ -114,5 +119,26 @@
 
     .statistics {
         grid-column: 1/2;
+    }
+
+    @media screen and (min-width: 740px) {
+        // .main-grid {
+        //     display: flex;
+        //     gap: 20px;
+        //     flex-direction: row;
+        // }
+        gap: 0;
+
+        .main-grid {
+            grid-column: 2/3;
+            display: grid;
+            grid-template-columns: 400px minmax(2rem, 4rem) minmax(230px, 900px);
+            align-items: normal;
+        }
+
+        .seller-gig-list {
+            padding-bottom: 0;
+            justify-content: start;
+        }
     }
 }
