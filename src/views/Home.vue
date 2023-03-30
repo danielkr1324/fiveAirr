@@ -13,7 +13,11 @@
       <div class="hero-search-input">
         <form class="flex" @submit="txtFilter(filterBy.title)">
           <div class="search-bar-icon flex align-center justify-center" v-html="getSvg('search')"></div>
-          <input type="search" v-model="filterBy.title" placeholder="Try &#34;building mobile app&#34;" />
+          <input
+            type="search"
+            v-model="filterBy.title"
+            placeholder="Try &#34;building mobile app&#34;"
+          />
           <button type="submit">Search</button>
         </form>
       </div>
@@ -21,8 +25,12 @@
       <div class="popular-categories flex align-center">
         <p class="fs14">Popular:</p>
         <ul class="clean-list flex">
-          <li class="popular-category fs14" v-for="subCategory in popular" :key="subCategory"
-            @click="popularFilter(subCategory)">
+          <li
+            class="popular-category fs14"
+            v-for="subCategory in popular"
+            :key="subCategory"
+            @click="popularFilter(subCategory)"
+          >
             <a>{{ subCategory }}</a>
           </li>
         </ul>
@@ -44,7 +52,7 @@
         <li>
           <img src="../assets/images/trusted by/pandg.0f4cfc2.png" alt />
         </li>
-        <li>
+        <li class="paypal-img">
           <img src="../assets/images/trusted by/paypal.305e264.png" alt />
         </li>
       </ul>
@@ -71,7 +79,9 @@
           </ul>
         </div>
         <div class="point-image">
-          <img src="https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793711/gigs/ostlxosopzlu6ccomezg.webp" />
+          <img
+            src="https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793711/gigs/ostlxosopzlu6ccomezg.webp"
+          />
         </div>
       </div>
     </section>

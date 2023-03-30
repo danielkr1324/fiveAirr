@@ -80,6 +80,11 @@ header {
 
     .header-links {
         min-width: max-content;
+
+        .seller-img {
+            padding-right: 0;
+            margin-right: 0;
+        }
     }
 
     &.navbar-scroll {
@@ -157,7 +162,7 @@ header {
 
 
         .header-slides {
-            
+
             div.vueperslides__parallax-wrapper>div>div>div>* {
                 width: fit-content;
                 padding: 0 1rem;
@@ -236,7 +241,6 @@ header {
         cursor: pointer;
     }
 
-
     a {
         color: inherit;
         text-decoration: none;
@@ -275,5 +279,4 @@ header {
             border-radius: 50%;
         }
     }
-
 }

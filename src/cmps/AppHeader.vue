@@ -1,13 +1,23 @@
 <template>
-  <header class="main-container full"
-    :class="{ 'navbar-scroll': isScroll, 'home-navbar': isHomepage, 'other-navbar': isNotHomepage }">
+  <header
+    class="main-container full"
+    :class="{ 'navbar-scroll': isScroll, 'home-navbar': isHomepage, 'other-navbar': isNotHomepage }"
+  >
     <nav class="flex space-between">
       <RouterLink to="/" @click="goHome">
         <h1 class="logo">fiveairr</h1>
       </RouterLink>
 
-      <form v-if="isFarScroll || isNotHomepage" @submit.prevent="txtFilter(filterBy.title)" class="search-bar flex">
-        <input type="text" v-model="filterBy.title" placeholder=" What service are you looking for today?" />
+      <form
+        v-if="isFarScroll || isNotHomepage"
+        @submit.prevent="txtFilter(filterBy.title)"
+        class="search-bar flex"
+      >
+        <input
+          type="text"
+          v-model="filterBy.title"
+          placeholder=" What service are you looking for today?"
+        />
         <button>
           <span v-html="getSvg('search')"></span>
         </button>
@@ -19,7 +29,7 @@
         <a v-if="!loggedInUser" class="login-link" @click="onSetAuthType('login')">Sign in</a>
         <a v-if="!loggedInUser" class="join" @click="onSetAuthType('signup')">Join</a>
         <a v-if="loggedInUser" class="logout-link" @click="doLogout">Logout</a>
-        <RouterLink to="/seller/profile">
+        <RouterLink v-if="loggedInUser" to="/seller/profile" class="seller-img">
           <img class="header-user-img" v-if="loggedInUser" :src="loggedInUser.imgUrl" alt />
         </RouterLink>
       </section>
@@ -27,13 +37,17 @@
     <LoginSignup :typeOfAuth="type" v-show="showLoginModal" @closeModal="closeModal" />
 
     <!-- <section v-if="isFarScroll ||isNotHomepage" class="main-container full categories-list"> -->
-    <GigFilter v-if="isFarScroll || isNotHomepage" @filter="filter" class="main-container full categories-list"
-      :type="'header'" />
+    <GigFilter
+      v-if="isFarScroll || isNotHomepage"
+      @filter="filter"
+      class="main-container full categories-list"
+      :type="'header'"
+    />
     <!-- </section> -->
     <!-- <section class="loggedin-user" v-if="loggedInUser">
       <RouterLink :to="`/user/${loggedInUser._id}`">{{ loggedInUser.fullname }}</RouterLink>
       <img :src="loggedInUser.imgUrl" />
-    </section> -->
+    </section>-->
   </header>
 </template>
 <script>
@@ -121,7 +135,7 @@ export default {
     },
     doLogout() {
       this.$store.dispatch({ type: "logout" });
-      this.$router.push('/')
+      this.$router.push("/");
     }
   },
   computed: {
