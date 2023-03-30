@@ -1,12 +1,39 @@
 <template>
   <div class="filters">
-    <ul v-if="(type === 'header')" class="filter-header flex space-between align-center clean-list">
-      <li
-        v-for="category in categories"
-        :key="category"
-        @click="categoryFilter(`${category.name}`)"
-      >{{ category.name }}</li>
-    </ul>
+    <section v-if="(type === 'header')" class="filter-header">
+      <vueper-slides
+        v-if="windowWidth < 1400"
+        class="header-slides no-shadow"
+        ref="vueperslides2"
+        :slide-ratio="1 / 8"
+        :bullets="false"
+        :touchable="false"
+        :breakpoints="breakpointsCategories"
+        :visible-slides="7"
+        fixed-height="40px"
+        disable-arrows-on-edges
+      >
+        <vueper-slide
+          v-for="category in categories"
+          :key="category"
+          @click="categoryFilter(`${category.name}`)"
+        >
+          <template #content>
+            <div class="vueperslide__content-wrapper">
+              <router-link to="/explore">{{ category.name }}</router-link>
+            </div>
+          </template>
+        </vueper-slide>
+      </vueper-slides>
+
+      <ul v-else class="flex space-between align-center clean-list">
+        <li
+          v-for="category in categories"
+          :key="category"
+          @click="categoryFilter(`${category.name}`)"
+        >{{ category.name }}</li>
+      </ul>
+    </section>
 
     <section v-if="(type === 'carousel')">
       <vueper-slides
@@ -151,7 +178,22 @@ export default {
           image:
             "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/book-covers-2x.png"
         }
-      ]
+      ],
+      breakpointsCategories: {
+        1200: {
+          visibleSlides: 6
+        },
+        1050: {
+          visibleSlides: 5
+        },
+        900: {
+          visibleSlides: 4
+        },
+        700: {
+          visibleSlides: 3
+        }
+      },
+      windowWidth: window.innerWidth
     };
   },
   methods: {
@@ -164,7 +206,18 @@ export default {
     },
     getSvg(iconName) {
       return svgService.getSvg(iconName);
+    },
+    onResize() {
+      this.windowWidth = window.innerWidth;
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener("resize", this.onResize);
+    });
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResize);
   },
   components: { VueperSlides, VueperSlide }
 };

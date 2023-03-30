@@ -155,6 +155,53 @@ header {
         border-bottom: 1px solid #e4e5e7;
         background-color: white;
 
+
+        .header-slides {
+
+            .vueperslides__arrow {
+                cursor: pointer;
+
+                svg {
+                    height: 35px;
+                    width: 48px;
+                    padding: 10px;
+                    z-index: 100;
+                }
+
+                &.vueperslides__arrow--prev {
+                    transform: translate(80%, -50%);
+                    background: linear-gradient(90deg, #fff 50%, hsla(0, 0%, 100%, 0));
+                }
+
+                &.vueperslides__arrow--next {
+                    transform: translate(-80%, -50%);
+                    background: linear-gradient(270deg, #fff 50%, hsla(0, 0%, 100%, 0));
+                }
+            }
+
+            .vueperslide {
+                padding-bottom: 0.75rem;
+                background-color: white;
+                margin-top: 14px;
+                align-content: center;
+                height: 26px;
+                min-width: max-content;
+
+                a {
+                    cursor: pointer;
+                    color: #62646a;
+                    font-family: Macan-Regular;
+
+                }
+
+                &:hover {
+                    box-shadow: 0 -3px #1dbf73 inset;
+                    transition: color .2s;
+                }
+
+            }
+        }
+
         ul {
             gap: 2%;
 
