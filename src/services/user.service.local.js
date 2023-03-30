@@ -1,5 +1,6 @@
 import { storageService } from './async-storage.service'
 // import { httpService } from './http.service'
+import { utilService } from './util.service.js'
 import { store } from '../store/store'
 import {
   socketService,
@@ -25,6 +26,16 @@ export const userService = {
 }
 
 window.userService = userService
+
+// let users
+
+// function _createUsers() {
+//   users = utilService.loadFromStorage(USER_STORAGE_KEY)
+//   if (!users || !users.length) {
+//     users = seller
+//     utilService.saveToStorage(USER_STORAGE_KEY, users)
+//   }
+// }
 
 function getUsers() {
   return storageService.query(USER_STORAGE_KEY)
@@ -166,5 +177,5 @@ var seller = {
     },
   ],
 }
-// signup(seller)
-// login(seller)
+
+// _createUsers()
