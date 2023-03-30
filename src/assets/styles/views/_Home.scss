@@ -3,97 +3,12 @@
     color: #b5b6ba;
     font-weight: 500;
 
-    .hero-search {
-
-        max-width: 550px;
-        z-index: 2;
-        position: absolute;
-        top: 150px;
-        gap: 0;
-
-        h1 {
-            font-size: 2.5rem;
-            line-height: 3.5rem;
-            color: white;
-            text-align: left;
-
-            span {
-                font-style: italic;
-                font-family: Domain-Display-Medium-Italic;
-                font-weight: 400;
-
-            }
-        }
-
-        .hero-search-input {
-            margin: 14px 0;
-
-        }
-
-        input {
-            border-left: none;
-            font-size: 1rem;
-            width: 530px;
-            border: none;
-
-            &:focus {
-                outline-width: 0;
-            }
-        }
-
-        .search-bar-icon {
-            height: 3rem;
-            width: 3rem;
-            background-color: #fff;
-            border-radius: 4px 0 0 4px;
-
-            svg {
-                fill: #95979d;
-            }
-        }
-
-        button {
-            font-size: 1rem;
-            font-family: Macan-Regular;
-            font-weight: 600;
-            width: 110px;
-            border-radius: 0 4px 4px 0;
-            background-color: #1dbf73;
-            border: 1px solid #1dbf73;
-            color: white
-        }
-
-        @media screen and (min-width: 1160px) {
-            max-width: 650px;
-
-            h1 {
-                font-size: 3rem;
-            }
-
-            input {
-                width: 630px;
-            }
-        }
-        @media screen and (min-width: 1160px) {
-            max-width: 650px;
-
-            h1 {
-                font-size: 3rem;
-            }
-
-            input {
-                width: 630px;
-            }
-        }
-    }
-
-
-    //WORK IN PROGRESS
     // .hero-search {
-    //     padding: 96px 64px;
-    //     background-color: black;
+
     //     max-width: 550px;
     //     z-index: 2;
+    //     position: absolute;
+    //     top: 150px;
     //     gap: 0;
 
     //     h1 {
@@ -148,7 +63,7 @@
     //         color: white
     //     }
 
-    //     @media screen and (min-width: 600px) {
+    //     @media screen and (min-width: 1160px) {
     //         max-width: 650px;
 
     //         h1 {
@@ -159,21 +74,6 @@
     //             width: 630px;
     //         }
     //     }
-
-    //     @media screen and (min-width: 900px) {
-    //         position: absolute;
-    //         top: 150px;
-    //         max-width: 550px;
-
-    //         h1 {
-    //             font-size: 3rem;
-    //         }
-
-    //         input {
-    //             width: 530px;
-    //         }
-    //     }
-
     //     @media screen and (min-width: 1160px) {
     //         max-width: 650px;
 
@@ -186,6 +86,99 @@
     //         }
     //     }
     // }
+
+
+    //WORK IN PROGRESS
+    .hero-search {
+        margin-top: -80px;
+        grid-column: 1 /-1;
+        padding: 96px 64px;
+        background-color: black;
+        width: 100%;
+        z-index: 2;
+        gap: 0;
+
+        .popular-categories {
+            display: none;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 3.5rem;
+            color: white;
+            text-align: left;
+
+            span {
+                font-style: italic;
+                font-family: Domain-Display-Medium-Italic;
+                font-weight: 400;
+
+            }
+        }
+
+        .hero-search-input {
+            margin: 14px 0;
+
+        }
+
+        input {
+            border-left: none;
+            font-size: 1rem;
+            width: 530px;
+            border: none;
+
+            &:focus {
+                outline-width: 0;
+            }
+        }
+
+        .search-bar-icon {
+            height: 3rem;
+            width: 3rem;
+            background-color: #fff;
+            border-radius: 4px 0 0 4px;
+
+            svg {
+                fill: #95979d;
+            }
+        }
+
+        button {
+            font-size: 1rem;
+            font-family: Macan-Regular;
+            font-weight: 600;
+            width: 110px;
+            border-radius: 0 4px 4px 0;
+            background-color: #1dbf73;
+            border: 1px solid #1dbf73;
+            color: white
+        }
+
+        @media screen and (min-width: 900px) {
+            grid-column: 2;
+            background-color: transparent;
+            padding: 0;
+            max-width: 650px;
+            position: absolute;
+            top: 150px;
+
+            .popular-categories {
+                display: flex;
+            }
+        }
+
+        @media screen and (min-width: 1160px) {
+            max-width: 650px;
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            input {
+                width: 630px;
+            }
+        }
+    }
 
     .popular-categories {
         color: white;
