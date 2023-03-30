@@ -11,8 +11,6 @@
                 <button>Login</button>
                 <!-- <span>Don't have an account yet?</span><a @click="goToSignup">Open account</a> -->
             </form>
-            <!-- <h2>{{ loggedInUser }}</h2>
-             -->
         </section>
 
         <section v-if="(typeOfAuth === 'signup')" class="login">
@@ -24,7 +22,6 @@
                 <!-- <ImgUploader @uploaded="onUploaded" /> -->
                 <button @click="doSignup">Signup</button>
             </form>
-            <h2>{{ loggedInUser }}</h2>
         </section>
 
     </section>
@@ -49,7 +46,13 @@ export default {
             return this.$store.getters.loggedinUser;
         },
     },
+    created() {
+        this.loadUsers()
+    },
     methods: {
+        loadUsers() {
+            this.$store.dispatch({ type: "loadUsers" })
+        },
         async doLogin() {
             if (!this.loginCred.username) {
                 this.msg = 'Please enter username/password'
@@ -58,7 +61,8 @@ export default {
             try {
                 // this.$router.push('/explore')
                 await this.$store.dispatch({ type: "login", userCred: { ...this.loginCred } })
-                // this.close()
+                this.$router.push('/')
+                this.onCloseModal()
             } catch (err) {
                 console.log(err)
                 this.msg = 'Failed to login'
@@ -71,7 +75,7 @@ export default {
             console.log(' signupCred : ', this.signupCred)
             await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
             this.$router.push('/')
-
+            this.onCloseModal()
         },
         // loadUsers() {
         //     this.$store.dispatch({ typeOfAuth: "loadUsers" })
