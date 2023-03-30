@@ -17,6 +17,7 @@
           v-for="category in categories"
           :key="category"
           @click="categoryFilter(`${category.name}`)"
+          :style="'width: ' + 'fit-content'"
         >
           <template #content>
             <div class="vueperslide__content-wrapper">

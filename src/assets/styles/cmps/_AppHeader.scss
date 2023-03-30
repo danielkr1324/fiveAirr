@@ -157,6 +157,11 @@ header {
 
 
         .header-slides {
+            
+            div.vueperslides__parallax-wrapper>div>div>div>* {
+                width: fit-content;
+                padding: 0 1rem;
+            }
 
             .vueperslides__arrow {
                 cursor: pointer;
@@ -166,6 +171,7 @@ header {
                     width: 48px;
                     padding: 10px;
                     z-index: 100;
+                    color: #62646a;
                 }
 
                 &.vueperslides__arrow--prev {
@@ -185,7 +191,11 @@ header {
                 margin-top: 14px;
                 align-content: center;
                 height: 26px;
-                min-width: max-content;
+                // min-width: max-content;
+                width: fit-content;
+
+
+
 
                 a {
                     cursor: pointer;
