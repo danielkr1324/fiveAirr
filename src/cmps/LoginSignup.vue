@@ -60,7 +60,7 @@ export default {
             }
             try {
                 await this.$store.dispatch({ type: "login", userCred: { ...this.loginCred } })
-                this.$router.push('/')
+                this.clearCred()
                 this.onCloseModal()
             } catch (err) {
                 console.log(err)
@@ -76,15 +76,16 @@ export default {
             this.loginCred.username = this.signupCred.username
             this.loginCred.password = this.signupCred.password
             this.doLogin()
+            // this.onCloseModal()
             this.$router.push('/')
-            this.onCloseModal()
         },
-        // loadUsers() {
-        //     this.$store.dispatch({ typeOfAuth: "loadUsers" })
-        // },
         onCloseModal() {
             this.$emit("closeModal", false)
         },
+        clearCred() {
+            this.signupCred = { username: '', password: '', fullname: '', imgUrl: '' }
+            this.loginCred = { username: '', password: '' }
+        }
     },
     components: {
         ImgUploader
