@@ -69,6 +69,7 @@ async function update({ _id, score }) {
 async function login(userCred) {
   const users = await storageService.query(USER_STORAGE_KEY)
   const user = users.find(user => user.username === userCred.username)
+  if(userCred.password !== user.password || userCred.username !== user. username) return
   // const user = await httpService.post('auth/login', userCred)
   if (user) {
     socketService.login(user._id)
@@ -148,7 +149,7 @@ var seller = {
   description:
     'Hello, My name is Rashin, I am a professional artist having rich experience in hand sketched and digital artwork. I have served tons of businesses with smarter business solutions. I am here to get global exposure and would like to contribute more towards our creative community. Thanks.',
   username: 'rashin07',
-  password: 1234,
+  password: '1234',
   level: 3,
   rate: 5,
   avgResponseTime: 2,
