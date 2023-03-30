@@ -94,7 +94,7 @@
 
 <script>
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
-import { gigService } from "../services/gig.service.local"
+import { gigService } from "../services/gig.service.js"
 import { getActionRemoveGig, getActionUpdateGig } from "../store/gig.store"
 import GigList from '../cmps/GigList.vue'
 
@@ -110,15 +110,8 @@ data() {
         filterBy: {},
     }
 },
-created() {  
-
-    const filterBy = this.$store.getters.filterBy    
-    this.filterBy = {
-      sortBy: filterBy.sortBy ,
-      min: filterBy.min ,
-      max: filterBy.max ,
-      delivery: filterBy.delivery 
-    }
+created() { 
+    this.$store.dispatch({ type: 'loadGigs', filterBy: this.$route.query })
 },
 computed: {
   loggedInUser() {
@@ -147,11 +140,14 @@ methods: {
     this.isBudget = false
     this.isDelivery = false
   },
+  loadGigs() {
+      this.$store.dispatch({ type: 'loadGigs', filterBy: this.filterBy })
+  },
   setFilter() {    
       this.isBudget = false
       this.isDelivery= false   
-      this.$router.push({ name: 'GigExplore', query: { ...this.$store.getters.filterBy } })       
-      this.$store.commit({ type: 'setFilter', filterBy: { ...this.filterBy } })
+      this.$router.push({ name: 'GigExplore', query: { ...this.filterBy } })       
+      this.loadGigs()
   },
   clearFilter() {
       this.filterBy = {}

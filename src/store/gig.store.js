@@ -1,5 +1,5 @@
-import { gigService } from '../services/gig.service.local'
-// import { gigService } from '../services/gig.service'
+// import { gigService } from '../services/gig.service.local'
+import { gigService } from '../services/gig.service.js'
 
 export function getActionRemoveGig(gigId) {
   return {
@@ -43,9 +43,7 @@ export const gigStore = {
   getters: {
     filterBy({ filterBy }) {
       const filters = { ...filterBy }
-      for (const key in filters) {
-        if (!filters[key]) delete filters[key]
-      }
+
       return filters
     },
     gigsByUser({ gigs }, rootGetters) {
@@ -56,42 +54,43 @@ export const gigStore = {
       return filteredGigs
     },
     gigs({ gigs, filterBy }) {
-      if (!gigs) return null
+      return gigs
+      //   if (!gigs) return null
 
-      var filteredGigs = gigs
-      const regex = new RegExp(filterBy.title, 'i')
-      filteredGigs = filteredGigs.filter(gig => regex.test(gig.title))
+      //   var filteredGigs = gigs
+      //   const regex = new RegExp(filterBy.title, 'i')
+      //   filteredGigs = filteredGigs.filter(gig => regex.test(gig.title))
 
-      if (filterBy.category)
-        filteredGigs = filteredGigs.filter(
-          gig => gig.category === filterBy.category
-        )
+      //   if (filterBy.category)
+      //     filteredGigs = filteredGigs.filter(
+      //       gig => gig.category === filterBy.category
+      //     )
 
-      if (filterBy.subCategory)
-        filteredGigs = filteredGigs.filter(
-          gig => gig.subCategory === filterBy.subCategory
-        )
+      //   if (filterBy.subCategory)
+      //     filteredGigs = filteredGigs.filter(
+      //       gig => gig.subCategory === filterBy.subCategory
+      //     )
 
-      if (filterBy.min)
-        filteredGigs = filteredGigs.filter(gig => gig.price >= filterBy.min)
+      //   if (filterBy.min)
+      //     filteredGigs = filteredGigs.filter(gig => gig.price >= filterBy.min)
 
-      if (filterBy.max)
-        filteredGigs = filteredGigs.filter(gig => gig.price <= filterBy.max)
+      //   if (filterBy.max)
+      //     filteredGigs = filteredGigs.filter(gig => gig.price <= filterBy.max)
 
-      if (filterBy.delivery)
-        filteredGigs = filteredGigs.filter(
-          gig => gig.daysToMake <= filterBy.delivery
-        )
+      //   if (filterBy.delivery)
+      //     filteredGigs = filteredGigs.filter(
+      //       gig => gig.daysToMake <= filterBy.delivery
+      //     )
 
-      if (filterBy.sortBy === 'rating') {
-        filteredGigs.sort((gig1, gig2) => gig2.owner.rate - gig1.owner.rate)
-      }
+      //   if (filterBy.sortBy === 'rating') {
+      //     filteredGigs.sort((gig1, gig2) => gig2.owner.rate - gig1.owner.rate)
+      //   }
 
-      if (filterBy.sortBy === 'level') {
-        filteredGigs.sort((gig1, gig2) => gig2.owner.level - gig1.owner.level)
-      }
+      //   if (filterBy.sortBy === 'level') {
+      //     filteredGigs.sort((gig1, gig2) => gig2.owner.level - gig1.owner.level)
+      //   }
 
-      return filteredGigs
+      //   return filteredGigs
     },
   },
   mutations: {
@@ -155,7 +154,7 @@ export const gigStore = {
     },
     async loadGigs(context, { filterBy }) {
       try {
-        const gigs = await gigService.query()
+        const gigs = await gigService.query(filterBy)
         context.commit({ type: 'setGigs', gigs })
       } catch (err) {
         console.log('gigStore: Error in loadGigs', err)
