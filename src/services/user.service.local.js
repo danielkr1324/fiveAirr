@@ -32,7 +32,7 @@ window.userService = userService
 // function _createUsers() {
 //   users = utilService.loadFromStorage(USER_STORAGE_KEY)
 //   if (!users || !users.length) {
-//     users = seller
+//     users = [seller]
 //     utilService.saveToStorage(USER_STORAGE_KEY, users)
 //   }
 // }

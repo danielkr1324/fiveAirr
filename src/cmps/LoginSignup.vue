@@ -59,7 +59,6 @@ export default {
                 return
             }
             try {
-                // this.$router.push('/explore')
                 await this.$store.dispatch({ type: "login", userCred: { ...this.loginCred } })
                 this.$router.push('/')
                 this.onCloseModal()
@@ -74,6 +73,9 @@ export default {
             }
             console.log(' signupCred : ', this.signupCred)
             await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
+            this.loginCred.username = this.signupCred.username
+            this.loginCred.password = this.signupCred.password
+            this.doLogin()
             this.$router.push('/')
             this.onCloseModal()
         },
