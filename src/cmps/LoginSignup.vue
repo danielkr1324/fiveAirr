@@ -11,7 +11,8 @@
                 <button>Login</button>
                 <!-- <span>Don't have an account yet?</span><a @click="goToSignup">Open account</a> -->
             </form>
-            <h2>{{ loggedInUser }}</h2>
+            <!-- <h2>{{ loggedInUser }}</h2>
+             -->
         </section>
 
         <section v-if="(typeOfAuth === 'signup')" class="login">
@@ -39,7 +40,7 @@ export default {
     },
     data() {
         return {
-            loginCred: { username: 'user1', password: '123' },
+            loginCred: { username: 'rashin07', password: '1234' },
             signupCred: { username: '', password: '', fullname: '', imgUrl: '' }
         }
     },
