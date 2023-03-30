@@ -60,8 +60,11 @@ export default {
   },
   async created() {
     window.scrollTo(0, 0);
-    await this.$store.dispatch({ type: "loadUser", userId: "u101" });
+    var loggedinUser = this.$store.getters.loggedinUser;
+    console.log("test:", loggedinUser._id);
+    await this.$store.dispatch({ type: "loadUser", userId: loggedinUser._id });
     this.user = this.$store.getters.user;
+    console.log('this.user:', this.user)
     await this.$store.dispatch({ type: "loadGigs" });
     this.gigs = this.$store.getters.gigsByUser;
   },
