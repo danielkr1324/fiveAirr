@@ -27,16 +27,6 @@ export const userService = {
 
 window.userService = userService
 
-// let users =[]
-
-// function _createUsers() {
-//   users = utilService.loadFromStorage(USER_STORAGE_KEY)
-//   if (!users || !users.length) {
-//     users = [seller]
-//     utilService.saveToStorage(USER_STORAGE_KEY, users)
-//   }
-// }
-
 function getUsers() {
   return storageService.query(USER_STORAGE_KEY)
   // return httpService.get(`user`)
@@ -86,12 +76,12 @@ async function login(userCred) {
   }
 }
 async function signup(userCred) {
-  // console.log('userCred:', userCred)
+  console.log('userCred:', userCred)
   if (!userCred.imgUrl)
     userCred.imgUrl =
       'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
   const user = await storageService.post(USER_STORAGE_KEY, userCred)
-  if (user.fullname === 'Rashin') user._id = 'u101'
+  console.log(user._id);
   // const user = await httpService.post('auth/signup', userCred)
   socketService.login(user._id)
   console.log(user._id);
@@ -178,4 +168,11 @@ var seller = {
   ],
 }
 
-// _createUsers()
+_createUsers()
+
+function _createUsers() {
+  console.log('hi');
+  let users = []
+  users = utilService.loadFromStorage(USER_STORAGE_KEY)
+  if (!users || !users.length) signup(seller)
+}
