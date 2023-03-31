@@ -54,9 +54,9 @@ export default {
         { name: "Photography", svg: "photography" },
         { name: "Business", svg: "business" },
         // { name: "Lifestyle", svg: "lifestyle" },
-        { name: "AI Services", svg: "data" },
+        { name: "AI Services", svg: "data" }
       ],
-     breakpointsCategories: {
+      breakpointsCategories: {
         1200: {
           visibleSlides: 6
         },

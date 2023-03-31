@@ -3,10 +3,40 @@
     class="main-container full"
     :class="{ 'navbar-scroll': isScroll, 'home-navbar': isHomepage, 'other-navbar': isNotHomepage }"
   >
+    <!-- MOBILE MENU -->
+    <!-- v-clickOutside="openMenu" -->
+    <section v-if="isMenuOpen" @click="openMenu" class="side-menu flex">
+      <a v-if="!loggedInUser" class="login-link" @click="onSetAuthType('login')">Sign in</a>
+      <a v-if="!loggedInUser" class="join" @click="onSetAuthType('signup')">Join</a>
+      <div v-if="loggedInUser" class="user-info flex">
+        <div class="img-container">
+          <img class="header-user-img" v-if="loggedInUser" :src="loggedInUser.imgUrl" alt />
+        </div>
+        <p v-if="loggedInUser">{{ loggedInUser.fullname }}</p>
+      </div>
+      <RouterLink @click="resetFilter" to="/explore">Explore</RouterLink>
+      <div v-if="(!loggedInUser || !loggedInUser.isSeller)" @click="registerSeller">
+        <a>Become a Seller</a>
+      </div>
+      <router-link v-if="(loggedInUser)" to="/seller/profile">Profile</router-link>
+      <!-- <router-link v-if="(loggedInUser && loggedInUser.isSeller)" to="/seller/orders">Dashboard</router-link> -->
+
+      <a v-if="loggedInUser" class="logout-link" @click="doLogout">Logout</a>
+    </section>
+
     <nav class="flex space-between">
-      <RouterLink to="/" @click="goHome">
-        <h1 class="logo">fiveairr</h1>
-      </RouterLink>
+      <section class="hamburger-menu far-hamburger flex">
+        <button class="hamburger-icon flex" @click="openMenu" v-html="getSvg('hamburger')"></button>
+      </section>
+
+      <section class="flex">
+        <section class="hamburger-menu close-hamburger flex">
+          <button class="hamburger-icon flex" @click="openMenu" v-html="getSvg('hamburger')"></button>
+        </section>
+        <RouterLink to="/" @click="goHome">
+          <h1 class="logo">fiveairr</h1>
+        </RouterLink>
+      </section>
 
       <form
         v-if="isFarScroll || isNotHomepage"
@@ -66,6 +96,7 @@ export default {
         category: "",
         title: ""
       },
+      isMenuOpen: false,
       isScroll: false,
       isFarScroll: false,
       categories: [
@@ -136,11 +167,15 @@ export default {
     },
     doLogout() {
       this.$store.dispatch({ type: "logout" });
-      this.$router.push('/')
+      this.$router.push("/");
+    },
+    openMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
     }
   },
   computed: {
     loggedInUser() {
+      console.log(this.$store.getters.loggedinUser);
       return this.$store.getters.loggedinUser;
     },
     isHomepage() {
