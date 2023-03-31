@@ -6,8 +6,8 @@ import {
   SOCKET_EVENT_USER_UPDATED,
 } from '../services/socket.service'
 
-// var loggedinUser = null
-// if (sessionStorage.user) loggedinUser = JSON.parse(sessionStorage.user || null)
+var loggedinUser = null
+if (sessionStorage.user) loggedinUser = JSON.parse(sessionStorage.user || null)
 
 export const userStore = {
   state: {
@@ -86,6 +86,8 @@ export const userStore = {
       // TODO: loading
       try {
         const users = await userService.getUsers()
+        console.log(users)
+
         commit({ type: 'setUsers', users })
       } catch (err) {
         console.log('userStore: Error in loadUsers', err)
@@ -93,6 +95,8 @@ export const userStore = {
       }
     },
     async loadUser({ commit }, { userId }) {
+      console.log(userId)
+
       try {
         const user = await userService.getById(userId)
         commit({ type: 'setUser', user })

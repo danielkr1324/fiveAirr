@@ -68,7 +68,7 @@
 </template>
 <script>
 
-import { gigService } from "../services/gig.service.local"
+import { gigService } from "../services/gig.service.js"
 import ImgUploader from "../cmps/ImgUploader.vue"
 
 export default {

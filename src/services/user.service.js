@@ -98,8 +98,6 @@ async function changeScore(by) {
 }
 
 function saveLocalUser(user) {
-  console.log(user)
-
   user = {
     _id: user._id,
     fullname: user.fullname,

@@ -22,6 +22,7 @@
         <RouterLink to="/seller/profile">
           <img class="header-user-img" v-if="loggedInUser" :src="loggedInUser.imgUrl" alt />
         </RouterLink>
+        <!-- <RouterLink class="join" to="/login">Join</RouterLink> -->
       </section>
     </nav>
     <LoginSignup :typeOfAuth="type" v-show="showLoginModal" @closeModal="closeModal" />
@@ -33,7 +34,7 @@
     <!-- <section class="loggedin-user" v-if="loggedInUser">
       <RouterLink :to="`/user/${loggedInUser._id}`">{{ loggedInUser.fullname }}</RouterLink>
       <img :src="loggedInUser.imgUrl" />
-    </section> -->
+    </section>-->
   </header>
 </template>
 <script>
@@ -121,7 +122,6 @@ export default {
     },
     doLogout() {
       this.$store.dispatch({ type: "logout" });
-      this.$router.push('/')
     }
   },
   computed: {
