@@ -94,7 +94,7 @@
               </li>
             </ul>
 
-            <button class="order-btn" @click="onSetAuthType('login')">
+            <button class="order-btn" @click="onSetOrder()">
               <span class="text">Continue</span>
               <i class="fa-solid fa-arrow-right"></i>
             </button>
@@ -107,6 +107,7 @@
       <section>
         <section class="head-what flex">
           <p>What people loved about this seller</p>
+          {{ }}
           <!-- <a>All reviews</a> -->
         </section>
 
@@ -195,34 +196,51 @@ export default {
         console.log('Could Not load gig')
       }
     },
-    goBack() {
-      this.$router.push('/explore')
+    onSetOrder() {
+      console.log(this.user)
+      if (this.user) this.addOrder()
+      else this.setAuthType('login')
     },
-    onSetAuthType(type) {
+    setAuthType(type) {
       this.type = type
       this.showLoginModal = !this.showLoginModal
     },
     closeModal(ans) {
       this.showLoginModal = ans
     },
+    addOrder() {
+      const order =
+      {
+        "buyer": this.user,
+        "seller": this.gig.owner,
+        "gig": {
+          "_id": this.gig._id,
+          "name": this.gig.title,
+          "price": this.gig.price,
+          "img": this.gig.images[0]
+        },
+        "status": "Pending",
+      }
+      this.$store.dispatch({ type: 'saveOrder', order })
+      setTimeout(() => {
+        this.$router.push('/')
+      }, 500)
+      socketService.emit('gig-ordered', this.gig)
+    },
   },
   computed: {
     user() {
-      return this.$store.getters.loggedInUser
+      return this.$store.getters.loggedinUser
     },
     reviews() {
       return this.$store.getters.getReviews
     },
   },
-  created() {
-    // const ranNum = utilService.getRandomIntInclusive(1, 30)
-    // const gender = utilService.getRandomIntInclusive(0, 1) ? male : female
-    // const ranUserPic = `https://xsgames.co/randomusers/assets/avatars/${gender}/${ranNum}.jpg`
-  },
   async created() {
     try {
-      const user = userService.getLoggedinUser()
+      const user = this.$store.getters.loggedInUser
       if (user) {
+        console.log('user : ', user)
         this.$store.commit({ type: 'login', user })
       }
       await this.loadGig()

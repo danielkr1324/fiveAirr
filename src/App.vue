@@ -10,6 +10,7 @@
 <script>
 // import { userService } from "./services/user.service";
 import { userService } from "./services/user.service.local";
+import { orderService } from "./services/order.service.local";
 import { store } from "./store/store";
 
 import AppHeader from "./cmps/AppHeader.vue";
@@ -22,6 +23,7 @@ export default {
     console.log("Vue App created");
     const user = userService.getLoggedinUser();
     if (user) store.commit({ type: "setLoggedinUser", user });
+
   },
   methods: {
     setCategoryFilter(filterBy) {

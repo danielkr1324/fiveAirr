@@ -5,6 +5,7 @@ import GigExplore from './views/GigExplore.vue'
 import GigDetails from './views/GigDetails.vue'
 import SellerProfile from './views/SellerProfile.vue'
 import GigEdit from './views/GigEdit.vue'
+import SellerDashboard from './views/SellerDashboard.vue'
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: '/seller/profile',
     name: 'SellerProfile',
     component: SellerProfile,
+  },
+  {
+    path: '/seller/dashboard',
+    name: 'SellerDashboard',
+    component: SellerDashboard,
   },
 ]
 

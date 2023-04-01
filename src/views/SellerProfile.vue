@@ -19,14 +19,19 @@
                 <span v-html="getSvg('member')"></span>
                 Member Since
               </div>
-              <span>{{user.joinedAt}}</span>
+              <span>{{ user.joinedAt }}</span>
+            </li>
+            <li class="flex space-between">
+              <RouterLink to="/seller/dashboard">
+                Seller Dashboard
+              </RouterLink>
             </li>
           </ul>
         </div>
 
         <div class="user-description">
           <h3>Description</h3>
-          <p>{{user.description}}</p>
+          <p>{{ user.description }}</p>
         </div>
       </section>
 
