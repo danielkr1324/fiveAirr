@@ -24,8 +24,8 @@ const routes = [
     component: GigDetails,
   },
   {
-    path: '/explore/edit/:_id',
-    name: 'GigEdit ',
+    path: '/explore/edit/:_id?',
+    name: 'GigEdit',
     component: GigEdit,
   },
   {

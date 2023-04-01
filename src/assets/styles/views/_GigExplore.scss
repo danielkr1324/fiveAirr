@@ -60,6 +60,7 @@
         .sort-input {
           display: flex;
           align-items: center;
+          justify-content: flex-end;
           height: em(40px);
           font-size: 16px;
 
@@ -244,6 +245,7 @@
             margin-left: 12px;
             cursor: pointer;
             }
+            
           }
           input[type="radio"]:after {
             width: 20px;
@@ -260,14 +262,12 @@
             margin-right: 8px;
           }
 
-          input[type='radio']:checked:after {    
-            
-            border-radius: 15px;
-           
+          input[type='radio']:checked:after {                
+            border-radius: 15px;           
             position: relative;
             display: inline-block;
             visibility: visible;
-            border: 2px solid black;    
+            border: 2px solid black;               
           }
           
         }     

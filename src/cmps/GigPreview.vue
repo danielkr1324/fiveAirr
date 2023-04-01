@@ -12,10 +12,10 @@
 
     <div class="gig-preview-title">
       <a @click="goToDetails(`/details/${gig._id}`)">{{ gig.title }}</a>
-      <div class="raiting">
-        <i class="fa-solid fa-star" style="color: #ffbe5b;"></i>
-        <span style="color: #ffbe5b;">{{ fixedRating }}</span>
-        <span class="rate-num">({{ numOfRates }})</span>
+      <div  class="raiting">
+        <i v-if="gig.owner.rate" class="fa-solid fa-star" style="color: #ffbe5b;"></i>
+        <span v-if="gig.owner.rate" style="color: #ffbe5b;">{{ fixedRating }}</span>
+        <span v-if="gig.owner.rate" class="rate-num">({{ numOfRates }})</span>
       </div>
     </div>
 

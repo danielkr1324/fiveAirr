@@ -68,12 +68,13 @@ export default {
     var loggedinUser = this.$store.getters.loggedinUser;
     await this.$store.dispatch({ type: "loadUser", userId: loggedinUser._id });
     this.user = this.$store.getters.user;
-    await this.$store.dispatch({ type: "loadGigs" });
+    await this.$store.dispatch({ type: "loadGigs", query: { ...this.loggedUser } });
     this.gigs = this.$store.getters.gigsByUser;
   },
   methods: {
     editGig() {
-      this.$router.push({ name: "gig-edit", query: { ...this.loggedUser } });
+      this.$store.dispatch({type: 'addGig'})
+      this.$router.push({ name: "GigEdit", query: { ...this.loggedinUser } });
     },
     getSvg(iconName) {
       return svgService.getSvg(iconName);

@@ -61,10 +61,16 @@ async function save(gig) {
 //     return savedMsg
 // }
 
-function getEmptyGig() {
+function getEmptyGig(owner) {
   return {
+    owner,
     // _id: utilService.makeId(),
-    title: utilService.makeLorem(2),
-    price: utilService.getRandomIntInclusive(1000, 9000),
+    title: '',
+    price: null,
+    daysToMake: null,
+    description: '',
+    images: [],
+    category: '',
+    subCategory: '',
   }
 }

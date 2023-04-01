@@ -147,10 +147,10 @@ methods: {
       this.loadGigs()
   },
   clearFilter() {
-      this.filterBy = {}
+      this.filterBy.min = 0
+      this.filterBy.max = Infinity
+      this.filterBy.delivery = null
       this.setFilter()
-      this.$router.push('/explore')
-      // this.$router.go('/explore')
   },
     onScroll(e) {
     this.windowTop = window.top.scrollY
