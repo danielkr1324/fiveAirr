@@ -7,15 +7,17 @@
                 <img :src="gig.owner.imgUrl" alt="seller-img" />
             </div>
             <div class="text-container flex align-center">
-                <!-- <router-link to="#aboutSeller"> -->
-                <p class="seller-username"> {{ gig.owner.fullname }}</p>
-                <!-- </router-link> -->
-                <p class="seller-level"> Level {{ gig.owner.rate }} Seller &nbsp;</p>
-                <div class="stars flex align-center" v-for="star in gig.owner.rate">
-                    <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
+                <div class="name-container flex align-center">
+                    <p class="seller-username"> {{ gig.owner.fullname }}</p>
+                    <p class="seller-level"> Level {{ gig.owner.rate }} Seller &nbsp;</p>
                 </div>
-                <span style="color: #ffb33e">&nbsp;{{ gig.owner.rate }}</span>
-                <div class="reviews"> ({{ numOfRates }})</div>
+                <div class="stars-container flex align-center">
+                    <div class="stars flex align-center" v-for="star in gig.owner.rate">
+                        <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
+                    </div>
+                    <span style="color: #ffb33e">&nbsp;{{ gig.owner.rate }}</span>
+                    <div class="reviews"> ({{ numOfRates }})</div>
+                </div>
             </div>
         </section>
 
@@ -26,13 +28,13 @@
                     <img :src="gig.owner.imgUrl" alt="seller-img" />
                 </div>
                 <section class="seller-details">
-                    <div class="flex">
+                    <div class="flex name-container">
                         <p>{{ gig.owner.fullname }}</p>
                         <span class="icon">Online</span>
                     </div>
                     <p>Level {{ gig.owner.rate }} Seller</p>
-                    <div class="rating flex">
-                        <div class="flex align-center" v-for="star in gig.owner.rate">
+                    <div class="rating flex align-center">
+                        <div class="star flex align-center" v-for="star in gig.owner.rate">
                             <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
                         </div>
                         <span style="color: #ffb33e">&nbsp;{{ gig.owner.rate }}</span>

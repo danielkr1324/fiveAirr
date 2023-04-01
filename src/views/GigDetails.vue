@@ -107,21 +107,23 @@
       <section>
         <section class="head-what flex">
           <p>What people loved about this seller</p>
-          {{ }}
-          <!-- <a>All reviews</a> -->
         </section>
 
         <div class="main-review" v-if="gig.reviews">
           <div class="img-small flex align-center justify-center">{{ gig.reviews[0].name[0] }}</div>
           <div class="main flex align-center">
             <span class="username">{{ gig.reviews[0].name }}</span>
-            <img class="flag" :src="gig.reviews[0].flag" />
-            <span class="country">{{ gig.reviews[0].country }}</span>
+            <div class="from-container flex align-center">
+              <img class="flag" :src="gig.reviews[0].flag" />
+              <span class="country">{{ gig.reviews[0].country }}</span>
+            </div>
             <span class="space">|</span>
-            <span class="stars" v-for="n in 5">
-              <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
-            </span>
-            <span class="rating">5</span>
+            <div class="start-container flex align-center">
+              <span class="stars" v-for="n in 5">
+                <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
+              </span>
+              <span class="rating">5</span>
+            </div>
           </div>
           <div class="text">{{ gig.reviews[0].review }}</div>
           <div class="reviewedAt">{{ gig.reviews[0].reviewedAt }}</div>

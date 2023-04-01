@@ -22,6 +22,7 @@
     }
 
     .stars {
+        margin-right: 0.25rem;
         font-size: 0.875rem;
     }
 
@@ -73,6 +74,10 @@
     .rating {
         span {
             margin-top: 0.1875rem;
+        }
+
+        .star {
+            margin-right: 0.25rem;
         }
     }
 
@@ -140,6 +145,33 @@
             padding-block: 1rem;
 
             border-top: 1px solid #dadbdd;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+
+    .user-preview-short {
+        .text-container {
+            flex-direction: column;
+
+            .name-container {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .stars-container {
+                margin-left: 0.5rem;
+                margin-top: 0.5rem;
+            }
+
+        }
+    }
+
+    .user-preview-long {
+        .about-seller {
+            display: flex;
+            flex-direction: column;
         }
     }
 }
