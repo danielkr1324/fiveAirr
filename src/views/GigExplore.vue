@@ -93,9 +93,7 @@
 </template>
 
 <script>
-import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { gigService } from "../services/gig.service.js"
-import { getActionRemoveGig, getActionUpdateGig } from "../store/gig.store"
 import GigList from '../cmps/GigList.vue'
 
 export default {
@@ -111,12 +109,10 @@ data() {
     }
 },
 created() { 
-    this.$store.dispatch({ type: 'loadGigs', filterBy: this.$route.query })
+    this.$store.commit({ type: "setFilter", filterBy: this.$route.query  }); 
+    // this.$store.dispatch({ type: 'loadGigs', filterBy: this.$route.query })
 },
 computed: {
-  loggedInUser() {
-    return this.$store.getters.loggedinUser;
-  },
   gigs() { 
     return this.$store.getters.gigs;
   }
@@ -141,18 +137,20 @@ methods: {
     this.isDelivery = false
   },
   loadGigs() {
-      this.$store.dispatch({ type: 'loadGigs', filterBy: this.filterBy })
+      this.$store.dispatch({ type: 'loadGigs', filterBy: this.$store.getters.filterBy })
   },
-  setFilter() {    
+  setFilter() {
+      this.$store.commit({ type: "setFilter", filterBy: { ...this.filterBy } });    
       this.isBudget = false
       this.isDelivery= false   
-      this.$router.push({ name: 'GigExplore', query: { ...this.filterBy } })       
+      this.$router.push({ name: 'GigExplore', query: { ...this.$store.getters.filterBy } })       
       this.loadGigs()
   },
   clearFilter() {
       this.filterBy = {}
       this.setFilter()
       this.$router.push('/explore')
+      // this.$router.go('/explore')
   },
     onScroll(e) {
     this.windowTop = window.top.scrollY

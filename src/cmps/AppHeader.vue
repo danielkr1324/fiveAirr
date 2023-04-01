@@ -112,12 +112,15 @@ export default {
       ]
     };
   },
+  // created() {
+  //   this.$store.dispatch({ type: 'loadGigs', filterBy: this.$route.query })
+  // },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
   },
   unmounted() {
     this.filterBy = {};
-    this.filter({});
+    // this.filter({});
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -150,10 +153,12 @@ export default {
     },
     filter(filterBy) {
       this.$store.commit({ type: "setFilter", filterBy: { ...filterBy } });
+
       this.$router.push({
         name: "GigExplore",
         query: { ...this.$store.getters.filterBy }
       });
+        this.$store.dispatch({ type: 'loadGigs', filterBy: this.$store.getters.filterBy})
     },
     getSvg(iconName) {
       return svgService.getSvg(iconName);

@@ -51,6 +51,12 @@
         margin: 0.9375em 0;
         color: $clr5;
 
+        @media screen and (max-width: 580px) {
+          // min-height: em(463px);
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         .sort-input {
           display: flex;
           align-items: center;
