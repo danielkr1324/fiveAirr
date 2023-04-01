@@ -29,7 +29,7 @@
         <button class="hamburger-icon flex" @click="openMenu" v-html="getSvg('hamburger')"></button>
       </section>
 
-      <section class="flex">
+      <section class="logo-container flex">
         <section class="hamburger-menu close-hamburger flex">
           <button class="hamburger-icon flex" @click="openMenu" v-html="getSvg('hamburger')"></button>
         </section>

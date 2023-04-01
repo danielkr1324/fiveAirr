@@ -8,7 +8,7 @@ export const orderStore = {
 
     getters: {
         sellerOrders({ orders }) {
-            console.log(orders);
+            // console.log(orders);
             const filteredOrders = orders.filter(
                 order => order.seller._id === userStore.state.loggedinUser._id
             )
@@ -58,7 +58,7 @@ export const orderStore = {
         async loadOrders(context) {
             try {
                 const orders = await orderService.query()
-                console.log(orders);
+                // console.log(orders);
                 context.commit({ type: 'setOrders', orders })
             } catch (err) {
                 console.log('orderStore: Error in loadOrders', err)

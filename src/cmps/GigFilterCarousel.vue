@@ -1,6 +1,7 @@
 <template>
   <vueper-slides
     class="no-shadow"
+    :arrowsOutside="true"
     :bullets="false"
     :visible-slides="5"
     :fixedHeight="'345px'"

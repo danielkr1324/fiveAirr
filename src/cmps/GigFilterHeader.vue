@@ -73,6 +73,14 @@ export default {
       windowWidth: window.innerWidth
     };
   },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener("resize", this.onResize);
+    });
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResize);
+  },
   methods: {
     categoryFilter(category) {
       this.filterBy.category = category;
@@ -84,14 +92,6 @@ export default {
     onResize() {
       this.windowWidth = window.innerWidth;
     }
-  },
-  mounted() {
-    this.$nextTick(() => {
-      window.addEventListener("resize", this.onResize);
-    });
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.onResize);
   },
   components: { VueperSlides, VueperSlide }
 };
