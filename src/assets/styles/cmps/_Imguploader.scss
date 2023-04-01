@@ -1,0 +1,39 @@
+.img-uploader {
+
+    .upload-container {
+        display: block;
+        background: grey;
+        color: white;
+        font-family: Macan-Regular;
+        position: relative;
+        width: 110px;
+        height: 50px;
+        padding: 10px;
+        transform: translate(0px, 100%);
+        border-radius: 4px;
+        font-size: 0.9rem;
+        line-height: 30px;
+    }
+
+    #imgUpload {
+        cursor: pointer;
+        background: red;
+        margin-bottom: 54px;
+        width: 110px;
+        height: 50px;
+        opacity: 0;
+    }
+
+
+
+    .upload-preview {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .img-container {
+        width: 167.5px;
+        height: 167.5px;
+    }
+}

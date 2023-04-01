@@ -1,0 +1,132 @@
+.seller-gig-preview {
+    @include card(230px, 254px);
+    margin-bottom: 30px;
+
+
+    .gig-info {
+        background-color: #fff;
+        height: 100%;
+        border: 1px solid #dadbdd;
+
+        @media screen and (max-width: 400px) {
+            min-width: 250px;
+        }
+
+        h3 {
+            font-size: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: $clr4;
+        }
+
+        &:hover {
+            a {
+                color: $clr1;
+            }
+
+            svg {
+                visibility: visible;
+            }
+        }
+    }
+
+
+    .img-container {
+        width: 100%;
+        height: 142px;
+    }
+
+
+
+    .preview-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .preview-footer {
+
+        p {
+            color: $clr5;
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.625em 0.75em;
+
+
+        svg:hover {
+            cursor: pointer;
+        }
+
+
+        span>* {
+            width: 15px;
+            height: 15px;
+            margin-right: 10px;
+            fill: #404145;
+            visibility: hidden;
+        }
+    }
+
+    .preview-price-container {
+        align-items: center;
+        color: $clr7;
+
+
+
+        p {
+            color: #74767e;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            color: $clr7;
+        }
+
+        .preview-price {
+            margin-inline-start: em(5px);
+            font-size: rem(18px);
+            line-height: rem(20px);
+
+        }
+    }
+
+}
+
+
+
+.user-modal {
+    padding: 10px;
+
+    >* {
+        :hover {
+            color: $clr1;
+            cursor: pointer;
+        }
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        background: none;
+        border: none;
+        margin-bottom: 30px;
+        border-bottom: 1px solid var(--yro5245);
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    // color: $CLR00;
+    height: 100%;
+}

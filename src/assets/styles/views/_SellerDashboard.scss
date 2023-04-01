@@ -1,0 +1,99 @@
+.dashboard {
+    margin-top: 5rem;
+
+    .dashboard-layout {
+        grid-column: 2/3;
+        display: grid;
+        grid-template-columns: 400px 3rem 800px;
+
+        .user-profile {
+            grid-column: 1/2;
+
+            .user-profile {
+                background-color: #fff;
+                width: 100%;
+                height: 363px;
+                border: 1px solid #dadbdd;
+                padding: 30px;
+                margin-bottom: 20px;
+
+                .user-img {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: em(167px);
+                    overflow: hidden;
+                    margin-bottom: 15px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    border: 1px solid #dadbdd;
+                }
+
+                h2 {
+                    text-align: center;
+                    padding-bottom: 1.5rem;
+                }
+
+                li {
+                    padding: 0.5rem 0;
+                    padding-top: 1rem;
+                    color: #74767e;
+
+                    div {
+                        font-family: Macan-Regular;
+                    }
+                }
+            }
+
+            .user-description {
+                background-color: #fff;
+                width: 100%;
+                height: 450px;
+                border: 1px solid #dadbdd;
+                height: fit-content;
+                padding: 30px;
+
+                h3 {
+                    margin-bottom: 1.25rem;
+                }
+
+                p {
+                    line-height: 1.5rem;
+                    font-family: Macan-Regular;
+                }
+            }
+        }
+
+        .orders {
+            grid-column: 3/4;
+
+            .table-head,
+            .order-table {
+                display: grid;
+                grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+
+                margin-top: 2rem;
+                width: 700px;
+
+                .buyer-col {
+                    grid-column: 1/2;
+                }
+
+                .gig-col {
+                    grid-column: 2/3;
+                }
+
+                .due-on-col {
+                    grid-column: 3/4;
+                }
+
+                .total-col {
+                    grid-column: 4/5;
+                }
+
+                .status-col {
+                    grid-column: 5/6;
+                }
+            }
+        }
+    }
+}

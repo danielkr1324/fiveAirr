@@ -1,0 +1,42 @@
+.app-hero {
+    display: none;
+    height: 415px;
+    position: relative;
+    bottom: 80px;
+    margin-bottom: -80px;
+
+    .vueperslide__content {
+        position: absolute;
+        bottom: 35px;
+        right: 60px;
+        color: white;
+
+        @media screen and (min-width: 1400px) {
+            right: calc(60px + 2rem);
+        }
+    }
+
+    @media screen and (min-width: 900px) {
+        height: 680px;
+        display: block;          
+    }
+}
+
+//WORK IN PROGRESS
+// .app-hero {
+//     display: none;
+//     position: relative;
+//     bottom: 80px;
+//     margin-bottom: -80px;
+
+//     .vueperslide__content {
+//         position: absolute;
+//         bottom: 35px;
+//         right: 60px;
+//         color: white;
+//     }
+
+//     @media screen and (min-width: 900px) {
+//         display: block;
+//     }
+// }
