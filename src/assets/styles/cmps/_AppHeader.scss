@@ -11,11 +11,16 @@ header {
         padding: 5px 0;
         height: 80px;
 
+        .logo-container {
+            a {
+                padding-bottom: 0.5rem;
+            }
+        }
+
         .hamburger-menu {
             display: flex;
 
             .hamburger-icon {
-                padding-top: 0.5rem;
                 cursor: pointer;
                 background-color: transparent;
                 border: none;
@@ -121,6 +126,16 @@ header {
 
         a:nth-child(-n + 2) {
             display: none;
+        }
+
+        a:nth-child(3) {
+            display: none;
+        }
+
+        @media screen and (min-width: 400px) {
+            a:nth-child(3) {
+                display: flex;
+            }
         }
 
         @media screen and (min-width: 900px) {

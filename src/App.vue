@@ -1,7 +1,7 @@
 <template>
   <section class="main-container">
     <AppHeader @filter="setCategoryFilter" />
-    <RouterView />
+    <RouterView class="main-content" />
     <UserMsg />
     <AppFooter />
   </section>
