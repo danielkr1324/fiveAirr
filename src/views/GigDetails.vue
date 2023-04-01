@@ -164,7 +164,7 @@ import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 import { gigService } from '../services/gig.service.js'
 // import { userService } from '../services/user.service.js'
-import { userService } from "@/services/user.service.local.js";
+import { userService } from "@/services/user.service.js";
 import { reviewService } from '../services/review.service.js'
 
 import UserPreview from '../cmps/UserPreview.vue'

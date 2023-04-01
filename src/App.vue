@@ -10,7 +10,6 @@
 <script>
 // import { userService } from "./services/user.service";
 import { userService } from "./services/user.service.local";
-import { orderService } from "./services/order.service.local";
 import { store } from "./store/store";
 
 import AppHeader from "./cmps/AppHeader.vue";
@@ -19,7 +18,7 @@ import UserMsg from "./cmps/UserMsg.vue";
 
 export default {
   created() {
-    this.$store.dispatch({ type: "loadGigs" });
+    this.$store.dispatch({ type: "loadGigs", ...this.$route.query });
     console.log("Vue App created");
     const user = userService.getLoggedinUser();
     if (user) store.commit({ type: "setLoggedinUser", user });

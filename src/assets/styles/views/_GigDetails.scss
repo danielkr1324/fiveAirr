@@ -1,7 +1,7 @@
 .nav-container {
     position: sticky;
     top: 0px;
-    z-index: 5;
+    z-index: 2;
     grid-column: 1/-1;
 
     margin-top: 2.5rem;
@@ -69,7 +69,7 @@
 
     .main {
         grid-column: 1/2;
-
+        z-index: 0;
         .user-short {
             margin-top: 1rem;
         }
@@ -101,7 +101,7 @@
         -moz-user-select: none;
         user-select: none;
         outline: none;
-        z-index: 2;
+        z-index: 1;
         line-height: 1;
         background-color: $clr6;
         opacity: 1;
@@ -155,7 +155,7 @@
         transition: 0.5s ease-in-out transform;
         display: flex;
     }
-
+    
     .vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) {
         border: 1px solid rgba(200, 193, 193, 0.688);
     }

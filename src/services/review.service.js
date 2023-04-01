@@ -1,6 +1,6 @@
-// import { httpService } from './http.service'
-import { storageService } from './async-storage.service'
-// import { userService } from './user.service'
+import { httpService } from './http.service'
+// import { storageService } from './async-storage.service'
+import { userService } from './user.service'
 // import { userService } from "@/services/user.service.local.js";
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 
@@ -30,32 +30,32 @@ export const reviewService = {
 
 function query(filterBy) {
   var queryStr = !filterBy ? '' : `?name=${filterBy.name}&sort=anaAref`
-  // return httpService.get(`review${queryStr}`)
-  return storageService.query('review')
+  return httpService.get(`review${queryStr}`)
+  // return storageService.query('review')
 }
 
 async function remove(reviewId) {
-  // await httpService.delete(`review/${reviewId}`)
-  await storageService.delete('review', reviewId)
+  await httpService.delete(`review/${reviewId}`)
+  // await storageService.delete('review', reviewId)
 }
 
 async function add({ txt, aboutUserId }) {
-  // const addedReview = await httpService.post(`review`, {txt, aboutUserId})
+  const addedReview = await httpService.post(`review`, { txt, aboutUserId })
 
-  const aboutUser = await userService.getById(aboutUserId)
+  // const aboutUser = await userService.getById(aboutUserId)
 
-  const reviewToAdd = {
-    txt,
-    byUser: userService.getLoggedinUser(),
-    aboutUser: {
-      _id: aboutUser._id,
-      fullname: aboutUser.fullname,
-      imgUrl: aboutUser.imgUrl,
-    },
-  }
+  // const reviewToAdd = {
+  //   txt,
+  //   byUser: userService.getLoggedinUser(),
+  //   aboutUser: {
+  //     _id: aboutUser._id,
+  //     fullname: aboutUser.fullname,
+  //     imgUrl: aboutUser.imgUrl,
+  //   },
+  // }
 
-  reviewToAdd.byUser.score += 10
-  await userService.update(reviewToAdd.byUser)
-  const addedReview = await storageService.post('review', reviewToAdd)
+  // reviewToAdd.byUser.score += 10
+  // await userService.update(reviewToAdd.byUser)
+  // const addedReview = await storageService.post('review', reviewToAdd)
   return addedReview
 }

@@ -93,9 +93,7 @@
 </template>
 
 <script>
-import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
-import { gigService } from "../services/gig.service.local"
-import { getActionRemoveGig, getActionUpdateGig } from "../store/gig.store"
+import { gigService } from "../services/gig.service.js"
 import GigList from '../cmps/GigList.vue'
 
 export default {
@@ -110,20 +108,11 @@ data() {
         filterBy: {},
     }
 },
-created() {  
-
-    const filterBy = this.$store.getters.filterBy    
-    this.filterBy = {
-      sortBy: filterBy.sortBy ,
-      min: filterBy.min ,
-      max: filterBy.max ,
-      delivery: filterBy.delivery 
-    }
+created() { 
+    this.$store.commit({ type: "setFilter", filterBy: this.$route.query  }); 
+    // this.$store.dispatch({ type: 'loadGigs', filterBy: this.$route.query })
 },
 computed: {
-  loggedInUser() {
-    return this.$store.getters.loggedinUser;
-  },
   gigs() { 
     return this.$store.getters.gigs;
   }
@@ -147,47 +136,21 @@ methods: {
     this.isBudget = false
     this.isDelivery = false
   },
-  setFilter() {    
-    
+  loadGigs() {
+      this.$store.dispatch({ type: 'loadGigs', filterBy: this.$store.getters.filterBy })
+  },
+  setFilter() {
+      this.$store.commit({ type: "setFilter", filterBy: { ...this.filterBy } });    
       this.isBudget = false
       this.isDelivery= false   
-      this.$store.commit({ type: 'setFilter', filterBy: { ...this.filterBy } })
       this.$router.push({ name: 'GigExplore', query: { ...this.$store.getters.filterBy } })       
+      this.loadGigs()
   },
   clearFilter() {
       this.filterBy = {}
       this.setFilter()
       this.$router.push('/explore')
-  },
-  async addGig() {
-    try {
-      await this.$store.dispatch({ type: "addGig", gig: this.gigToAdd });
-      showSuccessMsg("Gig added");
-      this.gigToAdd = gigService.getEmptyGig();
-    } catch (err) {
-      console.log(err);
-      showErrorMsg("Cannot add gig");
-    }
-  },
-  async removeGig(gigId) {
-    try {
-      await this.$store.dispatch(getActionRemoveGig(gigId));
-      showSuccessMsg("Gig removed");
-    } catch (err) {
-      console.log(err);
-      showErrorMsg("Cannot remove gig");
-    }
-  },
-  async updateGig(gig) {
-    try {
-      gig = { ...gig };
-      gig.price = +prompt("New price?", gig.price);
-      await this.$store.dispatch(getActionUpdateGig(gig));
-      showSuccessMsg("Gig updated");
-    } catch (err) {
-      console.log(err);
-      showErrorMsg("Cannot update gig");
-    }
+      // this.$router.go('/explore')
   },
     onScroll(e) {
     this.windowTop = window.top.scrollY

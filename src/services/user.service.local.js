@@ -81,8 +81,10 @@ async function signup(userCred) {
     userCred.imgUrl =
       'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
   const user = await storageService.post(USER_STORAGE_KEY, userCred)
+  console.log(user._id);
   // const user = await httpService.post('auth/signup', userCred)
   socketService.login(user._id)
+  console.log(user._id);
   return saveLocalUser(user)
 }
 async function logout() {
@@ -169,6 +171,7 @@ var seller = {
 _createUsers()
 
 function _createUsers() {
+  console.log('hi');
   let users = []
   users = utilService.loadFromStorage(USER_STORAGE_KEY)
   if (!users || !users.length) signup(seller)

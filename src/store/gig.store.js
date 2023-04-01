@@ -1,5 +1,5 @@
-import { gigService } from '../services/gig.service.local'
-// import { gigService } from '../services/gig.service'
+// import { gigService } from '../services/gig.service.local'
+import { gigService } from '../services/gig.service.js'
 
 export function getActionRemoveGig(gigId) {
   return {
@@ -43,19 +43,18 @@ export const gigStore = {
   getters: {
     filterBy({ filterBy }) {
       const filters = { ...filterBy }
-      for (const key in filters) {
-        if (!filters[key]) delete filters[key]
-      }
+
       return filters
     },
     gigsByUser({ gigs }, rootGetters) {
       const user = rootGetters.loggedinUser
-      var filteredGigs = gigs.filter((gig) => gig.owner._id === user._id)
+      var filteredGigs = gigs.filter(gig => gig.owner._id === user._id)
 
       if (!filteredGigs.length) return []
       return filteredGigs
     },
     gigs({ gigs, filterBy }) {
+      // return gigs
       if (!gigs) return null
 
       var filteredGigs = gigs
@@ -155,7 +154,7 @@ export const gigStore = {
     },
     async loadGigs(context, { filterBy }) {
       try {
-        const gigs = await gigService.query()
+        const gigs = await gigService.query(filterBy)
         context.commit({ type: 'setGigs', gigs })
       } catch (err) {
         console.log('gigStore: Error in loadGigs', err)
