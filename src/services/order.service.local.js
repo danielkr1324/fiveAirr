@@ -6,7 +6,7 @@ import { userService } from './user.service'
 
 import { utilService } from './util.service.js'
 
-// import { store } from '../store/store.js'
+import { store } from '../store/store.js'
 import { socketService } from './socket.service.js'
 import { orderStore } from '../store/order.store.js'
 

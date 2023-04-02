@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="table-entity flex">
+        <div @click.self="closeSet" class="table-entity flex">
             <div class="buyer-col flex column align-center user-col">
                 <img :src="order.buyer.imgUrl" />
                 <p class="regular">{{ order.buyer.fullname }}</p>
@@ -21,7 +21,7 @@
                     <span class="regular">{{ order.status }}</span>
                 </div>
             </div>
-            <div @click.self="toggleSet">
+            <div >
                 <div v-if="setOpen" class="set-status" >
                     <div class="completed status" @click="changeStatus('Completed')">
                         Completed
@@ -57,6 +57,9 @@ export default {
         },
         toggleSet() {
             this.setOpen = !this.setOpen
+        },
+        closeSet() {
+            this.setOpen = false
         },
         changeStatus(status) {
             this.$emit('change', { status, order: this.order })

@@ -24,7 +24,33 @@ export default {
     const user = userService.getLoggedinUser();
     if (user) store.commit({ type: "setLoggedinUser", user });
 
+    if (user) socketService.emit('set-user-socket', user)
+    
+    socketService.on('user-is-watching', (msg) => {
+      showSuccessMsg(msg)
+    })
+    socketService.on('user-ordered-gig', (msg) => {
+      showSuccessMsg(msg)
+      this.isActiveDashboard = true
+    })
+    socketService.on('order-approved', (msg) => {
+      showSuccessMsg(msg)
+      this.isActiveOrders = true
+    })
+    socketService.on('order-status-update', (msg) => {
+      showSuccessMsg(msg)
+      this.isActiveOrders = trues
+    })
+
   },
+    data() {
+    return {
+      isHeaderSticky: false,
+      isActiveOrders: false,
+      isActiveDashboard: false,
+    }
+  },
+  
   methods: {
     setCategoryFilter(filterBy) {
       this.$store
