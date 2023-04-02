@@ -11,6 +11,7 @@
       <div v-if="loggedInUser" class="user-info flex">
         <div class="img-container">
           <img class="header-user-img" v-if="loggedInUser" :src="loggedInUser.imgUrl" alt />
+          <div v-if="isActiveOrders"  class="notification-orders">asdasdasd</div>
         </div>
         <p v-if="loggedInUser">{{ loggedInUser.fullname }}</p>
       </div>
@@ -88,6 +89,10 @@ import GigFilter from "../cmps/GigFilter.vue";
 import LoginSignup from "./LoginSignup.vue";
 
 export default {
+  props: {
+    isActiveOrders: Boolean,
+    isActiveDashboard: Boolean
+  },
   data() {
     return {
       showLoginModal: false,

@@ -64,9 +64,20 @@ header {
 
 
             .header-user-img {
+                position: relative;
                 width: 30px;
                 height: 30px;
                 clip-path: circle();
+
+                .notification-orders {
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 50%;
+                    background-color: #e61c1c;
+                    position: absolute;
+                    top: -5px;
+                    right: -2px;
+                  }
             }
 
             &.join {

@@ -47,8 +47,6 @@ export default {
   methods: {
     goToDetails(gig) {
       this.$router.push({ path: gig })
-    this.$notify("Hello user!");
-
     },
   },
   computed: {

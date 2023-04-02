@@ -1,6 +1,6 @@
 <template>
   <section class="main-container">
-    <AppHeader @filter="setCategoryFilter" />
+    <AppHeader :isActiveOrders="this.isActiveOrders" @filter="setCategoryFilter" />
     <RouterView class="main-content" />
     <UserMsg />
     <AppFooter />
