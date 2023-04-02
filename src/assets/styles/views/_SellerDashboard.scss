@@ -1,5 +1,4 @@
 .dashboard {
-
   margin: 80px 40px 50px 40px;
 @media screen and (max-width: 1000px) {
    flex-direction: column;
@@ -17,7 +16,7 @@
     background-color: $CLR0;
     border: 1px solid $clr9;
     margin: 0 40px 60px 0;
-    padding: 30px 20px 50px;
+    padding:  20px;
     width: 400px;
     max-height: 400px;
     @media screen and (max-width: 1000px) {
@@ -29,6 +28,10 @@
       width: 300px;
     }
     .profile {
+        margin-top: 0;
+        margin-bottom: 3em;
+        padding: 0;
+        background: none;
       .profile-item {
         padding: 8px;
 
@@ -96,7 +99,7 @@
       color: $CLR00;
     }
     .headline {
-      align-self: flex-start;
+      align-self: center;
     }
 
     flex-direction: column;
@@ -110,6 +113,7 @@
       justify-content: space-evenly;
       align-items: center;
       height: 150px;
+      width: 100%;
       margin: 0 0 40px 0;
       padding: 30px 0;
       > *:not(:last-child) {
@@ -177,9 +181,14 @@
           }
       }
       .table-head,
+      
       .table-entity {
+        padding-inline-start: 10px;
+
+        align-items: center;
+        justify-content: center;
         @media screen and (max-width: 650px) {
-          width: 200%;
+          width: 300%;
         }
         .table-span {
           color: $clr5;
@@ -302,15 +311,15 @@
       display: flex;
       z-index: 100;
       flex-direction: column;
-      justify-content: space-evenly;
-      background-color: $CLR0;
+      justify-content: space-between;
+      background-color: #F7F7F7;
       border: $clr9 1px solid;
       border-radius: 4px;
       width: 105px;
-      height: 160px;
+      height: 110px;
       position: absolute;
 
-      transform: translate(-212%, -17%);
+      transform: translate(-118%, 15%);
       @media screen and (max-width: 650px) {
         transform: translate(-438%, -17%);
         position:absolute;
