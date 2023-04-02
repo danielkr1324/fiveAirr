@@ -41,19 +41,19 @@
       <span>Trusted by:</span>
       <ul class="flex space-between clean-list">
         <li>
-          <img src="../assets/images/trusted by/meta.12b5e5c.png" alt />
+          <img src="@/assets/images/trusted-by/meta.12b5e5c.png" alt />
         </li>
         <li>
-          <img src="../assets/images/trusted by/google.61e78c8.png" alt />
+          <img src="@/assets/images/trusted-by/google.61e78c8.png" alt />
         </li>
         <li>
-          <img src="../assets/images/trusted by/netflix.96c5e3f.png" alt />
+          <img src="@/assets/images/trusted-by/netflix.96c5e3f.png" alt />
         </li>
         <li>
-          <img src="../assets/images/trusted by/pandg.0f4cfc2.png" alt />
+          <img src="@/assets/images/trusted-by/pandg.0f4cfc2.png" alt />
         </li>
         <li class="paypal-img">
-          <img src="../assets/images/trusted by/paypal.305e264.png" alt />
+          <img src="@/assets/images/trusted-by/paypal.305e264.png" alt />
         </li>
       </ul>
     </section>
@@ -96,8 +96,8 @@
 
 
 <script>
-import AppHero from "../cmps/AppHero.vue";
-import GigFilter from "../cmps/GigFilter.vue";
+import AppHero from "@/cmps/AppHero.vue";
+import GigFilter from "@/cmps/GigFilter.vue";
 import ExploreCategories from "@/cmps/ExploreCategories.vue";
 import { svgService } from "@/services/svg.service.js";
 
