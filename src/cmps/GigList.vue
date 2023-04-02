@@ -16,22 +16,6 @@ export default {
     return {
     };
   },
-  
-    
-    
-    // async addGigMsg(gigId) {
-    //   try {
-    //     await this.$store.dispatch(getActionAddGigMsg(gigId))
-    //     showSuccessMsg('Gig msg added')
-    //   } catch(err) {
-    //     console.log(err)
-    //     showErrorMsg('Cannot add gig msg')
-    //   }
-    // },
-    // printGigToConsole(gig) {
-    //   console.log('Gig msgs:', gig.msgs)
-    // }
-  
   components: {
     GigPreview,
   }

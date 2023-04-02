@@ -71,7 +71,7 @@ export default {
             if (!this.signupCred.fullname || !this.signupCred.password || !this.signupCred.username) {
                 return
             }
-            console.log(' signupCred : ', this.signupCred)
+            // console.log(' signupCred : ', this.signupCred)
             await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
             this.loginCred.username = this.signupCred.username
             this.loginCred.password = this.signupCred.password

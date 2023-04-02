@@ -111,7 +111,7 @@ export const gigStore = {
       state.gigs = state.gigs.filter(gig => gig._id !== gigId)
     },
     setCategoryFilterBy(state, { filterBy }) {
-      console.log('filterBy', filterBy)
+      // console.log('filterBy', filterBy)
       state.filterBy.categories = filterBy
     },
     // addGigMsg(state, { gigId , msg}) {
@@ -134,7 +134,7 @@ export const gigStore = {
     async addGig(context, { gig }) {
       try {
         gig = await gigService.save(gig)
-        console.log(gig, 'from store')
+        // console.log(gig, 'from store')
         context.commit(getActionAddGig(gig))
         return gig
       } catch (err) {

@@ -77,6 +77,7 @@
                         <div class="status-col">
                             <h4>Status</h4>
                         </div>
+                        <div></div>
                     </div>
                     <order-list  v-for="order in orders" :order="order" :key="order._id"
                         @change="changeStatus" />
