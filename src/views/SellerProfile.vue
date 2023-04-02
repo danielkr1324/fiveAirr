@@ -44,7 +44,7 @@
               <p>Create a new Gig</p>
             </div>
           </div>
-          <SellerGigPreview v-for="gig in gigs" :key="gig._id" :gig="gig" />
+          <SellerGigPreview @gigRemoved="removeGig" v-for="gig in gigs" :key="gig._id" :gig="gig" />
         </section>
       </section>
     </main>
@@ -72,6 +72,10 @@ export default {
     this.gigs = this.$store.getters.gigsByUser;
   },
   methods: {
+    async removeGig(gigId) {
+      await this.$store.dispatch({ type: 'removeGig', gigId })
+      this.gigs = this.$store.getters.gigsByUser
+    },
     editGig() {
       this.$store.dispatch({type: 'addGig'})
       this.$router.push({ name: "GigEdit", query: { ...this.loggedinUser } });
