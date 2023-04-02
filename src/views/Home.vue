@@ -146,17 +146,17 @@ export default {
       return svgService.getSvg(iconName);
     },
     txtFilter(title) {
-      console.log("title:", title);
+      // console.log("title:", title);
       this.filterBy.title = title;
       this.filter(this.filterBy);
     },
     popularFilter(subCategory) {
-      console.log("subCategory:", subCategory);
+      // console.log("subCategory:", subCategory);
       this.filterBy.subCategory = subCategory;
       this.filter(this.filterBy);
     },
     filter(filterBy) {
-      console.log("filterBy:", filterBy);
+      // console.log("filterBy:", filterBy);
       this.$store.commit({ type: "setFilter", filterBy: { ...filterBy } });
       this.$router.push({
         name: "GigExplore",

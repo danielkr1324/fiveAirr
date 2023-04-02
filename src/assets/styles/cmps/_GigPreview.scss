@@ -83,7 +83,7 @@
     }
   }
     // max-width: rem(310px);
-    max-height: 350px;
+    max-height: 400px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -99,10 +99,11 @@
 
     @media screen and (max-width: 880px) {
       min-width: em(250px);
+      max-height: em(470px);
     }
     
     @media screen and (max-width: 580px) {
-      // min-height: em(463px);
+      max-height: em(480px);
       
     }
 
@@ -243,4 +244,4 @@
     }
   }
 }
-  
+

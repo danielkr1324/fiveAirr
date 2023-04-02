@@ -63,7 +63,7 @@ export const userStore = {
       }
     },
     async signup({ commit }, { userCred }) {
-      console.log('userCred:', userCred)
+      // console.log('userCred:', userCred)
       try {
         const user = await userService.signup(userCred)
         commit({ type: 'setLoggedinUser', user })
@@ -86,7 +86,7 @@ export const userStore = {
       // TODO: loading
       try {
         const users = await userService.getUsers()
-        console.log(users)
+        // console.log(users)
 
         commit({ type: 'setUsers', users })
       } catch (err) {
@@ -95,7 +95,7 @@ export const userStore = {
       }
     },
     async loadUser({ commit }, { userId }) {
-      console.log(userId)
+      // console.log(userId)
 
       try {
         const user = await userService.getById(userId)

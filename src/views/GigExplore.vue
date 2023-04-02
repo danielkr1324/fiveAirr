@@ -110,6 +110,7 @@ data() {
 },
 created() { 
     this.$store.commit({ type: "setFilter", filterBy: this.$route.query  }); 
+
     // this.$store.dispatch({ type: 'loadGigs', filterBy: this.$route.query })
 },
 computed: {
