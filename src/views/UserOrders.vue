@@ -1,69 +1,61 @@
 <template>
-    <section v-if="user" class="orders main-container full">
-        <main class="main-grid">
-            <section class="seller-details">
-                <div class="user-profile flex column">
-                    <img class="user-img" :src="user.imgUrl" alt srcset />
-                    <h2>{{ user.fullname }}</h2>
-                    <hr />
-                    <ul>
-                        <li class="flex space-between">
-                            <div>
-                                <span v-html="getSvg('location')"></span>
-                                Country
-                            </div>
-                            <span>{{ user.country }}</span>
-                        </li>
-                        <li class="flex space-between">
-                            <div>
-                                <span v-html="getSvg('member')"></span>
-                                Member Since
-                            </div>
-                            <span>{{ user.joinedAt }}</span>
-                        </li>
-                        <li class="flex space-between">
-                            <RouterLink to="/seller/profile">
-                                Your Profile
-                            </RouterLink>
-                        </li>
-                        <li class="flex space-between">
-                            <RouterLink to="/seller/dashboard">
-                                Seller Dashboard
-                            </RouterLink>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="orders-container">
-                <div class="header">
-                    <h2>Your Orders</h2>
-                </div>
-                <section class="orders-table">
-                    <div class="table-head">
-                        <div class="seller">Seller</div>
-                        <div class="gig">Gig</div>
-                        <div class="date">Order Date</div>
-                        <div class="total">Total</div>
-                        <div class="status">Status</div>
+    <main class="dashboard flex">
+            
+            <section class="seller-orders flex">
+                
+                <h2 class="headline">My Orders</h2>
+                <div class="order-table">
+                    <div class="table-head flex">
+                        <div class="buyer-col">
+                            <h4>Seller</h4>
+                        </div>
+                        <div class="gig-col">
+                            <h4>Gig</h4>
+                        </div>
+                        <div class="due-on-col">
+                            <h4>Date</h4>
+                        </div>
+                        <div class="total-col">
+                            <h4>Total</h4>
+                        </div>
+                        <div class="status-col">
+                            <h4>Status</h4>
+                        </div>
+                        <div></div>
                     </div>
-
-                    <div class="table-body" v-for="order in orders">
-                        <div class="seller"> {{ order.seller.fullname }}</div>
-                        <div class="gig">{{ order.gig.name }}</div>
-                        <div class="date">{{ order.createdAt }}</div>
-                        <div class="total">{{ order.gig.price }}</div>
-                        <div class="status">{{ order.status }}</div>
-                    </div>
-                </section>
+                    <div v-for="order in orders"  class="table-entity flex">
+            <div class="buyer-col flex column align-center user-col">
+                <img :src="order.seller.imgUrl" />
+                <p class="regular">{{ order.seller.fullname }}</p>
+            </div>
+            <div class="gig-col flex column">
+                <span class="table-span regular">{{ order.gig.name }}</span>
+            </div>
+            <div class="due-on-col flex column">
+                <span class="table-span regular">
+                    {{ new Date(order.createdAt).toLocaleDateString() }}
+                </span>
+            </div>
+            <div class="total-col flex column">
+                <span class="table-span regular">US${{ order.gig.price }}</span>
+            </div>
+            <div @click="toggleSet()" class="status-col flex column">
+                <div class="status flex" >
+                    <span class="regular" style="color:grey">{{ order.status }}</span>
+                </div>
+            </div>
+            
+        </div>
+                </div>
             </section>
         </main>
-    </section>
+        
 </template>
 
 <script>
 import { socketService } from '../services/socket.service'
 import { svgService } from "@/services/svg.service.js";
+
 
 export default {
     name: 'UserOrders',
@@ -98,4 +90,29 @@ export default {
 
     },
 }
+
+// <section class="order-table">
+//                     <div class="table-head flex">
+//                         <div class="buyer-col">
+//                             <h4>Buyer</h4>
+//                         </div>
+//                         <div class="gig-col">
+//                             <h4>Gig</h4>
+//                         </div>
+//                         <div class="due-on-col">
+//                             <h4>Date</h4>
+//                         </div>
+//                         <div class="total-col">
+//                             <h4>Total</h4>
+//                         </div>
+//                         <div class="status-col">
+//                             <h4>Status</h4>
+//                         </div>
+//                         <div></div>
+//                     </div>
+
+                    
+//                 </section>
+
+
 </script>

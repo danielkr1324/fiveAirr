@@ -113,7 +113,6 @@ export default {
         },
         selectOrder(order) {
             this.selectedOrder = { ...order }
-            console.log(order);
             
             this.toggleSet()
         },
