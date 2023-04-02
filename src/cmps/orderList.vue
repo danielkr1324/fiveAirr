@@ -3,7 +3,7 @@
         <div class="table-entity flex">
             <div class="buyer-col flex column align-center user-col">
                 <img :src="order.buyer.imgUrl" />
-                <p class="regular">{{ order.buyer.username }}</p>
+                <p class="regular">{{ order.buyer.fullname }}</p>
             </div>
             <div class="gig-col flex column">
                 <span class="table-span regular">{{ order.gig.name }}</span>

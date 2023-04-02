@@ -199,7 +199,7 @@ export default {
       }
     },
     onSetOrder() {
-      console.log(this.user)
+      // console.log(this.user)
       if (this.user) this.addOrder()
       else this.setAuthType('login')
     },
@@ -242,7 +242,7 @@ export default {
     try {
       const user = this.$store.getters.loggedInUser
       if (user) {
-        console.log('user : ', user)
+        // console.log('user : ', user)
         this.$store.commit({ type: 'login', user })
       }
       await this.loadGig()

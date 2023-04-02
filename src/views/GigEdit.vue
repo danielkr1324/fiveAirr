@@ -81,7 +81,7 @@ export default {
         if (_id) {
             gigService.getById(_id).then((gig) => {
                 this.gigToEdit = gig
-                console.log(this.gigToEdit)
+                // console.log(this.gigToEdit)
             })
         }
         else {
