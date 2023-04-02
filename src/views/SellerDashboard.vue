@@ -69,7 +69,7 @@
                             <h4>Gig</h4>
                         </div>
                         <div class="due-on-col">
-                            <h4>Order Date</h4>
+                            <h4>Date</h4>
                         </div>
                         <div class="total-col">
                             <h4>Total</h4>
@@ -112,6 +112,8 @@ export default {
         },
         selectOrder(order) {
             this.selectedOrder = { ...order }
+            console.log(order);
+            
             this.toggleSet()
         },
         toggleSet() {

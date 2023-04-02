@@ -4,6 +4,7 @@
     <RouterView class="main-content" />
     <UserMsg />
     <AppFooter />
+    <notifications position="bottom right"/>
   </section>
 </template>
 
