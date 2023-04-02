@@ -22,6 +22,11 @@
               <span>{{ user.joinedAt }}</span>
             </li>
             <li class="flex space-between">
+              <RouterLink to="/orders">
+                Your Orders
+              </RouterLink>
+            </li>
+            <li class="flex space-between">
               <RouterLink to="/seller/dashboard">
                 Seller Dashboard
               </RouterLink>
@@ -77,7 +82,7 @@ export default {
       this.gigs = this.$store.getters.gigsByUser
     },
     editGig() {
-      this.$store.dispatch({type: 'addGig'})
+      this.$store.dispatch({ type: 'addGig' })
       this.$router.push({ name: "GigEdit", query: { ...this.loggedinUser } });
     },
     getSvg(iconName) {
