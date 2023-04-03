@@ -119,7 +119,7 @@
             </div>
             <span class="space">|</span>
             <div class="start-container flex align-center">
-              <span class="stars" v-for="n in 5">
+              <span class="stars" v-for="n in 5" :key="n">
                 <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
               </span>
               <span class="rating">5</span>
@@ -139,7 +139,7 @@
           <UserPreview :gig="gig" :type="'userLong'" class="seller-long" />
         </section>
 
-        <section class="reviews" v-for="review in gig.reviews" id="reviews">
+        <section class="reviews" v-for="review in gig.reviews" :key="review._id" id="reviews">
           <div class="img-small flex align-center justify-center">{{ review.name[0] }}</div>
           <div class="user-review flex">
             <div class="main flex">

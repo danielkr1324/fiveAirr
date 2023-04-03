@@ -1,12 +1,35 @@
 .orders-main {
     margin: auto;
     margin-top: 4.5rem;
-}
 
-.price {
-    text-align: left;
-}
+    @media screen and (max-width: 650px) {
+        margin-top: 20px;
 
-.main-table {
-    min-height: 450px;
+        .seller-orders {
+
+            .main-table {
+                min-height: 550px;
+
+                .table-head {
+                    margin-block: 10px;
+                    width: 200%;
+                }
+
+                .table-entity {
+                    width: 200%;
+                    padding-inline: 0;
+
+                    .buyer-col {
+                        max-width: 30px;
+
+                    }
+
+                    .gig-col {
+                        padding-inline: 0;
+                    }
+
+                }
+            }
+        }
+    }
 }

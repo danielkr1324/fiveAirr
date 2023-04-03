@@ -1,53 +1,65 @@
 .dashboard {
   margin: 80px 40px 50px 40px;
-@media screen and (max-width: 1000px) {
-   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-    @media screen and (max-width: 550px) {
-      margin: 20px 10px 50px;
-    }
-    @media screen and (max-width: 480px) {
-      align-items: flex-start;
-    }
+
+  @media screen and (max-width: 550px) {
+    margin: 20px 10px 50px;
+  }
+
+  @media screen and (max-width: 480px) {
+    align-items: flex-start;
+  }
+
   .profile-progress {
     border-radius: 5px;
     background-color: $CLR0;
     border: 1px solid $clr9;
     margin: 0 40px 60px 0;
-    padding:  20px;
+    padding: 20px;
     width: 400px;
     max-height: 400px;
+
     @media screen and (max-width: 1000px) {
-        margin: 0 0px 20px 0;
-        
-      }
+      margin: 0 0px 20px 0;
+
+    }
+
     @media screen and (max-width: 480px) {
       max-height: 480px;
       width: 300px;
     }
+
     .profile {
-        margin-top: 0;
-        margin-bottom: 3em;
-        padding: 0;
-        background: none;
+      margin-top: 0;
+      margin-bottom: 3em;
+      padding: 0;
+      background: none;
+
       .profile-item {
         padding: 8px;
 
-        & > p:first-child {
+        &>p:first-child {
           color: $clr5;
         }
       }
+
       justify-content: space-between;
+
       @media screen and (max-width: 480px) {
         flex-direction: column;
         align-items: center;
       }
+
       .light {
         margin-bottom: 7px;
       }
     }
+
     .img-container {
       width: 120px;
       height: 120px;
@@ -58,57 +70,68 @@
         border-radius: 50%;
       }
     }
+
     .user-desc {
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
       height: 120px;
       margin-inline-start: 20px;
+
       @media screen and (max-width: 480px) {
-          margin-inline-start: 0px;
-        }
+        margin-inline-start: 0px;
+      }
     }
+
     .progress {
       .el-progress__text {
         display: none;
       }
-            
+
     }
+
     .progress-item {
       margin: 30px 0;
+
       .progress-txt {
         margin-bottom: 10px;
         justify-content: space-between;
 
-        & > p:nth-child(2) {
+        &>p:nth-child(2) {
           color: $CLR00;
         }
       }
     }
+
     .bold {
       color: $CLR00;
     }
+
     .light {
       color: $clr4;
     }
   }
 
   .seller-orders {
+
     h1,
     h2 {
       color: $CLR00;
     }
+
     .headline {
       align-self: center;
     }
 
     flex-direction: column;
     align-items: center;
-    > *:not(h1, h2) {
+
+    >*:not(h1, h2) {
       border-radius: 5px;
       background-color: $CLR0;
       border: 1px solid $clr9;
     }
+
     .income-order-dashboard {
       justify-content: space-evenly;
       align-items: center;
@@ -116,11 +139,13 @@
       width: 100%;
       margin: 0 0 40px 0;
       padding: 30px 0;
-      > *:not(:last-child) {
+
+      >*:not(:last-child) {
         border-right: 2px solid var(--yro523);
       }
+
       @media screen and (max-width: 650px) {
-         display: none;     
+        display: none;
       }
 
       .dashboard-item {
@@ -139,6 +164,7 @@
           font-size: rem(16px);
           color: $clr5;
         }
+
         h3 {
           font-family: Macan-Regular;
           font-size: 28px;
@@ -147,85 +173,97 @@
         }
       }
     }
+
     .order-table {
       width: 100%;
       margin-top: 40px;
+
       @media screen and (max-width: 650px) {
-          overflow-x: scroll;
-          overflow-y: auto;
-          max-width: 350px;
-          max-height: 180px;
-      
-        }
-      
-        @media screen and (max-width: 420px) {
-          max-width: 300px;
-        }
-        
-      .table-head{
-          
+        overflow-x: scroll;
+        overflow-y: auto;
+        max-width: 350px;
+        max-height: 180px;
+
+      }
+
+      @media screen and (max-width: 420px) {
+        max-width: 300px;
+      }
+
+      .table-head {
+
         @media screen and (max-width: 650px) {
-          box-shadow:0px 1px 20px 0px;
-          >*{
+          box-shadow: 0px 1px 20px 0px;
+
+          >* {
             background-color: #f1f1f1;
             line-height: 600%;
-            
+
 
           }
-            background-color: #f1f1f1;
-            position: sticky;
-              top: 0;
-              left:auto;
-              z-index: 10;
-        
-          }
+
+          background-color: #f1f1f1;
+          position: sticky;
+          top: 0;
+          left:auto;
+          z-index: 10;
+
+        }
       }
+
       .table-entity {
         padding-inline-start: 10px;
       }
+
       .table-head,
-      
+
       .table-entity {
-        
+
         align-items: center;
         justify-content: center;
+
         @media screen and (max-width: 650px) {
           width: 300%;
         }
+
         .table-span {
-            
+
           color: $clr5;
         }
+
         p {
           font-weight: 900;
           color: $CLR00;
         }
+
         h4 {
-        padding-inline-start: 10px;
+          padding-inline-start: 10px;
 
           font-weight: 900;
           font-size: 1rem;
           color: rgb(61, 61, 61);
         }
+
         height: 80px;
         border-bottom: 1px solid $clr9;
         align-items: center;
 
-        & > * {
+        &>* {
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           display: -webkit-box;
           overflow: hidden;
           text-overflow: ellipsis;
-        //   padding-inline-start: 10px;
+          padding-inline-start: 10px;
         }
       }
-        
+
       img {
         max-width: 35px;
         max-height: 35px;
         border-radius: 50%;
       }
+
       .buyer-col {
         width: 20%;
         min-width: 80px;
@@ -236,66 +274,75 @@
         }
       }
     }
-        /* width */
-        ::-webkit-scrollbar {
-          width: 10px;
-          height: 10px;
-        }
-    
-        /* Track */
-        ::-webkit-scrollbar-track {
-          background: #f1f1f1;
-          border-radius: 5px;
-        }
-    
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-          background: #888;
-          border-radius: 5px;
-        }
-    
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-          background: $clr1;
-        }
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 5px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 5px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: $clr1;
+    }
+
     .gig-col {
       max-width: 50%;
       flex: 1;
       min-width: 100px;
     }
+
     .due-on-col {
       width: 15%;
       min-width: 100px;
-      
+
     }
+
     .total-col {
       width: 10%;
       min-width: 80px;
     }
+
     .status-col {
-      
+
       text-align: center;
       width: 15%;
       padding-inline-end: 10px;
       position: relative;
       min-width: 110px;
+
       button {
         border: 0;
         color: $CLR0;
       }
     }
+
     .user-col {
       flex-direction: row;
       align-items: center;
 
-      > * {
+      >* {
         margin: 0;
       }
     }
+
     .username {
       font-size: 12px;
       max-width: 20px;
     }
+
     .status {
       display: flex;
       justify-content: center;
@@ -307,6 +354,7 @@
       cursor: pointer;
       font-size: 12px;
     }
+
     .set-status {
       display: flex;
       z-index: 5;
@@ -321,17 +369,21 @@
       position: absolute;
 
       transform: translate(-107%, 15%);
+
       @media screen and (max-width: 650px) {
         transform: translate(-438%, -17%);
-        position:absolute;
+        position: absolute;
       }
+
       @media screen and (max-width: 420px) {
         transform: translate(-390%, -17%);
-        position:absolute;
+        position: absolute;
       }
-      & > * {
+
+      &>* {
         border-bottom: 2px solid transparent;
       }
+
       button {
         font-size: rem(16px);
         font-weight: 500;
@@ -340,6 +392,7 @@
       }
     }
   }
+
   .pending {
     background-color: $CLR00;
   }
