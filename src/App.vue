@@ -27,7 +27,7 @@ export default {
     if (user) socketService.emit('set-user-socket', user)
     
     socketService.on('user-is-watching', (msg) => {
-      this.$notify({text:"User is watching", duration:6000});
+      // this.$notify({text:"User is watching", duration:6000});
     })
     socketService.on('user-ordered-gig', (msg) => {
       this.$notify({ text:"User ordered gig", duration:6000});
@@ -39,7 +39,7 @@ export default {
     })
     socketService.on('order-status-update', (msg) => {
       this.$notify({text:"Order status update", duration:6000});
-      this.isActiveOrders = trues
+      this.isActiveOrders = true
     })
 
   },
