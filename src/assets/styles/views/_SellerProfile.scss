@@ -23,7 +23,7 @@
         .user-profile {
             background-color: #fff;
             width: 100%;
-            height: 363px;
+            height: fit-content;
             border: 1px solid #dadbdd;
             padding: 30px;
             margin-bottom: 20px;
@@ -52,16 +52,46 @@
                 div {
                     font-family: Macan-Regular;
                 }
+
+            }
+        }
+
+        .links-container {
+            margin-top: 1.5rem;
+
+            .profile-link {
+                padding: 0.5rem 1rem;
+
+                text-decoration: none;
+                color: $clr3;
+                font-family: Macan-semi-bold;
+                border: 1px solid #b7b7b7;
+                border-radius: 5px;
+
+            }
+
+            :hover {
+                background-color: #eeeeee;
+                transition: 300ms;
+            }
+
+            @media screen and (max-width: 500px) {
+                flex-direction: column;
+                text-align: center;
+
+                .profile-link {
+                    margin-top: 0.5rem;
+                }
             }
         }
 
         .user-description {
             background-color: #fff;
             width: 100%;
-            height: 450px;
             border: 1px solid #dadbdd;
             height: fit-content;
             padding: 30px;
+            margin-bottom: 2rem;
 
             h3 {
                 margin-bottom: 1.25rem;
