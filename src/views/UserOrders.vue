@@ -2,7 +2,7 @@
     <main class="orders-main dashboard flex">
         <section class="seller-orders flex">
             <h2 class="headline">My Orders</h2>
-            <div class="order-table main-table">
+            <div class="order-table">
                 <div class="table-head flex">
                     <div class="buyer-col">
                         <h4>Seller</h4>
