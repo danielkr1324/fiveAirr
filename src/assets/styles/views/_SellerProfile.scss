@@ -23,7 +23,7 @@
         .user-profile {
             background-color: #fff;
             width: 100%;
-            height: 363px;
+            height: fit-content;
             border: 1px solid #dadbdd;
             padding: 30px;
             margin-bottom: 20px;
@@ -58,10 +58,10 @@
         .user-description {
             background-color: #fff;
             width: 100%;
-            height: 450px;
             border: 1px solid #dadbdd;
             height: fit-content;
             padding: 30px;
+            margin-bottom: 2rem;
 
             h3 {
                 margin-bottom: 1.25rem;
