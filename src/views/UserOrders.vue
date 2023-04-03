@@ -21,10 +21,10 @@
                     </div>
                     <div></div>
                 </div>
-                <div v-for="order in orders" class="table-entity flex">
+                <div v-for="order in orders" :key="order._id" class="table-entity flex">
                     <div class="buyer-col flex column align-center user-col">
                         <img :src="order.seller.imgUrl" />
-                        <p class="regular">{{ order.seller.fullname }}</p>
+                        <p class="regular name">{{ order.seller.fullname }}</p>
                     </div>
                     <div class="gig-col flex column">
                         <span class="table-span regular">{{ order.gig.name }}</span>

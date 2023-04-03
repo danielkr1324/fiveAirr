@@ -12,7 +12,7 @@
                     <p class="seller-level"> Level {{ gig.owner.rate }} Seller &nbsp;</p>
                 </div>
                 <div class="stars-container flex align-center">
-                    <div class="stars flex align-center" v-for="star in gig.owner.rate">
+                    <div class="stars flex align-center" v-for="star in gig.owner.rate" :key="star">
                         <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
                     </div>
                     <span style="color: #ffb33e">&nbsp;{{ gig.owner.rate }}</span>
@@ -34,7 +34,7 @@
                     </div>
                     <p>Level {{ gig.owner.rate }} Seller</p>
                     <div class="rating flex align-center">
-                        <div class="star flex align-center" v-for="star in gig.owner.rate">
+                        <div class="star flex align-center" v-for="star in gig.owner.rate" :key="star">
                             <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
                         </div>
                         <span style="color: #ffb33e">&nbsp;{{ gig.owner.rate }}</span>
