@@ -2,6 +2,13 @@
     margin: auto;
     margin-top: 4.5rem;
 
+
+    .total-col{
+        display: block;
+    }
+    .due-on-col{
+        display: block;
+    }
     @media screen and (max-width: 650px) {
         margin-top: 20px;
 
@@ -10,13 +17,22 @@
             .main-table {
                 min-height: 550px;
 
+
                 .table-head {
                     margin-block: 10px;
-                    width: 200%;
+                    // width: 200%;
+                    width: fit-content;
+
+                    .gig-col {
+                        @media screen and (max-width: 400px) {
+                            max-width: 50px;
+                        }
+                    }
                 }
 
                 .table-entity {
-                    width: 200%;
+                    // width: 200%;
+                    width: fit-content;
                     padding-inline: 0;
 
                     .buyer-col {
@@ -30,8 +46,22 @@
 
                     .gig-col {
                         padding-inline: 0;
+                        text-overflow: ellipsis;
+
+                        @media screen and (max-width: 400px) {
+                            max-width: 2rem;
+                        }
                     }
 
+                }
+
+                @media screen and (max-width: 400px) {
+                    .total-col{
+                        display: none;
+                    }
+                    .due-on-col{
+                        display: none;
+                    }
                 }
             }
         }

@@ -140,7 +140,8 @@
         </section>
 
         <section class="reviews" v-for="review in gig.reviews" :key="review._id" id="reviews">
-          <div class="img-small flex align-center justify-center">{{ review.name[0] }}</div>
+          <div v-if="review.img" class="img-small flex align-center justify-center"><img :src="review.img" /></div>
+          <div v-else class="img-small flex align-center justify-center">{{ review.name[0] }}</div>
           <div class="user-review flex">
             <div class="main flex">
               <p class="name">{{ review.name }}</p>
