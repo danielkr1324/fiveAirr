@@ -1,6 +1,6 @@
 <template>
     <main class="orders-main dashboard flex">
-        <section class="seller-orders aaa flex">
+        <section class="seller-orders flex">
             <h2 class="headline">My Orders</h2>
             <div class="order-table main-table">
                 <div class="table-head flex">
@@ -21,10 +21,10 @@
                     </div>
                     <div></div>
                 </div>
-                <div v-for="order in orders" class="table-entity flex">
+                <div v-for="order in orders" :key="order._id" class="table-entity flex">
                     <div class="buyer-col flex column align-center user-col">
                         <img :src="order.seller.imgUrl" />
-                        <p class="regular">{{ order.seller.fullname }}</p>
+                        <p class="regular name">{{ order.seller.fullname }}</p>
                     </div>
                     <div class="gig-col flex column">
                         <span class="table-span regular">{{ order.gig.name }}</span>

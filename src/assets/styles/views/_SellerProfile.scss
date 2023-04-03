@@ -52,6 +52,36 @@
                 div {
                     font-family: Macan-Regular;
                 }
+
+            }
+        }
+
+        .links-container {
+            margin-top: 1.5rem;
+
+            .profile-link {
+                padding: 0.5rem 1rem;
+
+                text-decoration: none;
+                color: $clr3;
+                font-family: Macan-semi-bold;
+                border: 1px solid #b7b7b7;
+                border-radius: 5px;
+
+            }
+
+            :hover {
+                background-color: #eeeeee;
+                transition: 300ms;
+            }
+
+            @media screen and (max-width: 500px) {
+                flex-direction: column;
+                text-align: center;
+
+                .profile-link {
+                    margin-top: 0.5rem;
+                }
             }
         }
 

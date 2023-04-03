@@ -21,17 +21,16 @@
               </div>
               <span>{{ user.joinedAt }}</span>
             </li>
-            <li class="flex space-between">
-              <RouterLink to="/orders">
-                Your Orders
-              </RouterLink>
-            </li>
-            <li class="flex space-between">
-              <RouterLink to="/seller/dashboard">
-                Seller Dashboard
-              </RouterLink>
-            </li>
+
           </ul>
+          <div class="links-container flex space-between">
+            <RouterLink to="/orders" class="profile-link">
+              Your Orders
+            </RouterLink>
+            <RouterLink to="/seller/dashboard" class="profile-link">
+              Seller Dashboard
+            </RouterLink>
+          </div>
         </div>
 
         <div class="user-description">

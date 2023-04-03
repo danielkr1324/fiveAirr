@@ -119,7 +119,7 @@
             </div>
             <span class="space">|</span>
             <div class="start-container flex align-center">
-              <span class="stars" v-for="n in 5">
+              <span class="stars" v-for="n in 5" :key="n">
                 <i class="fa-solid fa-star" style="color: #ffb33e;"></i>
               </span>
               <span class="rating">5</span>
@@ -139,7 +139,7 @@
           <UserPreview :gig="gig" :type="'userLong'" class="seller-long" />
         </section>
 
-        <section class="reviews" v-for="review in gig.reviews" id="reviews">
+        <section class="reviews" v-for="review in gig.reviews" :key="review._id" id="reviews">
           <div class="img-small flex align-center justify-center">{{ review.name[0] }}</div>
           <div class="user-review flex">
             <div class="main flex">
@@ -213,20 +213,20 @@ export default {
     addOrder() {
       const order =
       {
-        "buyer": this.user,
-        "seller": this.gig.owner,
-        "gig": {
-          "_id": this.gig._id,
-          "name": this.gig.title,
-          "price": this.gig.price,
-          "img": this.gig.images[0]
+        buyer: {...this.user},
+        seller: {...this.gig.owner},
+        gig: {
+          _id: this.gig._id,
+          name: this.gig.title,
+          price: this.gig.price,
+          img: this.gig.images[0]
         },
-        "status": "Pending",
+        status: "Pending",
       }
       this.$store.dispatch({ type: 'saveOrder', order })
       setTimeout(() => {
         this.$router.push('/')
-        this.$notify({ type: "success", text: "Purchase Was Successful!", height: "300px" });
+        this.$notify({ type: "success", text:"Purchase Was Successful!"});
       }, 500)
       socketService.emit('gig-ordered', this.gig)
     },
