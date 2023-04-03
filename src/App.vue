@@ -4,7 +4,7 @@
     <RouterView class="main-content" />
     <UserMsg />
     <AppFooter />
-    <notifications position="bottom right"/>
+    <notifications />
   </section>
 </template>
 
@@ -27,18 +27,18 @@ export default {
     if (user) socketService.emit('set-user-socket', user)
     
     socketService.on('user-is-watching', (msg) => {
-      this.$notify({text:`${msg}`, duration:7000});
+      this.$notify({text:"User is watching"});
     })
     socketService.on('user-ordered-gig', (msg) => {
-      this.$notify({text:`${msg}`, duration:7000});
+      this.$notify({ text:"User ordered gig"});
       this.isActiveDashboard = true
     })
     socketService.on('order-approved', (msg) => {
-      this.$notify({text:`${msg}`, duration:7000});
+      this.$notify({text:"Order approved", duration:7000});
       this.isActiveOrders = true
     })
     socketService.on('order-status-update', (msg) => {
-      this.$notify({text:`${msg}`, duration:7000});
+      this.$notify({text:"Order status update"});
       this.isActiveOrders = trues
     })
 

@@ -226,7 +226,6 @@ export default {
       this.$store.dispatch({ type: 'saveOrder', order })
       setTimeout(() => {
         this.$router.push('/')
-        this.$notify({ type: "success", text:"Purchase Was Successful!"});
       }, 500)
       socketService.emit('gig-ordered', this.gig)
     },
