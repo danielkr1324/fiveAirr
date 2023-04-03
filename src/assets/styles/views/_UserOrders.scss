@@ -20,8 +20,12 @@
                     padding-inline: 0;
 
                     .buyer-col {
-                        max-width: 30px;
+                        padding-left: 20px;
+                        max-width: 50px;
 
+                        .name {
+                            display: none;
+                        }
                     }
 
                     .gig-col {
