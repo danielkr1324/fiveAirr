@@ -213,15 +213,15 @@ export default {
     addOrder() {
       const order =
       {
-        "buyer": this.user,
-        "seller": this.gig.owner,
-        "gig": {
-          "_id": this.gig._id,
-          "name": this.gig.title,
-          "price": this.gig.price,
-          "img": this.gig.images[0]
+        buyer: {...this.user},
+        seller: {...this.gig.owner},
+        gig: {
+          _id: this.gig._id,
+          name: this.gig.title,
+          price: this.gig.price,
+          img: this.gig.images[0]
         },
-        "status": "Pending",
+        status: "Pending",
       }
       this.$store.dispatch({ type: 'saveOrder', order })
       setTimeout(() => {

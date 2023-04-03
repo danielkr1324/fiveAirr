@@ -123,7 +123,7 @@ export default {
             this.selectOrder(order)
             this.selectedOrder.status = status
             this.$store.dispatch({ type: 'saveOrder', order: this.selectedOrder })
-            socketService.emit('order-changed-status', this.selectedOrder.buyer)
+            socketService.emit('order-change-status', this.selectedOrder.buyer)
         },
     },
     computed: {
