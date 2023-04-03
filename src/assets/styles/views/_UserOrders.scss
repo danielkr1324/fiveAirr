@@ -1,39 +1,39 @@
 .orders-main {
     margin: auto;
     margin-top: 4.5rem;
-}
 
-.price {
-    text-align: left;
-}
+    @media screen and (max-width: 650px) {
+        margin-top: 20px;
 
-.seller-orders {
+        .seller-orders {
 
-    .main-table {
-        min-height: 550px;
+            .main-table {
+                min-height: 550px;
 
-        .table-head {
-            margin-block: 10px;
-            width: 200%;
-        }
+                .table-head {
+                    margin-block: 10px;
+                    width: 200%;
+                }
 
-        .table-entity {
-            width: 200%;
-            padding-inline: 0;
+                .table-entity {
+                    width: 200%;
+                    padding-inline: 0;
 
-            .buyer-col {
-                padding-left: 20px;
-                max-width: 50px;
+                    .buyer-col {
+                        padding-left: 20px;
+                        max-width: 50px;
 
-                .name {
-                    display: none;
+                        .name {
+                            display: none;
+                        }
+                    }
+
+                    .gig-col {
+                        padding-inline: 0;
+                    }
+
                 }
             }
-
-            .gig-col {
-                padding-inline: 0;
-            }
-
         }
     }
 }
