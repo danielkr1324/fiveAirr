@@ -86,12 +86,6 @@
                   <span>Do's and don'ts</span>
                 </i>
               </li>
-              <li>
-                <i class="fa-solid fa-check">
-                  &nbsp;&nbsp;
-                  <span>Brand book design</span>
-                </i>
-              </li>
             </ul>
 
             <button class="order-btn" @click="onSetOrder()">
@@ -214,8 +208,8 @@ export default {
     addOrder() {
       const order =
       {
-        buyer: {...this.user},
-        seller: {...this.gig.owner},
+        buyer: { ...this.user },
+        seller: { ...this.gig.owner },
         gig: {
           _id: this.gig._id,
           name: this.gig.title,
