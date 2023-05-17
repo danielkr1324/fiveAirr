@@ -86,12 +86,6 @@
                   <span>Do's and don'ts</span>
                 </i>
               </li>
-              <li>
-                <i class="fa-solid fa-check">
-                  &nbsp;&nbsp;
-                  <span>Brand book design</span>
-                </i>
-              </li>
             </ul>
 
             <button class="order-btn" @click="onSetOrder()">
@@ -140,7 +134,8 @@
         </section>
 
         <section class="reviews" v-for="review in gig.reviews" :key="review._id" id="reviews">
-          <div class="img-small flex align-center justify-center">{{ review.name[0] }}</div>
+          <div v-if="review.img" class="img-small flex align-center justify-center"><img :src="review.img" /></div>
+          <div v-else class="img-small flex align-center justify-center">{{ review.name[0] }}</div>
           <div class="user-review flex">
             <div class="main flex">
               <p class="name">{{ review.name }}</p>
@@ -211,8 +206,8 @@ export default {
     addOrder() {
       const order =
       {
-        buyer: {...this.user},
-        seller: {...this.gig.owner},
+        buyer: { ...this.user },
+        seller: { ...this.gig.owner },
         gig: {
           _id: this.gig._id,
           name: this.gig.title,
