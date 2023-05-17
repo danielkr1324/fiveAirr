@@ -81,7 +81,6 @@ export default {
       this.gigs = this.$store.getters.gigsByUser
     },
     editGig() {
-      this.$store.dispatch({ type: 'addGig' })
       this.$router.push({ name: "GigEdit", query: { ...this.loggedinUser } });
     },
     getSvg(iconName) {

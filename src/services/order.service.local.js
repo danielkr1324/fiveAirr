@@ -4,8 +4,6 @@ import { httpService } from './http.service.js'
 import { userService } from './user.service'
 // import { userService } from './user.service.local.js'
 
-import { utilService } from './util.service.js'
-
 import { store } from '../store/store.js'
 import { socketService } from './socket.service.js'
 import { orderStore } from '../store/order.store.js'
@@ -63,8 +61,8 @@ async function save(order) {
   if (order._id) {
     // savedOrder = await storageService.put(ORDER_STORAGE_KEY, order)
     savedOrder = await httpService.put(ORDER_URL + order._id, order)
+    console.log(savedOrder)
   } else {
-    // Later, owner is set by the backend
     order.buyer = await userService.getLoggedinUser()
     // savedOrder = await storageService.post(ORDER_STORAGE_KEY, order)
     savedOrder = await httpService.post(ORDER_URL, order)

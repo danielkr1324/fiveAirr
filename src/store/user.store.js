@@ -1,5 +1,4 @@
 import { userService } from '../services/user.service'
-// import { userService } from "../services/user.service.local";
 import {
   socketService,
   SOCKET_EMIT_USER_WATCH,
@@ -32,7 +31,6 @@ export const userStore = {
   },
   mutations: {
     setLoggedinUser(state, { user }) {
-      // Yaron: needed this workaround as for score not reactive from birth
       state.loggedinUser = user ? { ...user } : null
     },
     setWatchedUser(state, { user }) {
@@ -63,7 +61,6 @@ export const userStore = {
       }
     },
     async signup({ commit }, { userCred }) {
-      // console.log('userCred:', userCred)
       try {
         const user = await userService.signup(userCred)
         commit({ type: 'setLoggedinUser', user })
@@ -83,11 +80,8 @@ export const userStore = {
       }
     },
     async loadUsers({ commit }) {
-      // TODO: loading
       try {
         const users = await userService.getUsers()
-        // console.log(users)
-
         commit({ type: 'setUsers', users })
       } catch (err) {
         console.log('userStore: Error in loadUsers', err)
@@ -95,8 +89,6 @@ export const userStore = {
       }
     },
     async loadUser({ commit }, { userId }) {
-      // console.log(userId)
-
       try {
         const user = await userService.getById(userId)
         commit({ type: 'setUser', user })
@@ -141,7 +133,6 @@ export const userStore = {
         throw err
       }
     },
-    // Keep this action for compatability with a common user.service ReactJS/VueJS
     setWatchedUser({ commit }, payload) {
       commit(payload)
     },

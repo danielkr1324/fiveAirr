@@ -5,7 +5,7 @@
   >
     <!-- MOBILE MENU -->
     <!-- v-clickOutside="openMenu" -->
-    <section v-if="isMenuOpen" @click="openMenu" class="side-menu flex">
+    <section v-if="isMenuOpen" v-click-outside="openMenu" class="side-menu flex">
       <a v-if="!loggedInUser" class="login-link" @click="onSetAuthType('login')">Sign in</a>
       <a v-if="!loggedInUser" class="join" @click="onSetAuthType('signup')">Join</a>
       <div v-if="loggedInUser" class="user-info flex">
@@ -87,6 +87,7 @@ import { svgService } from "@/services/svg.service.js";
 import { stringifyQuery } from "vue-router";
 import GigFilter from "../cmps/GigFilter.vue";
 import LoginSignup from "./LoginSignup.vue";
+import vClickOutside from 'click-outside-vue3'
 
 export default {
   props: {
@@ -117,15 +118,11 @@ export default {
       ]
     };
   },
-  // created() {
-  //   this.$store.dispatch({ type: 'loadGigs', filterBy: this.$route.query })
-  // },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
   },
   unmounted() {
     this.filterBy = {};
-    // this.filter({});
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -150,6 +147,7 @@ export default {
     resetFilter() {
       this.filterBy.category = "";
       this.filter(this.filterBy);
+      this.isMenuOpen = false
     },
     txtFilter(title) {
       this.filterBy.title = title;
@@ -171,6 +169,7 @@ export default {
     onSetAuthType(type) {
       this.type = type;
       this.showLoginModal = !this.showLoginModal;
+      this.isMenuOpen = false
     },
     closeModal(ans) {
       this.showLoginModal = ans;
@@ -178,6 +177,7 @@ export default {
     doLogout() {
       this.$store.dispatch({ type: "logout" });
       this.$router.push("/");
+      this.isMenuOpen = false
     },
     openMenu() {
       this.isMenuOpen = !this.isMenuOpen;
@@ -197,6 +197,9 @@ export default {
   components: {
     GigFilter,
     LoginSignup
-  }
+  },
+  directives: {
+      clickOutside: vClickOutside.directive
+    },
 };
 </script>

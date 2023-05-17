@@ -42,6 +42,8 @@ async function remove(gigId) {
   return httpService.delete(`gig/${gigId}`)
 }
 async function save(gig) {
+  console.log(gig)
+
   var savedGig
   if (gig._id) {
     // savedGig = await storageService.put(STORAGE_KEY, gig)

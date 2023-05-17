@@ -1,4 +1,3 @@
-// import { gigService } from '../services/gig.service.local'
 import { gigService } from '../services/gig.service.js'
 
 export function getActionRemoveGig(gigId) {
@@ -19,13 +18,6 @@ export function getActionUpdateGig(gig) {
     gig,
   }
 }
-// export function getActionAddGigMsg(gigId) {
-//     return {
-//         type: 'addGigMsg',
-//         gigId,
-//         txt: 'Stam txt'
-//     }
-// }
 
 export const gigStore = {
   state: {
@@ -54,7 +46,6 @@ export const gigStore = {
       return filteredGigs
     },
     gigs({ gigs, filterBy }) {
-      // return gigs
       if (!gigs) return null
 
       var filteredGigs = gigs
@@ -89,7 +80,6 @@ export const gigStore = {
       if (filterBy.sortBy === 'level') {
         filteredGigs.sort((gig1, gig2) => gig2.owner.level - gig1.owner.level)
       }
-
       return filteredGigs
     },
   },
@@ -111,21 +101,14 @@ export const gigStore = {
       state.gigs = state.gigs.filter(gig => gig._id !== gigId)
     },
     setCategoryFilterBy(state, { filterBy }) {
-      // console.log('filterBy', filterBy)
       state.filterBy.categories = filterBy
     },
-    // addGigMsg(state, { gigId , msg}) {
-    //     const gig = state.gigs.find(gig => gig._id === gigId)
-    //     if (!gig.msgs) gig.msgs = []
-    //     gig.msgs.push(msg)
-    // },
   },
   actions: {
     async setCategoryFilter({ commit }, { filterBy }) {
       try {
         commit({ type: 'setCategoryFilterBy', filterBy })
         const gigs = await gigService.query(filterBy)
-        // commit({ type: 'setToys', gigs })
       } catch (err) {
         console.error('Cannot set filter', err)
         throw err
@@ -134,7 +117,6 @@ export const gigStore = {
     async addGig(context, { gig }) {
       try {
         gig = await gigService.save(gig)
-        // console.log(gig, 'from store')
         context.commit(getActionAddGig(gig))
         return gig
       } catch (err) {
@@ -170,14 +152,5 @@ export const gigStore = {
         throw err
       }
     },
-    // async addGigMsg(context, { gigId, txt }) {
-    //     try {
-    //         const msg = await gigService.addGigMsg(gigId, txt)
-    //         context.commit({type: 'addGigMsg', gigId, msg })
-    //     } catch (err) {
-    //         console.log('gigStore: Error in addGigMsg', err)
-    //         throw err
-    //     }
-    // },
   },
 }
